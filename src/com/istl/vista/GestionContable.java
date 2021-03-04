@@ -1,0 +1,1616 @@
+package com.istl.vista;
+
+import com.istl.controlador.Inventariodb;
+import com.istl.controlador.Personabd;
+import com.istl.controlador.Proveedorbd;
+import com.istl.modelJTable.ModelTablePersona;
+import com.istl.modelo.Persona;
+import com.istl.modelo.Proveedor;
+import com.istl.utilidad.Utilidad;
+import java.awt.HeadlessException;
+import java.sql.SQLException;
+import java.util.List;
+import javax.swing.JOptionPane;
+import com.istl.modelJTable.ComunicacionVistadeTablas;
+import com.istl.modelJTable.ModelTableInventario;
+import com.istl.modelJTable.ModelTableProveedor;
+import com.istl.modelo.Inventario;
+import com.istl.utilidad.UtilidadInventario;
+
+public class GestionContable extends javax.swing.JFrame implements ComunicacionVistadeTablas {
+
+    private Utilidad utilidad;
+    private Personabd controladorPersona;
+    private Proveedorbd controladorProveedor;
+    private Inventariodb controladorInvenario;
+    private Persona personaEditar;
+    private GestionPersona gestion;
+    private GestionProveedor gestionpro;
+    private GestionInventario gestioninven;
+    private ModelTablePersona modelTablePersona;
+    private ModelTableInventario modelTableInventario;
+    private ModelTableProveedor modelTableProveedor;
+    private Proveedor proveedoreditar;
+    private Inventario inventarioeditar;
+    private UtilidadInventario util;
+
+    public GestionContable() {
+        controladorPersona = new Personabd();
+        controladorProveedor = new Proveedorbd();
+        controladorInvenario = new Inventariodb();
+        modelTablePersona = new ModelTablePersona(controladorPersona.obtenerPersonas(), this);
+        modelTableProveedor = new ModelTableProveedor(controladorProveedor.obtenerProveedor(), this);
+        modelTableInventario = new ModelTableInventario(controladorInvenario.obtenerInventario(), this);
+        initComponents();
+        this.setLocationRelativeTo(null);
+        utilidad = new Utilidad();
+        util = new UtilidadInventario();
+        gestion = new GestionPersona(txtcedula, txtnombre, txtapellido, txtdireccion, txttelefono, txtcorreo, utilidad, this);
+        gestionpro = new GestionProveedor(txtrucpro, txtrazonpro, txtactividadpro, txtnombrepro, txtapellidopro, txttelefonopro, txtcorreopro, this);
+        gestioninven = new GestionInventario(txtcodigoin, txtdescripcionin, txtprecioin, txtventain, txtcantidadin, util, this);
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jButton1 = new javax.swing.JButton();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        panelclientes = new javax.swing.JPanel();
+        bnlimpiar = new javax.swing.JButton();
+        bnguardar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jlcedula = new javax.swing.JLabel();
+        ljdireccion = new javax.swing.JLabel();
+        jlapellido = new javax.swing.JLabel();
+        jlnombre = new javax.swing.JLabel();
+        ljcorreo = new javax.swing.JLabel();
+        jlcorreo = new javax.swing.JLabel();
+        txtcedula = new javax.swing.JTextField();
+        txtnombre = new javax.swing.JTextField();
+        txtapellido = new javax.swing.JTextField();
+        txtdireccion = new javax.swing.JTextField();
+        txtcorreo = new javax.swing.JTextField();
+        txttelefono = new javax.swing.JTextField();
+        bnbuscar = new javax.swing.JButton();
+        bnbuscarnumero = new javax.swing.JButton();
+        bneliminar = new javax.swing.JButton();
+        bnregistro = new javax.swing.JButton();
+        bneditar = new javax.swing.JButton();
+        jlcorreo1 = new javax.swing.JLabel();
+        cmbbusqueda = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        txtbuscarparametro = new javax.swing.JTextField();
+        bnbuscarpersona = new javax.swing.JButton();
+        panelproveedores = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        bnlimpiarpro = new javax.swing.JButton();
+        bnregistropro = new javax.swing.JButton();
+        bneliminarpro = new javax.swing.JButton();
+        bneditarpro = new javax.swing.JButton();
+        bnguardarpro = new javax.swing.JButton();
+        jlcorreo3 = new javax.swing.JLabel();
+        cmbbusquedapro = new javax.swing.JComboBox<>();
+        txtbuscarparametropro = new javax.swing.JTextField();
+        bnbuscarproveedores = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jlcedula2 = new javax.swing.JLabel();
+        ljdireccion2 = new javax.swing.JLabel();
+        jlapellido2 = new javax.swing.JLabel();
+        jlnombre2 = new javax.swing.JLabel();
+        ljcorreo2 = new javax.swing.JLabel();
+        jlcorreo4 = new javax.swing.JLabel();
+        txtrucpro = new javax.swing.JTextField();
+        txtrazonpro = new javax.swing.JTextField();
+        txtactividadpro = new javax.swing.JTextField();
+        txtnombrepro = new javax.swing.JTextField();
+        txtapellidopro = new javax.swing.JTextField();
+        txttelefonopro = new javax.swing.JTextField();
+        jlcorreo5 = new javax.swing.JLabel();
+        txtcorreopro = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtproveedor = new javax.swing.JTable();
+        panelinventario = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jlcedula3 = new javax.swing.JLabel();
+        ljdireccion3 = new javax.swing.JLabel();
+        jlapellido3 = new javax.swing.JLabel();
+        jlnombre3 = new javax.swing.JLabel();
+        ljcorreo3 = new javax.swing.JLabel();
+        txtcodigoin = new javax.swing.JTextField();
+        txtdescripcionin = new javax.swing.JTextField();
+        txtprecioin = new javax.swing.JTextField();
+        txtventain = new javax.swing.JTextField();
+        txtcantidadin = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
+        bnlimpiarpro1 = new javax.swing.JButton();
+        bneliminarpro1 = new javax.swing.JButton();
+        bneditarpro1 = new javax.swing.JButton();
+        bnguardarinve = new javax.swing.JButton();
+        jlcorreo8 = new javax.swing.JLabel();
+        cmbbusquedainven = new javax.swing.JComboBox<>();
+        txtbuscarparametroinventario = new javax.swing.JTextField();
+        bnbuscarinventario = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jtproveedor1 = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        panelventas = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menuarchivo = new javax.swing.JMenu();
+        jmenusalir = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jmenuaccionbuscar = new javax.swing.JMenuItem();
+        jMenueditar = new javax.swing.JMenuItem();
+        jmenueliminar = new javax.swing.JMenuItem();
+        jmenuguardar = new javax.swing.JMenuItem();
+        menueditar = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+
+        jButton1.setText("jButton1");
+
+        jMenu1.setText("File");
+        jMenuBar2.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar2.add(jMenu2);
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema de ventas");
+        setResizable(false);
+
+        jTabbedPane2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+
+        panelclientes.setBackground(new java.awt.Color(204, 204, 204));
+
+        bnlimpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnlimpiar.setText("Limpiar");
+        bnlimpiar.setToolTipText("Limpiar campos");
+        bnlimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnlimpiarActionPerformed(evt);
+            }
+        });
+
+        bnguardar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/save-solid-24.png"))); // NOI18N
+        bnguardar.setText("Guardar");
+        bnguardar.setToolTipText("Guardar registro");
+        bnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnguardarActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setText("Registro de usuarios");
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setToolTipText("");
+
+        jlcedula.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlcedula.setText("Cédula");
+
+        ljdireccion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ljdireccion.setText("Dirección");
+
+        jlapellido.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlapellido.setText("Apellido");
+
+        jlnombre.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlnombre.setText("Nombre");
+
+        ljcorreo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ljcorreo.setText("Correo");
+
+        jlcorreo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlcorreo.setText("Teléfono");
+
+        txtcedula.setToolTipText("Ingrese una cedula correcta");
+
+        txtnombre.setToolTipText("Ingrese nombre");
+
+        txtapellido.setToolTipText("Ingrese apellido");
+
+        txtdireccion.setToolTipText("Ingrese una dirección");
+
+        txtcorreo.setToolTipText("Ingrese un correo valido");
+
+        txttelefono.setToolTipText("Ingrse un teléfono correcto");
+
+        bnbuscar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-alt-regular-24.png"))); // NOI18N
+        bnbuscar.setText("Buscar");
+        bnbuscar.setToolTipText("Buscar por cedula");
+        bnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnbuscarActionPerformed(evt);
+            }
+        });
+
+        bnbuscarnumero.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnbuscarnumero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-alt-regular-24.png"))); // NOI18N
+        bnbuscarnumero.setText("Buscar");
+        bnbuscarnumero.setToolTipText("Buscar por numero");
+        bnbuscarnumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnbuscarnumeroActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ljdireccion)
+                    .addComponent(jlapellido)
+                    .addComponent(jlnombre)
+                    .addComponent(ljcorreo)
+                    .addComponent(jlcorreo)
+                    .addComponent(jlcedula))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                                .addComponent(bnbuscarnumero))
+                            .addComponent(txtcorreo)
+                            .addComponent(txtdireccion, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtapellido, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtnombre, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                                .addComponent(bnbuscar)))))
+                .addGap(135, 135, 135))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jlcedula))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bnbuscar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlnombre)
+                    .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlapellido)
+                    .addComponent(txtapellido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ljdireccion)
+                    .addComponent(txtdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtcorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ljcorreo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bnbuscarnumero)
+                    .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlcorreo))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        bneliminar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash-alt-regular-24.png"))); // NOI18N
+        bneliminar.setText("Eliminar");
+        bneliminar.setToolTipText("Eliminar registro");
+        bneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bneliminarActionPerformed(evt);
+            }
+        });
+
+        bnregistro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnregistro.setText("Ver registro");
+        bnregistro.setToolTipText("Ver registros");
+        bnregistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnregistroActionPerformed(evt);
+            }
+        });
+
+        bneditar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/edit-alt-regular-24.png"))); // NOI18N
+        bneditar.setText("Editar");
+        bneditar.setToolTipText("Editar registro");
+        bneditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bneditarActionPerformed(evt);
+            }
+        });
+
+        jlcorreo1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlcorreo1.setText("Buscar cliente");
+
+        cmbbusqueda.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cmbbusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cédula", "Nombres", "Apellidos", "Telefono", "Correo" }));
+
+        jTable1.setBackground(new java.awt.Color(51, 255, 153));
+        jTable1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTable1.setModel(modelTablePersona);
+        jTable1.setToolTipText("Seleccione registro");
+        jScrollPane1.setViewportView(jTable1);
+
+        txtbuscarparametro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        bnbuscarpersona.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnbuscarpersona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-alt-regular-24.png"))); // NOI18N
+        bnbuscarpersona.setText("Buscar");
+        bnbuscarpersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnbuscarpersonaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelclientesLayout = new javax.swing.GroupLayout(panelclientes);
+        panelclientes.setLayout(panelclientesLayout);
+        panelclientesLayout.setHorizontalGroup(
+            panelclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelclientesLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(264, 264, 264))
+            .addGroup(panelclientesLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(panelclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelclientesLayout.createSequentialGroup()
+                        .addComponent(jlcorreo1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmbbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtbuscarparametro, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(bnbuscarpersona))
+                    .addGroup(panelclientesLayout.createSequentialGroup()
+                        .addComponent(bnguardar)
+                        .addGap(31, 31, 31)
+                        .addComponent(bneditar)
+                        .addGap(29, 29, 29)
+                        .addComponent(bneliminar)
+                        .addGap(18, 18, 18)
+                        .addComponent(bnregistro)
+                        .addGap(18, 18, 18)
+                        .addComponent(bnlimpiar)))
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+        panelclientesLayout.setVerticalGroup(
+            panelclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelclientesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(panelclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bneliminar)
+                    .addComponent(bneditar)
+                    .addComponent(bnguardar)
+                    .addComponent(bnregistro)
+                    .addComponent(bnlimpiar))
+                .addGap(21, 21, 21)
+                .addGroup(panelclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlcorreo1)
+                    .addComponent(cmbbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtbuscarparametro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bnbuscarpersona))
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
+        );
+
+        jTabbedPane2.addTab("Clientes", panelclientes);
+
+        panelproveedores.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel2.setText("Registro de proveedores");
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+
+        bnlimpiarpro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnlimpiarpro.setText("Limpiar");
+        bnlimpiarpro.setToolTipText("Limpiar campos");
+        bnlimpiarpro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnlimpiarproActionPerformed(evt);
+            }
+        });
+
+        bnregistropro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnregistropro.setText("Ver registro");
+        bnregistropro.setToolTipText("Ver registros");
+        bnregistropro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnregistroproActionPerformed(evt);
+            }
+        });
+
+        bneliminarpro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bneliminarpro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash-alt-regular-24.png"))); // NOI18N
+        bneliminarpro.setText("Eliminar");
+        bneliminarpro.setToolTipText("Eliminar registro");
+        bneliminarpro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bneliminarproActionPerformed(evt);
+            }
+        });
+
+        bneditarpro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bneditarpro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/edit-alt-regular-24.png"))); // NOI18N
+        bneditarpro.setText("Editar");
+        bneditarpro.setToolTipText("Editar registro");
+        bneditarpro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bneditarproActionPerformed(evt);
+            }
+        });
+
+        bnguardarpro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnguardarpro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/save-solid-24.png"))); // NOI18N
+        bnguardarpro.setText("Guardar");
+        bnguardarpro.setToolTipText("Guardar registro");
+        bnguardarpro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnguardarproActionPerformed(evt);
+            }
+        });
+
+        jlcorreo3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlcorreo3.setText("Buscar Proveedor");
+
+        cmbbusquedapro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cmbbusquedapro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ruc", "Razón social", "Tipo de actividad", "Nombre", "Apellido", "Telefono", "Correo" }));
+
+        txtbuscarparametropro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        bnbuscarproveedores.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnbuscarproveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-alt-regular-24.png"))); // NOI18N
+        bnbuscarproveedores.setText("Buscar");
+        bnbuscarproveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnbuscarproveedoresActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jlcorreo3)
+                .addGap(18, 18, 18)
+                .addComponent(cmbbusquedapro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtbuscarparametropro, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bnbuscarproveedores)
+                .addGap(30, 30, 30))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(29, 29, 29)
+                    .addComponent(bnguardarpro)
+                    .addGap(31, 31, 31)
+                    .addComponent(bneditarpro)
+                    .addGap(29, 29, 29)
+                    .addComponent(bneliminarpro)
+                    .addGap(18, 18, 18)
+                    .addComponent(bnregistropro)
+                    .addGap(18, 18, 18)
+                    .addComponent(bnlimpiarpro)
+                    .addContainerGap(29, Short.MAX_VALUE)))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(64, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlcorreo3)
+                    .addComponent(cmbbusquedapro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtbuscarparametropro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bnbuscarproveedores))
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(18, 18, 18)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(bneliminarpro)
+                        .addComponent(bneditarpro)
+                        .addComponent(bnguardarpro)
+                        .addComponent(bnregistropro)
+                        .addComponent(bnlimpiarpro))
+                    .addContainerGap(57, Short.MAX_VALUE)))
+        );
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel4.setToolTipText("");
+        jPanel4.setName("Registro"); // NOI18N
+
+        jlcedula2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlcedula2.setText("Ruc");
+
+        ljdireccion2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ljdireccion2.setText("Nombre de representate");
+
+        jlapellido2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlapellido2.setText("Tipo de actividad");
+
+        jlnombre2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlnombre2.setText("Razón social");
+
+        ljcorreo2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ljcorreo2.setText("Apellido de representante");
+
+        jlcorreo4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlcorreo4.setText("Teléfono");
+
+        txtrucpro.setToolTipText("Ingrese el ruc");
+
+        txtrazonpro.setToolTipText("Ingrese la rázon social");
+
+        txtactividadpro.setToolTipText("Ingrese el tipo de actividad");
+
+        txtnombrepro.setToolTipText("Ingrese el nombre del representante");
+
+        txtapellidopro.setToolTipText("Ingrese el apellido del representante");
+
+        txttelefonopro.setToolTipText("Ingrse el teléfono");
+
+        jlcorreo5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlcorreo5.setText("Correo");
+
+        txtcorreopro.setToolTipText("Ingrse el correo electrónico");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ljdireccion2)
+                    .addComponent(jlapellido2)
+                    .addComponent(jlnombre2)
+                    .addComponent(ljcorreo2)
+                    .addComponent(jlcorreo4)
+                    .addComponent(jlcedula2)
+                    .addComponent(jlcorreo5))
+                .addGap(80, 80, 80)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtrazonpro, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+                    .addComponent(txtapellidopro)
+                    .addComponent(txtnombrepro, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtactividadpro, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txttelefonopro)
+                    .addComponent(txtcorreopro)
+                    .addComponent(txtrucpro))
+                .addGap(95, 95, 95))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jlcedula2))
+                    .addComponent(txtrucpro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtrazonpro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlnombre2))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlapellido2)
+                    .addComponent(txtactividadpro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ljdireccion2)
+                    .addComponent(txtnombrepro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtapellidopro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ljcorreo2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(txttelefonopro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtcorreopro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jlcorreo4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jlcorreo5)))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        jtproveedor.setBackground(new java.awt.Color(51, 255, 153));
+        jtproveedor.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jtproveedor.setModel(modelTableProveedor);
+        jtproveedor.setToolTipText("Seleccione registro");
+        jScrollPane2.setViewportView(jtproveedor);
+
+        javax.swing.GroupLayout panelproveedoresLayout = new javax.swing.GroupLayout(panelproveedores);
+        panelproveedores.setLayout(panelproveedoresLayout);
+        panelproveedoresLayout.setHorizontalGroup(
+            panelproveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelproveedoresLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(247, 247, 247))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelproveedoresLayout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(panelproveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelproveedoresLayout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelproveedoresLayout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(panelproveedoresLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+        );
+        panelproveedoresLayout.setVerticalGroup(
+            panelproveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelproveedoresLayout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+
+        jPanel4.getAccessibleContext().setAccessibleName("");
+
+        jTabbedPane2.addTab("Proveedores", panelproveedores);
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel5.setToolTipText("");
+        jPanel5.setName("Registro"); // NOI18N
+
+        jlcedula3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlcedula3.setText("Codigo del producto");
+
+        ljdireccion3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ljdireccion3.setText("Precio de la venta");
+
+        jlapellido3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlapellido3.setText("Precio de la compra");
+
+        jlnombre3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlnombre3.setText("Descripcion");
+
+        ljcorreo3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ljcorreo3.setText("Cantidad de los productos");
+
+        txtcodigoin.setToolTipText("Ingrese el ruc");
+
+        txtdescripcionin.setToolTipText("Ingrese la rázon social");
+
+        txtprecioin.setToolTipText("Ingrese el tipo de actividad");
+
+        txtventain.setToolTipText("Ingrese el nombre del representante");
+
+        txtcantidadin.setToolTipText("Ingrese el apellido del representante");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ljdireccion3)
+                    .addComponent(jlapellido3)
+                    .addComponent(jlnombre3)
+                    .addComponent(ljcorreo3)
+                    .addComponent(jlcedula3))
+                .addGap(80, 80, 80)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtdescripcionin, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+                    .addComponent(txtcantidadin)
+                    .addComponent(txtventain, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtprecioin, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtcodigoin))
+                .addGap(95, 95, 95))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jlcedula3))
+                    .addComponent(txtcodigoin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtdescripcionin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlnombre3))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlapellido3)
+                    .addComponent(txtprecioin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ljdireccion3)
+                    .addComponent(txtventain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtcantidadin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ljcorreo3))
+                .addContainerGap(87, Short.MAX_VALUE))
+        );
+
+        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
+
+        bnlimpiarpro1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnlimpiarpro1.setText("Limpiar");
+        bnlimpiarpro1.setToolTipText("Limpiar campos");
+        bnlimpiarpro1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnlimpiarpro1ActionPerformed(evt);
+            }
+        });
+
+        bneliminarpro1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bneliminarpro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash-alt-regular-24.png"))); // NOI18N
+        bneliminarpro1.setText("Eliminar");
+        bneliminarpro1.setToolTipText("Eliminar registro");
+        bneliminarpro1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bneliminarpro1ActionPerformed(evt);
+            }
+        });
+
+        bneditarpro1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bneditarpro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/edit-alt-regular-24.png"))); // NOI18N
+        bneditarpro1.setText("Editar");
+        bneditarpro1.setToolTipText("Editar registro");
+        bneditarpro1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bneditarpro1ActionPerformed(evt);
+            }
+        });
+
+        bnguardarinve.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnguardarinve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/save-solid-24.png"))); // NOI18N
+        bnguardarinve.setText("Guardar");
+        bnguardarinve.setToolTipText("Guardar registro");
+        bnguardarinve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnguardarinveActionPerformed(evt);
+            }
+        });
+
+        jlcorreo8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlcorreo8.setText("Buscar Proveedor");
+
+        cmbbusquedainven.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cmbbusquedainven.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CÓDIGO", "DESCRIPCIÓN" }));
+        cmbbusquedainven.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbbusquedainvenActionPerformed(evt);
+            }
+        });
+
+        txtbuscarparametroinventario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        bnbuscarinventario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnbuscarinventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-alt-regular-24.png"))); // NOI18N
+        bnbuscarinventario.setText("Buscar");
+        bnbuscarinventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnbuscarinventarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(jlcorreo8)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbbusquedainven, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtbuscarparametroinventario, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bnbuscarinventario)
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(bneditarpro1)
+                        .addGap(75, 75, 75)
+                        .addComponent(bneliminarpro1)
+                        .addGap(233, 233, 233))))
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGap(29, 29, 29)
+                    .addComponent(bnguardarinve)
+                    .addGap(431, 431, 431)
+                    .addComponent(bnlimpiarpro1)
+                    .addContainerGap(29, Short.MAX_VALUE)))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bneliminarpro1)
+                    .addComponent(bneditarpro1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlcorreo8)
+                    .addComponent(cmbbusquedainven, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtbuscarparametroinventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bnbuscarinventario))
+                .addContainerGap())
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGap(18, 18, 18)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(bnguardarinve)
+                        .addComponent(bnlimpiarpro1))
+                    .addContainerGap(57, Short.MAX_VALUE)))
+        );
+
+        jtproveedor1.setBackground(new java.awt.Color(51, 255, 153));
+        jtproveedor1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jtproveedor1.setModel(modelTableInventario);
+        jtproveedor1.setToolTipText("Seleccione registro");
+        jScrollPane3.setViewportView(jtproveedor1);
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel3.setText("Registro de inventario");
+
+        javax.swing.GroupLayout panelinventarioLayout = new javax.swing.GroupLayout(panelinventario);
+        panelinventario.setLayout(panelinventarioLayout);
+        panelinventarioLayout.setHorizontalGroup(
+            panelinventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelinventarioLayout.createSequentialGroup()
+                .addGroup(panelinventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelinventarioLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelinventarioLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelinventarioLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelinventarioLayout.createSequentialGroup()
+                        .addGap(244, 244, 244)
+                        .addComponent(jLabel3)))
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+        panelinventarioLayout.setVerticalGroup(
+            panelinventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelinventarioLayout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Inventario", panelinventario);
+
+        javax.swing.GroupLayout panelventasLayout = new javax.swing.GroupLayout(panelventas);
+        panelventas.setLayout(panelventasLayout);
+        panelventasLayout.setHorizontalGroup(
+            panelventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 789, Short.MAX_VALUE)
+        );
+        panelventasLayout.setVerticalGroup(
+            panelventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 613, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("Venta", panelventas);
+
+        jMenuBar1.setForeground(new java.awt.Color(102, 255, 102));
+
+        menuarchivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/folder-regular-24.png"))); // NOI18N
+        menuarchivo.setText("Archivo");
+
+        jmenusalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jmenusalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/exit-regular-24.png"))); // NOI18N
+        jmenusalir.setText("Salir");
+        jmenusalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmenusalirActionPerformed(evt);
+            }
+        });
+        menuarchivo.add(jmenusalir);
+
+        jMenu3.setText("Accion persona");
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
+
+        jmenuaccionbuscar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jmenuaccionbuscar.setText("Buscar");
+        jmenuaccionbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmenuaccionbuscarActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmenuaccionbuscar);
+
+        jMenueditar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenueditar.setText("Editar");
+        jMenueditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenueditarActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenueditar);
+
+        jmenueliminar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jmenueliminar.setText("Eliminar");
+        jmenueliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmenueliminarActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmenueliminar);
+
+        jmenuguardar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jmenuguardar.setText("Guardar");
+        jmenuguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmenuguardarActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmenuguardar);
+
+        menuarchivo.add(jMenu3);
+
+        jMenuBar1.add(menuarchivo);
+
+        menueditar.setText("Editar");
+        jMenuBar1.add(menueditar);
+
+        jMenu4.setText("Acerca de ");
+        jMenuBar1.add(jMenu4);
+
+        setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane2)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+    public void editar() {
+        if (personaEditar == null) {
+            JOptionPane.showMessageDialog(rootPane, "No hay una persona seleccionada para editar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        Persona personaEditarLocal = gestion.guardarEditar();
+        if (personaEditarLocal != null) {
+            personaEditarLocal.setIdPersona(personaEditar.getIdPersona());
+            try {
+                if (controladorPersona.editar(personaEditarLocal)) {
+                    JOptionPane.showMessageDialog(rootPane, "Persona editada con exito del sitema.");
+                    gestion.limpiar();
+                    personaEditar = null;
+                    tabla();
+
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "No se puede editar persona", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+                }
+
+            } catch (HeadlessException | SQLException e) {
+            }
+
+        }
+    }
+
+    public void editarProveedor() {
+        if (proveedoreditar == null) {
+            JOptionPane.showMessageDialog(rootPane, "No hay un proveedpr para editar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        Proveedor proveedorEditarLocal = gestionpro.guardarEditar();
+        if (proveedorEditarLocal != null) {
+            proveedorEditarLocal.setIdProveedor(proveedoreditar.getIdProveedor());
+            try {
+                if (controladorProveedor.editar(proveedorEditarLocal)) {
+                    JOptionPane.showMessageDialog(rootPane, "Proveedor editada con exito del sitema.");
+                    gestionpro.limpiar();
+                    personaEditar = null;
+                    tablaproveedor();
+
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "No se puede editar proveedor", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+                }
+
+            } catch (HeadlessException | SQLException e) {
+            }
+
+        }
+    }
+
+    public void guardar() {
+        //metodo para agregar
+        if (controladorPersona.buscarPersonas(txtcedula.getText()) != null) {
+            JOptionPane.showMessageDialog(rootPane, " La persona con ese número de cédula ya se encuentra registrada en el sistema. ");
+        } else {
+            controladorPersona = new Personabd();
+
+            if (controladorPersona.RegistrarPersona(gestion.guardarEditar())) {
+                JOptionPane.showMessageDialog(rootPane, "Usuario Guardado", "Guardado", JOptionPane.INFORMATION_MESSAGE);
+                gestion.limpiar();
+                tabla();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Error al guardar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+
+        }
+    }
+
+    public void guardarproveedor() {
+
+        controladorProveedor = new Proveedorbd();
+
+        if (controladorProveedor.Registrarproveedor(gestionpro.guardarEditar())) {
+            JOptionPane.showMessageDialog(rootPane, "Proveedor Guardado", "Guardado", JOptionPane.INFORMATION_MESSAGE);
+            tablaproveedor();
+            gestionpro.limpiar();
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Error al guardar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            gestionpro.limpiar();
+        }
+
+    }
+
+    public void guardarInventario() {
+
+        controladorInvenario = new Inventariodb();
+
+        if (controladorInvenario.RegistrarInventario(gestioninven.guardarEditar())) {
+            JOptionPane.showMessageDialog(rootPane, "Inventario Guardado", "Guardado", JOptionPane.INFORMATION_MESSAGE);
+            tablaInventario();
+            gestioninven.limpiar();
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Error al guardar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            gestioninven.limpiar();
+        }
+
+    }
+
+    public void buscarcedula() {
+        Persona persona = controladorPersona.buscarPersonas(txtcedula.getText());
+
+        if (persona != null) {
+            personaEditar = persona;
+            txtcedula.setText(persona.getCedula());
+            txtnombre.setText(persona.getNombre());
+            txtapellido.setText(persona.getApellido());
+            txtdireccion.setText(persona.getDireccion());
+            txttelefono.setText(persona.getTelefono());
+            txtcorreo.setText(persona.getCorreo());
+            personaEditar = persona;
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "No hay una persona en la base de datos", "ERROR", JOptionPane.ERROR_MESSAGE);
+            txttelefono.setText("");
+            txttelefono.requestFocus();
+        }
+    }
+
+    public void eliminar() {
+        if (personaEditar == null) {
+            JOptionPane.showMessageDialog(rootPane, "No hay un registro seleccionada para eliminar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        Persona personaEditarLocal = gestion.guardarEditar();
+
+        personaEditarLocal.setIdPersona(personaEditar.getIdPersona());
+        if (personaEditar != null) {
+            int confirmar = JOptionPane.showConfirmDialog(null, "¿ESTA SEGURO DE ELIMINAR A ESTE REGISTRO", "confirmar salida",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (confirmar == JOptionPane.YES_OPTION) {
+                if (personaEditar != null) {
+                    if (controladorPersona.eliminar(personaEditarLocal)) {
+                        JOptionPane.showMessageDialog(rootPane, "Persona eliminada con éxito del sistema.");
+                        gestion.limpiar();
+                        personaEditar = null;
+                        tabla();
+                    } else {
+                        JOptionPane.showMessageDialog(rootPane, "No se puede eliminar persona", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Acción cancelada", "Alerta", JOptionPane.INFORMATION_MESSAGE);
+                gestion.limpiar();
+            }
+        }
+    }
+
+    public void eliminarProveedor() {
+        if (proveedoreditar == null) {
+            JOptionPane.showMessageDialog(rootPane, "No hay una persona seleccionada para editar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        Proveedor personaEditarLocal = gestionpro.guardarEditar();
+        if (personaEditarLocal != null) {
+            personaEditarLocal.setIdProveedor(proveedoreditar.getIdProveedor());
+            int confirmar = JOptionPane.showConfirmDialog(null, "¿ESTA SEGURO DE ELIMINAR A ESTE REGISTRO", "confirmar salida",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (confirmar == JOptionPane.YES_OPTION) {
+                if (controladorProveedor.eliminarProveedor(proveedoreditar)) {
+                    JOptionPane.showMessageDialog(rootPane, "Proveedor eliminado con exito del sitema.");
+                    gestionpro.limpiar();
+                    proveedoreditar = null;
+                    tablaproveedor();
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "No se puede eliminar el proveedor", "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Accion cancelada", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                gestionpro.limpiar();
+
+            }
+
+        }
+    }
+
+    public void eliminarInventario() {
+        if (inventarioeditar == null) {
+            JOptionPane.showMessageDialog(rootPane, "No hay un inventario seleccionada para Eliminar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        Inventario inventarioEditarLocal = gestioninven.guardarEditar();
+        if (inventarioEditarLocal != null) {
+            inventarioEditarLocal.setId_inventario(inventarioeditar.getId_inventario());
+            int confirmar = JOptionPane.showConfirmDialog(null, "¿ESTA SEGURO DE ELIMINAR A ESTE INVENTARIO", "confirmar salida",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (confirmar == JOptionPane.YES_OPTION) {
+                if (controladorInvenario.eliminarInvetario(inventarioeditar)) {
+                    JOptionPane.showMessageDialog(rootPane, "Proveedor eliminado con exito del sitema.");
+                    gestioninven.limpiar();
+                    proveedoreditar = null;
+                    tablaInventario();
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "No se puede eliminar el proveedor", "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Accion cancelada", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                gestioninven.limpiar();
+
+            }
+
+        }
+    }
+
+    public void editarInventero() {
+        if (inventarioeditar == null) {
+            JOptionPane.showMessageDialog(rootPane, "No hay un proveedpr para editar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        Inventario inventarioEditarLocal = gestioninven.guardarEditar();
+        if (inventarioEditarLocal != null) {
+            inventarioEditarLocal.setId_inventario(inventarioeditar.getId_inventario());
+            try {
+                if (controladorInvenario.editar(inventarioEditarLocal)) {
+                    JOptionPane.showMessageDialog(rootPane, "Inventario editado con exito del sitema.");
+                    gestioninven.limpiar();
+                    inventarioeditar = null;
+                    tablaInventario();
+
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "No se puede editar Inventario", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+                }
+
+            } catch (HeadlessException | SQLException e) {
+            }
+
+        }
+    }
+
+    private void jmenusalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenusalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jmenusalirActionPerformed
+
+    private void jmenuaccionbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenuaccionbuscarActionPerformed
+        buscarcedula();
+    }//GEN-LAST:event_jmenuaccionbuscarActionPerformed
+
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenueditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenueditarActionPerformed
+        editar();
+    }//GEN-LAST:event_jMenueditarActionPerformed
+
+    private void jmenueliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenueliminarActionPerformed
+        eliminar();
+    }//GEN-LAST:event_jmenueliminarActionPerformed
+
+    private void jmenuguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenuguardarActionPerformed
+        guardar();
+    }//GEN-LAST:event_jmenuguardarActionPerformed
+
+    private void bneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bneditarActionPerformed
+        editar();
+
+
+    }//GEN-LAST:event_bneditarActionPerformed
+    void tabla() {
+        List<Persona> persona = controladorPersona.obtenerPersonas();
+        modelTablePersona.setPersonas(persona);
+        modelTablePersona.fireTableDataChanged();
+
+    }
+
+    void tablaproveedor() {
+        List<Proveedor> proveedor = controladorProveedor.obtenerProveedor();
+        modelTableProveedor.setProveedor(proveedor);
+        modelTableProveedor.fireTableDataChanged();
+    }
+
+    void tablaInventario() {
+        List<Inventario> inventario = controladorInvenario.obtenerInventario();
+        modelTableInventario.setInventario(inventario);
+        modelTableInventario.fireTableDataChanged();
+    }
+    private void bnregistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnregistroActionPerformed
+        List<Persona> obtenerPersonas = controladorPersona.obtenerPersonas();
+        personaEditar = obtenerPersonas.get(obtenerPersonas.size() - 1);
+        txtcedula.setText(personaEditar.getCedula());
+        txtnombre.setText(personaEditar.getNombre());
+        txtapellido.setText(personaEditar.getApellido());
+        txtdireccion.setText(personaEditar.getDireccion());
+        txttelefono.setText(personaEditar.getTelefono());
+        txtcorreo.setText(personaEditar.getCorreo());
+    }//GEN-LAST:event_bnregistroActionPerformed
+
+    private void bneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bneliminarActionPerformed
+        eliminar();
+
+    }//GEN-LAST:event_bneliminarActionPerformed
+
+    private void bnbuscarnumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnbuscarnumeroActionPerformed
+        Persona persona = controladorPersona.buscarPersonasNumero(txttelefono.getText());
+
+        if (persona != null) {
+            personaEditar = persona;
+            txtcedula.setText(persona.getCedula());
+            txtnombre.setText(persona.getNombre());
+            txtapellido.setText(persona.getApellido());
+            txtdireccion.setText(persona.getDireccion());
+            txttelefono.setText(persona.getTelefono());
+            txtcorreo.setText(persona.getCorreo());
+            personaEditar = persona;
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "No hay una persona en la base de datos", "ERROR", JOptionPane.ERROR_MESSAGE);
+            txttelefono.setText("");
+            txttelefono.requestFocus();
+        }
+    }//GEN-LAST:event_bnbuscarnumeroActionPerformed
+
+    private void bnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnbuscarActionPerformed
+        buscarcedula();
+    }//GEN-LAST:event_bnbuscarActionPerformed
+
+    private void bnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnguardarActionPerformed
+        guardar();
+    }//GEN-LAST:event_bnguardarActionPerformed
+
+    private void bnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnlimpiarActionPerformed
+        gestion.limpiar();
+    }//GEN-LAST:event_bnlimpiarActionPerformed
+
+    private void bnbuscarpersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnbuscarpersonaActionPerformed
+        if (cmbbusqueda.getSelectedItem().equals("Nombres")) {
+            List<Persona> personasNombre = controladorPersona.buscarPersonasNombre(txtbuscarparametro.getText());
+            modelTablePersona.setPersonas(personasNombre);
+            modelTablePersona.fireTableDataChanged();
+
+        }
+
+
+    }//GEN-LAST:event_bnbuscarpersonaActionPerformed
+
+    private void bnlimpiarproActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnlimpiarproActionPerformed
+        gestionpro.limpiar();
+    }//GEN-LAST:event_bnlimpiarproActionPerformed
+
+    private void bnregistroproActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnregistroproActionPerformed
+        List<Proveedor> obtenerProveedor = controladorProveedor.obtenerProveedor();
+        proveedoreditar = obtenerProveedor.get(obtenerProveedor.size() - 1);
+        txtrucpro.setText(proveedoreditar.getRuc());
+        txtrazonpro.setText(proveedoreditar.getRazonSocial());
+        txtactividadpro.setText(proveedoreditar.getTipoActividad());
+        txtnombrepro.setText(proveedoreditar.getNombreRepresentante());
+        txtapellidopro.setText(proveedoreditar.getApellidoRepresentante());
+        txttelefonopro.setText(proveedoreditar.getTelefono());
+        txtcorreopro.setText(proveedoreditar.getCorreo());
+    }//GEN-LAST:event_bnregistroproActionPerformed
+
+    private void bneliminarproActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bneliminarproActionPerformed
+        eliminarProveedor();
+    }//GEN-LAST:event_bneliminarproActionPerformed
+
+    private void bneditarproActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bneditarproActionPerformed
+        editarProveedor();
+    }//GEN-LAST:event_bneditarproActionPerformed
+
+    private void bnguardarproActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnguardarproActionPerformed
+
+        guardarproveedor();
+
+    }//GEN-LAST:event_bnguardarproActionPerformed
+
+    private void bnbuscarproveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnbuscarproveedoresActionPerformed
+        if (cmbbusquedapro.getSelectedItem().equals("Nombre")) {
+            List<Proveedor> personasNombre = controladorProveedor.buscarProveedorNombre(txtbuscarparametropro.getText());
+            modelTableProveedor.setProveedor(personasNombre);
+            modelTableProveedor.fireTableDataChanged();
+
+        }
+    }//GEN-LAST:event_bnbuscarproveedoresActionPerformed
+
+    private void bnlimpiarpro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnlimpiarpro1ActionPerformed
+        gestioninven.limpiar();
+    }//GEN-LAST:event_bnlimpiarpro1ActionPerformed
+
+    private void bneliminarpro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bneliminarpro1ActionPerformed
+        eliminarInventario();
+    }//GEN-LAST:event_bneliminarpro1ActionPerformed
+
+    private void bneditarpro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bneditarpro1ActionPerformed
+        editarInventero();
+    }//GEN-LAST:event_bneditarpro1ActionPerformed
+
+    private void bnguardarinveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnguardarinveActionPerformed
+        guardarInventario();
+    }//GEN-LAST:event_bnguardarinveActionPerformed
+
+    private void bnbuscarinventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnbuscarinventarioActionPerformed
+        System.out.println("Combo" + cmbbusquedainven.getSelectedIndex());
+        switch (cmbbusquedainven.getSelectedIndex()) {
+            case 0://Codigo
+                modelTableInventario.setInventario(controladorInvenario.busquedadInventarioCodigo(txtbuscarparametroinventario.getText()));
+                modelTableInventario.fireTableDataChanged();
+                break;
+            case 1://7Descripcion
+                modelTableInventario.setInventario(controladorInvenario.buscarInventarioDescripcion(txtbuscarparametroinventario.getText()));
+                modelTableInventario.fireTableDataChanged();
+                break;
+        }
+
+    }//GEN-LAST:event_bnbuscarinventarioActionPerformed
+
+    private void cmbbusquedainvenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbbusquedainvenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbbusquedainvenActionPerformed
+
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(GestionContable.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(GestionContable.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(GestionContable.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(GestionContable.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new GestionContable().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bnbuscar;
+    private javax.swing.JButton bnbuscarinventario;
+    private javax.swing.JButton bnbuscarnumero;
+    private javax.swing.JButton bnbuscarpersona;
+    private javax.swing.JButton bnbuscarproveedores;
+    private javax.swing.JButton bneditar;
+    private javax.swing.JButton bneditarpro;
+    private javax.swing.JButton bneditarpro1;
+    private javax.swing.JButton bneliminar;
+    private javax.swing.JButton bneliminarpro;
+    private javax.swing.JButton bneliminarpro1;
+    private javax.swing.JButton bnguardar;
+    private javax.swing.JButton bnguardarinve;
+    private javax.swing.JButton bnguardarpro;
+    private javax.swing.JButton bnlimpiar;
+    private javax.swing.JButton bnlimpiarpro;
+    private javax.swing.JButton bnlimpiarpro1;
+    private javax.swing.JButton bnregistro;
+    private javax.swing.JButton bnregistropro;
+    private javax.swing.JComboBox<String> cmbbusqueda;
+    private javax.swing.JComboBox<String> cmbbusquedainven;
+    private javax.swing.JComboBox<String> cmbbusquedapro;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenueditar;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel jlapellido;
+    private javax.swing.JLabel jlapellido2;
+    private javax.swing.JLabel jlapellido3;
+    private javax.swing.JLabel jlcedula;
+    private javax.swing.JLabel jlcedula2;
+    private javax.swing.JLabel jlcedula3;
+    private javax.swing.JLabel jlcorreo;
+    private javax.swing.JLabel jlcorreo1;
+    private javax.swing.JLabel jlcorreo3;
+    private javax.swing.JLabel jlcorreo4;
+    private javax.swing.JLabel jlcorreo5;
+    private javax.swing.JLabel jlcorreo8;
+    private javax.swing.JLabel jlnombre;
+    private javax.swing.JLabel jlnombre2;
+    private javax.swing.JLabel jlnombre3;
+    private javax.swing.JMenuItem jmenuaccionbuscar;
+    private javax.swing.JMenuItem jmenueliminar;
+    private javax.swing.JMenuItem jmenuguardar;
+    private javax.swing.JMenuItem jmenusalir;
+    private javax.swing.JTable jtproveedor;
+    private javax.swing.JTable jtproveedor1;
+    private javax.swing.JLabel ljcorreo;
+    private javax.swing.JLabel ljcorreo2;
+    private javax.swing.JLabel ljcorreo3;
+    private javax.swing.JLabel ljdireccion;
+    private javax.swing.JLabel ljdireccion2;
+    private javax.swing.JLabel ljdireccion3;
+    private javax.swing.JMenu menuarchivo;
+    private javax.swing.JMenu menueditar;
+    private javax.swing.JPanel panelclientes;
+    private javax.swing.JPanel panelinventario;
+    private javax.swing.JPanel panelproveedores;
+    private javax.swing.JPanel panelventas;
+    private javax.swing.JTextField txtactividadpro;
+    private javax.swing.JTextField txtapellido;
+    private javax.swing.JTextField txtapellidopro;
+    private javax.swing.JTextField txtbuscarparametro;
+    private javax.swing.JTextField txtbuscarparametroinventario;
+    private javax.swing.JTextField txtbuscarparametropro;
+    private javax.swing.JTextField txtcantidadin;
+    private javax.swing.JTextField txtcedula;
+    private javax.swing.JTextField txtcodigoin;
+    private javax.swing.JTextField txtcorreo;
+    private javax.swing.JTextField txtcorreopro;
+    private javax.swing.JTextField txtdescripcionin;
+    private javax.swing.JTextField txtdireccion;
+    private javax.swing.JTextField txtnombre;
+    private javax.swing.JTextField txtnombrepro;
+    private javax.swing.JTextField txtprecioin;
+    private javax.swing.JTextField txtrazonpro;
+    private javax.swing.JTextField txtrucpro;
+    private javax.swing.JTextField txttelefono;
+    private javax.swing.JTextField txttelefonopro;
+    private javax.swing.JTextField txtventain;
+    // End of variables declaration//GEN-END:variables
+
+    public void clickPersona(Persona p) {
+
+        // System.out.println("Persona" + p.toString());
+        txtcedula.setText(p.getCedula());
+        txtnombre.setText(p.getNombre());
+        txtapellido.setText(p.getApellido());
+        txtdireccion.setText(p.getDireccion());
+        txttelefono.setText(p.getTelefono());
+        txtcorreo.setText(p.getCorreo());
+        personaEditar = p;
+
+    }
+
+    @Override
+    public void clickProveedor(Proveedor pro) {
+        txtrucpro.setText(pro.getRuc());
+        txtrazonpro.setText(pro.getRazonSocial());
+        txtactividadpro.setText(pro.getTipoActividad());
+        txtnombrepro.setText(pro.getNombreRepresentante());
+        txtapellidopro.setText(pro.getApellidoRepresentante());
+        txttelefonopro.setText(pro.getTelefono());
+        txtcorreopro.setText(pro.getCorreo());
+        proveedoreditar = pro;
+    }
+
+    @Override
+    public void clickInventario(Inventario in) {
+        txtcodigoin.setText(in.getCodigo_pro());
+        txtdescripcionin.setText(in.getDescripción());
+        txtprecioin.setText(in.getPrecio_venta());
+        txtventain.setText(in.getPrecio_venta());
+        txtcantidadin.setText(Integer.toString(in.getCan_productos()));
+        inventarioeditar = in;
+
+    }
+}
