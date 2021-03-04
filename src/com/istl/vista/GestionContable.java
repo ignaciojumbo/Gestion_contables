@@ -1356,13 +1356,17 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     }//GEN-LAST:event_bnlimpiarActionPerformed
 
     private void bnbuscarpersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnbuscarpersonaActionPerformed
-        if (cmbbusqueda.getSelectedItem().equals("Nombres")) {
-            List<Persona> personasNombre = controladorPersona.buscarPersonasNombre(txtbuscarparametro.getText());
-            modelTablePersona.setPersonas(personasNombre);
-            modelTablePersona.fireTableDataChanged();
-
+        System.out.println("Combo" + cmbbusqueda.getSelectedIndex());
+        switch (cmbbusqueda.getSelectedIndex()) {
+            case 0://Cedula
+                modelTablePersona.setPersonas((List<Persona>) controladorPersona.buscarPersonas(txtbuscarparametro.getText()));
+                modelTablePersona.fireTableDataChanged();
+                break;
+            case 1://Nombres
+                modelTablePersona.setPersonas(controladorPersona.buscarPersonasNombre(txtbuscarparametro.getText()));
+                modelTablePersona.fireTableDataChanged();
+                break;
         }
-
 
     }//GEN-LAST:event_bnbuscarpersonaActionPerformed
 
