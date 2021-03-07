@@ -16,6 +16,7 @@ import com.istl.modelJTable.ModelTableInventario;
 import com.istl.modelJTable.ModelTableProveedor;
 import com.istl.modelo.Inventario;
 import com.istl.utilidad.UtilidadInventario;
+import java.awt.Color;
 
 public class GestionContable extends javax.swing.JFrame implements ComunicacionVistadeTablas {
 
@@ -76,8 +77,6 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txtdireccion = new javax.swing.JTextField();
         txtcorreo = new javax.swing.JTextField();
         txttelefono = new javax.swing.JTextField();
-        bnbuscar = new javax.swing.JButton();
-        bnbuscarnumero = new javax.swing.JButton();
         bneliminar = new javax.swing.JButton();
         bnregistro = new javax.swing.JButton();
         bneditar = new javax.swing.JButton();
@@ -212,6 +211,19 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         jlcorreo.setText("Teléfono");
 
         txtcedula.setToolTipText("Ingrese una cedula correcta");
+        txtcedula.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtcedulaFocusLost(evt);
+            }
+        });
+        txtcedula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtcedulaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtcedulaMouseExited(evt);
+            }
+        });
 
         txtnombre.setToolTipText("Ingrese nombre");
 
@@ -222,26 +234,6 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txtcorreo.setToolTipText("Ingrese un correo valido");
 
         txttelefono.setToolTipText("Ingrse un teléfono correcto");
-
-        bnbuscar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-alt-regular-24.png"))); // NOI18N
-        bnbuscar.setText("Buscar");
-        bnbuscar.setToolTipText("Buscar por cedula");
-        bnbuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bnbuscarActionPerformed(evt);
-            }
-        });
-
-        bnbuscarnumero.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bnbuscarnumero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-alt-regular-24.png"))); // NOI18N
-        bnbuscarnumero.setText("Buscar");
-        bnbuscarnumero.setToolTipText("Buscar por numero");
-        bnbuscarnumero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bnbuscarnumeroActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -258,23 +250,17 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                     .addComponent(jlcedula))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                                .addComponent(bnbuscarnumero))
-                            .addComponent(txtcorreo)
+                            .addComponent(txtcorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
                             .addComponent(txtdireccion, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtapellido, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(txtapellido, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txttelefono)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(118, 118, 118)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtnombre, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                                .addComponent(bnbuscar)))))
+                            .addComponent(txtnombre)
+                            .addComponent(txtcedula))))
                 .addGap(135, 135, 135))
         );
         jPanel1Layout.setVerticalGroup(
@@ -284,9 +270,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(jlcedula))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(bnbuscar)))
+                    .addComponent(txtcedula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlnombre)
@@ -305,10 +289,9 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                     .addComponent(ljcorreo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bnbuscarnumero)
                     .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlcorreo))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         bneliminar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -353,6 +336,12 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         jScrollPane1.setViewportView(jTable1);
 
         txtbuscarparametro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtbuscarparametro.setToolTipText("Para realizar la busquedad ingrese algun parametro");
+        txtbuscarparametro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtbuscarparametroKeyReleased(evt);
+            }
+        });
 
         bnbuscarpersona.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         bnbuscarpersona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-alt-regular-24.png"))); // NOI18N
@@ -1323,30 +1312,6 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
 
     }//GEN-LAST:event_bneliminarActionPerformed
 
-    private void bnbuscarnumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnbuscarnumeroActionPerformed
-        Persona persona = controladorPersona.buscarPersonasNumero(txttelefono.getText());
-
-        if (persona != null) {
-            personaEditar = persona;
-            txtcedula.setText(persona.getCedula());
-            txtnombre.setText(persona.getNombre());
-            txtapellido.setText(persona.getApellido());
-            txtdireccion.setText(persona.getDireccion());
-            txttelefono.setText(persona.getTelefono());
-            txtcorreo.setText(persona.getCorreo());
-            personaEditar = persona;
-
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "No hay una persona en la base de datos", "ERROR", JOptionPane.ERROR_MESSAGE);
-            txttelefono.setText("");
-            txttelefono.requestFocus();
-        }
-    }//GEN-LAST:event_bnbuscarnumeroActionPerformed
-
-    private void bnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnbuscarActionPerformed
-        buscarcedula();
-    }//GEN-LAST:event_bnbuscarActionPerformed
-
     private void bnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnguardarActionPerformed
         guardar();
     }//GEN-LAST:event_bnguardarActionPerformed
@@ -1444,6 +1409,45 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbbusquedainvenActionPerformed
 
+    private void txtcedulaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtcedulaFocusLost
+        if (txtcedula.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "LLene los campos de cedula", "ERROR", JOptionPane.ERROR_MESSAGE);
+            txtcedula.requestFocus();
+            return;
+        }
+        else if (!utilidad.validadorDeCedula(txtcedula.getText())) {
+            JOptionPane.showMessageDialog(this, "Error de cedula", "ERROR", JOptionPane.ERROR_MESSAGE);
+            txtcedula.requestFocus();
+            return;
+
+        }
+    }//GEN-LAST:event_txtcedulaFocusLost
+
+    private void txtbuscarparametroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarparametroKeyReleased
+        buscarCliente();
+    }//GEN-LAST:event_txtbuscarparametroKeyReleased
+
+    private void txtcedulaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtcedulaMouseEntered
+        txtcedula.setBackground(new Color(153,204,255));
+    }//GEN-LAST:event_txtcedulaMouseEntered
+
+    private void txtcedulaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtcedulaMouseExited
+       txtcedula.setBackground(Color.WHITE);
+    }//GEN-LAST:event_txtcedulaMouseExited
+    private void buscarCliente(){
+         System.out.println("Combo" + cmbbusqueda.getSelectedIndex());
+        switch (cmbbusqueda.getSelectedIndex()) {
+            case 0://Cedula
+                modelTablePersona.setPersonas( controladorPersona.buscarPersonasCedula(txtbuscarparametro.getText()));
+                modelTablePersona.fireTableDataChanged();
+                break;
+            case 1://Nombres
+                modelTablePersona.setPersonas(controladorPersona.buscarPersonasNombre(txtbuscarparametro.getText()));
+                modelTablePersona.fireTableDataChanged();
+                break;
+        }
+        
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1483,9 +1487,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bnbuscar;
     private javax.swing.JButton bnbuscarinventario;
-    private javax.swing.JButton bnbuscarnumero;
     private javax.swing.JButton bnbuscarpersona;
     private javax.swing.JButton bnbuscarproveedores;
     private javax.swing.JButton bneditar;

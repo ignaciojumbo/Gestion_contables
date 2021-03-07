@@ -19,7 +19,6 @@ public class Inventariodb {
 
     public boolean RegistrarInventario(Inventario inventario) {
         boolean registrar = false;
-
         String sql = "INSERT INTO inventario (`codigo_pro`, `descripcion`, `precios_compra`, "
                 + "`precio_venta`, `can_productos`) VALUES ('"
                 + inventario.getCodigo_pro() + "', '"
@@ -27,7 +26,6 @@ public class Inventariodb {
                 + inventario.getPrecios_compra() + "', '"
                 + inventario.getPrecio_venta() + "', '"
                 + inventario.getCan_productos() + "');";
-
         try {
 
             con = conexion.getConexion();

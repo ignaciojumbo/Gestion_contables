@@ -309,27 +309,19 @@
                           </Group>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="118" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="txttelefono" min="-2" pref="193" max="-2" attributes="0"/>
-                                          <EmptySpace pref="42" max="32767" attributes="0"/>
-                                          <Component id="bnbuscarnumero" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="txtcorreo" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtcorreo" alignment="0" pref="344" max="32767" attributes="0"/>
                                       <Component id="txtdireccion" alignment="1" max="32767" attributes="0"/>
                                       <Component id="txtapellido" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="txttelefono" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtnombre" alignment="1" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="txtcedula" min="-2" pref="196" max="-2" attributes="0"/>
-                                          <EmptySpace pref="39" max="32767" attributes="0"/>
-                                          <Component id="bnbuscar" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="txtnombre" max="32767" attributes="0"/>
+                                      <Component id="txtcedula" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -345,10 +337,7 @@
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                   <Component id="jlcedula" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                  <Component id="txtcedula" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="bnbuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtcedula" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -372,11 +361,10 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="bnbuscarnumero" min="-2" max="-2" attributes="0"/>
                               <Component id="txttelefono" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jlcorreo" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="23" max="32767" attributes="0"/>
+                          <EmptySpace pref="36" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -434,6 +422,11 @@
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Ingrese una cedula correcta"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtcedulaFocusLost"/>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtcedulaMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtcedulaMouseExited"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtnombre">
                   <Properties>
@@ -459,36 +452,6 @@
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Ingrse un tel&#xe9;fono correcto"/>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="bnbuscar">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="14" style="1"/>
-                    </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/search-alt-regular-24.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Buscar"/>
-                    <Property name="toolTipText" type="java.lang.String" value="Buscar por cedula"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bnbuscarActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="bnbuscarnumero">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="14" style="1"/>
-                    </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/search-alt-regular-24.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Buscar"/>
-                    <Property name="toolTipText" type="java.lang.String" value="Buscar por numero"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bnbuscarnumeroActionPerformed"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -595,7 +558,11 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="14" style="1"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Para realizar la busquedad ingrese algun parametro"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtbuscarparametroKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="bnbuscarpersona">
               <Properties>

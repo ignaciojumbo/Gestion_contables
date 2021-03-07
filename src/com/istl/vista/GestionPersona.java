@@ -89,17 +89,7 @@ public class GestionPersona {
 
      public Persona guardarEditar() {
         Persona p = new Persona();
-        if (txtcedula.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(frame, "LLene los campos de cedula", "ERROR", JOptionPane.ERROR_MESSAGE);
-            txtcedula.requestFocus();
-            return null;
-        }
-        if (!utilidad.validadorDeCedula(txtcedula.getText())) {
-            JOptionPane.showMessageDialog(frame, "Error de cedula", "ERROR", JOptionPane.ERROR_MESSAGE);
-            txtcedula.requestFocus();
-            return null;
-
-        }
+        
         if (txtnombre.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "LLene los campos del nombre");
             txtnombre.requestFocus();
