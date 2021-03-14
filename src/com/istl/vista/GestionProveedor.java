@@ -16,9 +16,10 @@ public class GestionProveedor {
     private JTextField txtapellidopro;
     private JTextField txttelefonopro;
     private JTextField txtcorreopro;
+    private JTextField txtdireccionpro;
     private JFrame frame;
 
-    public GestionProveedor(JTextField txtrucpro, JTextField txtrazonpro, JTextField txtactividadpro, JTextField txtnombrepro, JTextField txtapellidopro, JTextField txttelefonopro, JTextField txtcorreopro, JFrame frame) {
+    public GestionProveedor(JTextField txtrucpro, JTextField txtrazonpro, JTextField txtactividadpro, JTextField txtnombrepro, JTextField txtapellidopro, JTextField txttelefonopro, JTextField txtcorreopro, JTextField txtdireccionpro, JFrame frame) {
         this.txtrucpro = txtrucpro;
         this.txtrazonpro = txtrazonpro;
         this.txtactividadpro = txtactividadpro;
@@ -26,6 +27,7 @@ public class GestionProveedor {
         this.txtapellidopro = txtapellidopro;
         this.txttelefonopro = txttelefonopro;
         this.txtcorreopro = txtcorreopro;
+        this.txtdireccionpro = txtdireccionpro;
         this.frame = frame;
     }
 
@@ -85,6 +87,15 @@ public class GestionProveedor {
         this.txtcorreopro = txtcorreopro;
     }
 
+    public JTextField getTxtdireccionpro() {
+        return txtdireccionpro;
+    }
+
+    public void setTxtdireccionpro(JTextField txtdireccionpro) {
+        this.txtdireccionpro = txtdireccionpro;
+    }
+   
+
     public void limpiar() {
         txtrucpro.setText("");
         txtrazonpro.setText("");
@@ -93,6 +104,7 @@ public class GestionProveedor {
         txtapellidopro.setText("");
         txttelefonopro.setText("");
         txtcorreopro.setText("");
+        txtdireccionpro.setText("");
 
     }
 
@@ -155,6 +167,7 @@ public class GestionProveedor {
         p.setApellidoRepresentante(txtapellidopro.getText());
         p.setTelefono(txttelefonopro.getText());
         p.setCorreo(txtcorreopro.getText());
+        p.setDireccionpro(txtdireccionpro.getText());
         return p;
 
     }

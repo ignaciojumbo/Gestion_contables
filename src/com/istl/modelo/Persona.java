@@ -1,6 +1,7 @@
 
 package com.istl.modelo;
 
+
 public class Persona {
     private int idPersona;
     private String cedula;
@@ -9,6 +10,8 @@ public class Persona {
     private String direccion;
     private String correo;
     private String telefono;
+    private String fecha_registro;
+    private String genero;
 
     public int getIdPersona() {
         return idPersona;
@@ -66,12 +69,28 @@ public class Persona {
         this.telefono = telefono;
     }
 
-    @Override
-    public String toString() {
-        return "Persona{" + "idPersona=" + idPersona + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion + ", correo=" + correo + ", telefono=" + telefono + '}';
+    public String getFecha_registro() {
+        return fecha_registro;
     }
 
-    
+    public void setFecha_registro(String fecha_registro) {
+        this.fecha_registro = fecha_registro;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "idPersona=" + idPersona + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion + ", correo=" + correo + ", telefono=" + telefono + ", fecha_registro=" + fecha_registro + ", genero=" + genero + '}';
+    }
+
+   
     
     
 }

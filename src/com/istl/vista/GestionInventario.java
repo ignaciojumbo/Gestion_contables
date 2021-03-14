@@ -2,6 +2,8 @@ package com.istl.vista;
 
 import com.istl.modelo.Inventario;
 import com.istl.utilidad.UtilidadInventario;
+import java.time.Instant;
+import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -9,24 +11,30 @@ import javax.swing.JTextField;
 public class GestionInventario {
 
     private JTextField txtcodigo_pro;
-    private JTextField txtdescripción;
-    private JTextField txtprecioin;
-    private JTextField txtventain;
     private JTextField txtcantidadin;
+    private JTextField txtdescripción;
+    private JTextField txtpreciosiniva;
+    private JTextField txtprecioconiva;
+    private JTextField txtpreciomayorista;
+    private JTextField txtprecioclientefijo;
+    private JTextField txtprecioclientenormal;
+    private JTextField txtfechacaducidad;
     private UtilidadInventario util;
     private JFrame frame;
 
-    public GestionInventario(JTextField txtcodigo_pro, JTextField txtdescripción, JTextField txtprecioin, JTextField txtventain, JTextField txtcantidadin, UtilidadInventario util, JFrame frame) {
+    public GestionInventario(JTextField txtcodigo_pro, JTextField txtcantidadin, JTextField txtdescripción, JTextField txtpreciosiniva, JTextField txtprecioconiva, JTextField txtpreciomayorista, JTextField txtprecioclientefijo, JTextField txtprecioclientenorma, JTextField txtfechacaducidad, UtilidadInventario util, JFrame frame) {
         this.txtcodigo_pro = txtcodigo_pro;
-        this.txtdescripción = txtdescripción;
-        this.txtprecioin = txtprecioin;
-        this.txtventain = txtventain;
         this.txtcantidadin = txtcantidadin;
+        this.txtdescripción = txtdescripción;
+        this.txtpreciosiniva = txtpreciosiniva;
+        this.txtprecioconiva = txtprecioconiva;
+        this.txtpreciomayorista = txtpreciomayorista;
+        this.txtprecioclientefijo = txtprecioclientefijo;
+        this.txtprecioclientenormal = txtprecioclientenorma;
+        this.txtfechacaducidad = txtfechacaducidad;
         this.util = util;
         this.frame = frame;
     }
-
-    
 
     public JTextField getTxtcodigo_pro() {
         return txtcodigo_pro;
@@ -34,30 +42,6 @@ public class GestionInventario {
 
     public void setTxtcodigo_pro(JTextField txtcodigo_pro) {
         this.txtcodigo_pro = txtcodigo_pro;
-    }
-
-    public JTextField getTxtdescripción() {
-        return txtdescripción;
-    }
-
-    public void setTxtdescripción(JTextField txtdescripción) {
-        this.txtdescripción = txtdescripción;
-    }
-
-    public JTextField getTxtprecioin() {
-        return txtprecioin;
-    }
-
-    public void setTxtprecioin(JTextField txtprecioin) {
-        this.txtprecioin = txtprecioin;
-    }
-
-    public JTextField getTxtventain() {
-        return txtventain;
-    }
-
-    public void setTxtventain(JTextField txtventain) {
-        this.txtventain = txtventain;
     }
 
     public JTextField getTxtcantidadin() {
@@ -68,22 +52,79 @@ public class GestionInventario {
         this.txtcantidadin = txtcantidadin;
     }
 
-    public JFrame getFrame() {
-        return frame;
+    public JTextField getTxtdescripción() {
+        return txtdescripción;
     }
 
-    public void setFrame(JFrame frame) {
-        this.frame = frame;
+    public void setTxtdescripción(JTextField txtdescripción) {
+        this.txtdescripción = txtdescripción;
     }
+
+    public JTextField getTxtpreciosiniva() {
+        return txtpreciosiniva;
+    }
+
+    public void setTxtpreciosiniva(JTextField txtpreciosiniva) {
+        this.txtpreciosiniva = txtpreciosiniva;
+    }
+
+    public JTextField getTxtprecioconiva() {
+        return txtprecioconiva;
+    }
+
+    public void setTxtprecioconiva(JTextField txtprecioconiva) {
+        this.txtprecioconiva = txtprecioconiva;
+    }
+
+    public JTextField getTxtpreciomayorista() {
+        return txtpreciomayorista;
+    }
+
+    public void setTxtpreciomayorista(JTextField txtpreciomayorista) {
+        this.txtpreciomayorista = txtpreciomayorista;
+    }
+
+    public JTextField getTxtprecioclientefijo() {
+        return txtprecioclientefijo;
+    }
+
+    public void setTxtprecioclientefijo(JTextField txtprecioclientefijo) {
+        this.txtprecioclientefijo = txtprecioclientefijo;
+    }
+
+    public JTextField getTxtprecioclientenorma() {
+        return txtprecioclientenormal;
+    }
+
+    public void setTxtprecioclientenorma(JTextField txtprecioclientenorma) {
+        this.txtprecioclientenormal = txtprecioclientenorma;
+    }
+
+    public JTextField getTxtfechacaducidad() {
+        return txtfechacaducidad;
+    }
+
+    public void setTxtfechacaducidad(JTextField txtfechacaducidad) {
+        this.txtfechacaducidad = txtfechacaducidad;
+    }
+
+    
+    
+
 
 
 
     public void limpiar() {
         txtcodigo_pro.setText("");
-        txtdescripción.setText("");
-        txtprecioin.setText("");
-        txtventain.setText("");
         txtcantidadin.setText("");
+        txtdescripción.setText("");
+        txtpreciosiniva.setText("");
+        txtprecioconiva.setText("");
+        txtpreciomayorista.setText("");
+        txtprecioclientefijo.setText("");
+        txtprecioclientenormal.setText("");
+        txtfechacaducidad.setText("");
+        
 
     }
 
@@ -106,16 +147,6 @@ public class GestionInventario {
             txtdescripción.requestFocus();
             return null;
         }
-        if (txtprecioin.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "LLene los campos del precio de la venta");
-            txtprecioin.requestFocus();
-            return null;
-        }
-        if (txtventain.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(frame, "LLene los campos del precio de la venta", "ERROR", JOptionPane.ERROR_MESSAGE);
-            txtventain.requestFocus();// sirve para ubicar el cursor en el campo vacio
-            return null;
-        }
 
         if (txtcantidadin.getText().isEmpty()) {
             JOptionPane.showMessageDialog(frame, "LLene los campos de la cantidad de la cantidad de productos", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -124,10 +155,14 @@ public class GestionInventario {
         }
 
         p.setCodigo_pro(txtcodigo_pro.getText());
-        p.setDescripción(txtdescripción.getText());
-        p.setPrecio_venta(txtventain.getText());
-        p.setPrecios_compra(txtprecioin.getText());
         p.setCan_productos(Integer.valueOf(txtcantidadin.getText()));
+        p.setDescripcion(txtdescripción.getText());
+        p.setPrecios_compra_sin_iva(txtpreciosiniva.getText());
+        p.setPrecios_compra_con_iva(txtprecioconiva.getText());
+        p.setPrecio_mayorita(txtpreciomayorista.getText());
+        p.setCliente_fijo(txtprecioclientefijo.getText());
+        p.setCliente_normal(txtprecioclientenormal.getText());
+        p.setFecha_caducidad(txtfechacaducidad.getText());
 
         return p;
 

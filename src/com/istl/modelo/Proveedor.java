@@ -1,5 +1,8 @@
 
 package com.istl.modelo;
+
+import java.util.Date;
+
 public class Proveedor {
     private int idProveedor;
     private String ruc;
@@ -9,20 +12,8 @@ public class Proveedor {
     private String apellidoRepresentante;
     private String telefono;
     private String correo;
-//
-//    public Proveedor() {
-//    }
-//
-//    public Proveedor(int idProveedor, String ruc, String RazonSocial, String tipoActividad, String nombreRepresentante, String apellidoRepresentante, String telefono, String correo) {
-//        this.idProveedor = idProveedor;
-//        this.ruc = ruc;
-//        this.RazonSocial = RazonSocial;
-//        this.tipoActividad = tipoActividad;
-//        this.nombreRepresentante = nombreRepresentante;
-//        this.apellidoRepresentante = apellidoRepresentante;
-//        this.telefono = telefono;
-//        this.correo = correo;
-//    }
+    private String direccionpro;
+    private Date fecha_registro;
 
     public int getIdProveedor() {
         return idProveedor;
@@ -88,10 +79,30 @@ public class Proveedor {
         this.correo = correo;
     }
 
+    public String getDireccionpro() {
+        return direccionpro;
+    }
+
+    public void setDireccionpro(String direccionpro) {
+        this.direccionpro = direccionpro;
+    }
+
+    public Date getFecha_registro() {
+        return fecha_registro;
+    }
+
+    public void setFecha_registro(Date fecha_registro) {
+        this.fecha_registro = fecha_registro;
+    }
+
     @Override
     public String toString() {
-        return "Proveedor{" + "idProveedor=" + idProveedor + ", ruc=" + ruc + ", RazonSocial=" + RazonSocial + ", tipoActividad=" + tipoActividad + ", nombreRepresentante=" + nombreRepresentante + ", apellidoRepresentante=" + apellidoRepresentante + ", telefono=" + telefono + ", correo=" + correo + '}';
+        return "Proveedor{" + "idProveedor=" + idProveedor + ", ruc=" + ruc + ", RazonSocial=" + RazonSocial + ", tipoActividad=" + tipoActividad + ", nombreRepresentante=" + nombreRepresentante + ", apellidoRepresentante=" + apellidoRepresentante + ", telefono=" + telefono + ", correo=" + correo + ", direccionpro=" + direccionpro + ", fecha_registro=" + fecha_registro + '}';
     }
+
+    
+
+   
     
     
 

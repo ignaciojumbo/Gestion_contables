@@ -8,7 +8,7 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 public class ModelTablePersona extends AbstractTableModel {
 
-    public String[] n_colNames = {"CÉDULA", "NOMBRE", "APELLIDO", "DIRECIÓN", "TELÉFONO", "CORREO"};
+    public String[] n_colNames = {"CÉDULA", "NOMBRE", "APELLIDO", "DIRECIÓN", "TELÉFONO", "CORREO","GÉNERO"};
     public List<Persona> persona;
     private GestionContable gContable;
 
@@ -45,6 +45,8 @@ public class ModelTablePersona extends AbstractTableModel {
                 return persona.getTelefono();
             case 5:
                 return persona.getCorreo();
+            case 6:
+                return persona.getGenero();
 
         }
         return new String();

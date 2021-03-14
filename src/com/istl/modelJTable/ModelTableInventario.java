@@ -2,15 +2,14 @@
 package com.istl.modelJTable;
 
 import com.istl.modelo.Inventario;
-import com.istl.modelo.Proveedor;
 import com.istl.vista.GestionContable;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 public class ModelTableInventario extends AbstractTableModel {
 
-    public String[] n_colNames = {"CÓDIGO DEL PRODUCTO", "DESCRIPCIÓN", 
-        "PRECIO COMPRA", "PRECIO DE VENTA", "CANTIDAD DE PRODUCTOS"};
+    public String[] n_colNames = {"CÓDIGO DEL PRODUCTO","CANTIDAD DE PRODUCTOS","DESCRIPCIÓN", 
+        "PRECIO SIN IVA", "PRECIO CON IVA", "PRECIO MAYORISTA","PRECIO CLIENTE FIJO","PRECIO CLIENTE NORMAL","FECHA CADUCIDAD"};
     public List<Inventario> inventario;
     private GestionContable gContable;
 
@@ -38,13 +37,21 @@ public class ModelTableInventario extends AbstractTableModel {
             case 0:
                 return inventario.getCodigo_pro();
             case 1:
-                return inventario.getDescripción();
+                 return inventario.getCan_productos();
             case 2:
-                return inventario.getPrecio_venta();
+                return inventario.getDescripcion();
             case 3:
-                return inventario.getPrecios_compra();
+                return inventario.getPrecios_compra_sin_iva();
             case 4:
-                return inventario.getCan_productos();
+               return inventario.getPrecios_compra_con_iva();
+            case 5:
+               return inventario.getPrecio_mayorita();
+            case 6:
+               return inventario.getCliente_fijo();
+            case 7:
+               return inventario.getCliente_normal();
+            case 8:
+               return inventario.getFecha_caducidad();
 
         }
         return new String();

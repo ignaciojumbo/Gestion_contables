@@ -1,7 +1,6 @@
 
 package com.istl.modelJTable;
 
-import com.istl.modelo.Persona;
 import com.istl.modelo.Proveedor;
 import com.istl.vista.GestionContable;
 import java.util.List;
@@ -9,8 +8,8 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 public class ModelTableProveedor extends AbstractTableModel {
 
-    public String[] n_colNames = {"RUC", "RAZÓN SOCIAL", "TIPO DE ACTIVIDAD", "NOMBRE DE REPRESENTANTE", "APELLIDO DE REPRESENTANTE", "TELÉFONO"
-    ,"CORREO"};
+    public String[] n_colNames = {"RUC", "RAZÓN SOCIAL", "TIPO DE ACTIVIDAD", "NOMBRE DE REPRESENTANTE", 
+        "APELLIDO DE REPRESENTANTE", "TELÉFONO","CORREO","DIRECCION"};
     public List<Proveedor> proveedor;
     private GestionContable gContable;
 
@@ -49,6 +48,8 @@ public class ModelTableProveedor extends AbstractTableModel {
                 return proveedor.getTelefono();
             case 6:
                 return proveedor.getCorreo();
+            case 7:
+                return proveedor.getDireccionpro();
 
         }
         return new String();

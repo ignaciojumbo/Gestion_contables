@@ -7,7 +7,9 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.ResultSetImpl;
 import com.mysql.jdbc.Statement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Proveedorbd {
@@ -15,13 +17,24 @@ public class Proveedorbd {
     Statement stm = null;
     Connection con = null;
     Conexion conexion = new Conexion();
+    
+     public String fecha() {
+        Date fecha = new Date();
+        SimpleDateFormat f = new SimpleDateFormat("YY/MM/dd");
+        return f.format(fecha);
+
+    }
 
     public boolean Registrarproveedor(Proveedor proveedor) {
         boolean registrar = false;
+        
 
-        String sql = "INSERT INTO `bdejercicio1`.`proveedor` (`ruc`, `razon_social`, `tipo_actividad`, `nombre_representante`, `apellido_representante`, `telefono`,`correo`) "
-                + "VALUES ('" + proveedor.getRuc()+ "', '" + proveedor.getRazonSocial()+ "', '" + proveedor.getTipoActividad()+ "', '" 
-                + proveedor.getNombreRepresentante()+ "', '" + proveedor.getApellidoRepresentante()+ "','" + proveedor.getTelefono()+ "', '" + proveedor.getCorreo()+ "')";
+        String sql ="INSERT INTO `bdejercicio1`.`proveedor` (`ruc`, `razon_social`, "
+                + "`tipo_actividad`, `nombre_representante`, `apellido_representante`, "
+                + "`telefono`, `correo`, `direccion`, `fecha_registro`) "
+                + "VALUES ('"+proveedor.getRuc()+"', '"+proveedor.getRazonSocial()+"', '"+proveedor.getTipoActividad()+"'"
+                + ", '"+proveedor.getNombreRepresentante()+"', '"+proveedor.getApellidoRepresentante()+"', '"+proveedor.getTelefono()+"'"
+                + ", '"+proveedor.getCorreo()+"', '"+proveedor.getDireccionpro()+"', '"+fecha()+"');";
 
         try {
 
@@ -61,8 +74,9 @@ public class Proveedorbd {
         
         String sql = "UPDATE `bdejercicio1`.`proveedor` SET `ruc` = '"+proveedor.getRuc()+"', `razon_social` = '"+proveedor.getRazonSocial()+"',"
                 + " `tipo_actividad` = '"+proveedor.getTipoActividad()+"', `nombre_representante` = '"+proveedor.getNombreRepresentante()+"', "
-                + "`apellido_representante` = '"+proveedor.getApellidoRepresentante()+"', `telefono` = '"+proveedor.getTelefono()+"',`correo` = '"+proveedor.getCorreo()+
-                "' WHERE (`idproveedor` = '"+proveedor.getIdProveedor()+"');";
+                + "`telefono` = '"+proveedor.getApellidoRepresentante()+"', "
+                + "`correo` = '"+proveedor.getCorreo()+"', `direccion` = '"+proveedor.getDireccionpro()+"', "
+                + "`fecha_registro` = '"+fecha()+"' WHERE (`idproveedor` = '"+proveedor.getIdProveedor()+"');";
         try {
             con = conexion.getConexion();
             stm = (Statement) con.createStatement();
@@ -75,72 +89,6 @@ public class Proveedorbd {
         return actualiar;
 
     }
-
-//    public Persona buscarPersonas(String cedula) {
-//        Connection co = null;
-//
-//        //Sentencia de JDBC para obtener valores de la base de datos.
-//        ResultSetImpl rs;
-//        Persona c = null;
-//        String sql = "SELECT * FROM bdejercicio1.persona1 where Cedula like " + cedula + ";";
-//
-//        try {
-//            con = new Conexion().getConexion();
-//            stm = (Statement) con.createStatement();
-//
-//            rs = (ResultSetImpl) stm.executeQuery(sql);
-//            while (rs.next()) {
-//                c = new Persona();
-//                c.setIdPersona(rs.getInt(1));
-//                c.setCedula(rs.getString(2));
-//                c.setNombre(rs.getString(3));
-//                c.setApellido(rs.getString(4));
-//                c.setDireccion(rs.getString(5));
-//                c.setCorreo(rs.getString(6));
-//                c.setTelefono(rs.getString(7));
-//
-//            }
-//            stm.close();
-//            rs.close();
-//            con.close();
-//        } catch (SQLException e) {
-//            System.out.println("Error:" + e.getMessage());
-//        }
-//
-//        return c;
-//    }
-//
-//    public Persona buscarPersonasNumero(String numero) {
-//        Connection co = null;
-//        //Sentencia de JDBC para obtener valores de la base de datos.
-//        ResultSetImpl rs;
-//        Persona c = null;
-//        String sql = "SELECT * FROM bdejercicio1.persona1 where Telefono like '" + numero + "';";
-//
-//        try {
-//            con = new Conexion().getConexion();
-//            stm = (Statement) con.createStatement();
-//
-//            rs = (ResultSetImpl) stm.executeQuery(sql);
-//            while (rs.next()) {
-//                c = new Persona();
-//                c.setIdPersona(rs.getInt(1));
-//                c.setCedula(rs.getString(2));
-//                c.setNombre(rs.getString(3));
-//                c.setApellido(rs.getString(4));
-//                c.setDireccion(rs.getString(5));
-//                c.setCorreo(rs.getString(6));
-//                c.setTelefono(rs.getString(7));
-//            }
-//            stm.close();
-//            rs.close();
-//            con.close();
-//        } catch (SQLException e) {
-//            System.out.println("Error:" + e.getMessage());
-//        }
-//        return c;
-//    }
-//    
      public List<Proveedor> buscarProveedorNombre(String nombre) {
         Connection co = null;
         //Sentencia de JDBC para obtener valores de la base de datos.
@@ -163,6 +111,7 @@ public class Proveedorbd {
                 prove.setApellidoRepresentante(rs.getString(6));
                 prove.setTelefono(rs.getString(7));
                 prove.setCorreo(rs.getString(8));
+                prove.setDireccionpro(rs.getString(9));
                 proveedorEncontrado.add(prove);
             }
             stm.close();
@@ -198,6 +147,7 @@ public class Proveedorbd {
                 prove.setApellidoRepresentante(rs.getString(6));
                 prove.setTelefono(rs.getString(7));
                 prove.setCorreo(rs.getString(8));
+                prove.setDireccionpro(rs.getString(9));
                 listaproveedores.add(prove);
             }
             stm.close();

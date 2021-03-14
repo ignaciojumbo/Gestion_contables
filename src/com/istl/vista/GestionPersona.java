@@ -2,6 +2,7 @@ package com.istl.vista;
 
 import com.istl.modelo.Persona;
 import com.istl.utilidad.Utilidad;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -14,21 +15,23 @@ public class GestionPersona {
     private JTextField txtdireccion;
     private JTextField txttelefono;
     private JTextField txtcorreo;
+    private JComboBox cmbgenero;
     private Utilidad utilidad;
     private JFrame frame;
 
-    public GestionPersona(JTextField txtcedula, JTextField txtnombre, JTextField txtapellido, JTextField txtdireccion, JTextField txttelefono, JTextField txtcorreo, Utilidad utilidad, JFrame frame) {
+    public GestionPersona(JTextField txtcedula, JTextField txtnombre, JTextField txtapellido, JTextField txtdireccion, JTextField txttelefono, JTextField txtcorreo, JComboBox cmbgenero, Utilidad utilidad, JFrame frame) {
         this.txtcedula = txtcedula;
         this.txtnombre = txtnombre;
         this.txtapellido = txtapellido;
         this.txtdireccion = txtdireccion;
         this.txttelefono = txttelefono;
         this.txtcorreo = txtcorreo;
+
+        this.cmbgenero = cmbgenero;
         this.utilidad = utilidad;
         this.frame = frame;
     }
 
-   
     public JTextField getTxtcedula() {
         return txtcedula;
     }
@@ -77,6 +80,16 @@ public class GestionPersona {
         this.txtcorreo = txtcorreo;
     }
 
+   
+
+    public JComboBox getCmbgenero() {
+        return cmbgenero;
+    }
+
+    public void setCmbgenero(JComboBox cmbgenero) {
+        this.cmbgenero = cmbgenero;
+    }
+
     public void limpiar() {
         txtcedula.setText("");
         txtnombre.setText("");
@@ -84,6 +97,8 @@ public class GestionPersona {
         txtdireccion.setText("");
         txttelefono.setText("");
         txtcorreo.setText("");
+        cmbgenero.setSelectedIndex(0);
+      
 
     }
 
@@ -133,6 +148,9 @@ public class GestionPersona {
         p.setDireccion(txtdireccion.getText());
         p.setCorreo(txtcorreo.getText());
         p.setTelefono(txttelefono.getText());
+        p.setGenero(cmbgenero.getSelectedItem().toString());
+ 
+        
         return p;
 
     }

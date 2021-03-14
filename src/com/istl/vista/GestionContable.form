@@ -224,9 +224,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="32" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel1" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="bneliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="bneditar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -241,9 +241,9 @@
                           <Component id="txtbuscarparametro" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="bnbuscarpersona" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="121" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -258,6 +258,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="Limpiar campos"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bnlimpiarMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bnlimpiarActionPerformed"/>
               </Events>
             </Component>
@@ -306,22 +307,24 @@
                               <Component id="ljcorreo" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jlcorreo" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jlcedula" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlcorreo2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtnombre" pref="344" max="32767" attributes="0"/>
+                                      <Component id="txtcedula" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace pref="118" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="cmbgenero" max="32767" attributes="0"/>
                                       <Component id="txtcorreo" alignment="0" pref="344" max="32767" attributes="0"/>
                                       <Component id="txtdireccion" alignment="1" max="32767" attributes="0"/>
                                       <Component id="txtapellido" alignment="1" max="32767" attributes="0"/>
                                       <Component id="txttelefono" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtnombre" max="32767" attributes="0"/>
-                                      <Component id="txtcedula" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -364,7 +367,12 @@
                               <Component id="txttelefono" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jlcorreo" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="36" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jlcorreo2" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmbgenero" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="51" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -453,6 +461,31 @@
                     <Property name="toolTipText" type="java.lang.String" value="Ingrse un tel&#xe9;fono correcto"/>
                   </Properties>
                 </Component>
+                <Component class="javax.swing.JLabel" name="jlcorreo2">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="G&#xe9;nero"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cmbgenero">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="14" style="1"/>
+                    </Property>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="3">
+                        <StringItem index="0" value="No definido"/>
+                        <StringItem index="1" value="Hombre"/>
+                        <StringItem index="2" value="Mujer"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
               </SubComponents>
             </Container>
             <Component class="javax.swing.JButton" name="bneliminar">
@@ -479,6 +512,8 @@
                 <Property name="toolTipText" type="java.lang.String" value="Ver registros"/>
               </Properties>
               <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bnregistroMousePressed"/>
+                <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bnregistroMouseReleased"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bnregistroActionPerformed"/>
               </Events>
             </Component>
@@ -602,20 +637,20 @@
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="247" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="24" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" pref="722" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" min="-2" pref="722" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -627,13 +662,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel4" min="-2" pref="282" max="-2" attributes="0"/>
+                      <EmptySpace pref="26" max="32767" attributes="0"/>
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="33" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="121" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -852,8 +887,8 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="ljdireccion2" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jlapellido2" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -862,9 +897,11 @@
                               <Component id="jlcorreo4" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jlcedula2" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jlcorreo5" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlcorreo7" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtdireccionpro" max="32767" attributes="0"/>
                               <Component id="txtrazonpro" pref="312" max="32767" attributes="0"/>
                               <Component id="txtapellidopro" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtnombrepro" alignment="1" max="32767" attributes="0"/>
@@ -873,54 +910,54 @@
                               <Component id="txtcorreopro" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtrucpro" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="jlcedula2" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="txtrucpro" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtrazonpro" min="-2" max="-2" attributes="0"/>
-                              <Component id="jlnombre2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jlapellido2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtactividadpro" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jlcedula2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtrucpro" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jlnombre2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtrazonpro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtactividadpro" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlapellido2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="ljdireccion2" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtnombrepro" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtapellidopro" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="ljcorreo2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="ljcorreo2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtapellidopro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txttelefonopro" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlcorreo4" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txttelefonopro" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtcorreopro" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jlcorreo4" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jlcorreo5" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtcorreopro" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlcorreo5" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="25" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtdireccionpro" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlcorreo7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1017,6 +1054,19 @@
                     <Property name="toolTipText" type="java.lang.String" value="Ingrse el correo electr&#xf3;nico"/>
                   </Properties>
                 </Component>
+                <Component class="javax.swing.JLabel" name="jlcorreo7">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Direcci&#xf3;n"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtdireccionpro">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Ingrse el correo electr&#xf3;nico"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -1094,7 +1144,7 @@
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="121" max="-2" attributes="0"/>
                       <EmptySpace pref="17" max="32767" attributes="0"/>
                   </Group>
@@ -1119,55 +1169,91 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="ljdireccion3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jlapellido3" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jlnombre3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="ljcorreo3" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jlcedula3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlapellido3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlapellido4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlapellido6" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtdescripcionin" alignment="0" pref="312" max="32767" attributes="0"/>
-                              <Component id="txtcantidadin" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtventain" alignment="1" max="32767" attributes="0"/>
-                              <Component id="txtprecioin" alignment="1" max="32767" attributes="0"/>
-                              <Component id="txtcodigoin" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="txtprecioclientenormal" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jlapellido7" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="txtfechacaducidad" min="-2" pref="96" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="txtpreciomayorita" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jlapellido5" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="txtprecioclientefijo" min="-2" pref="96" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="txtcodigoin" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <EmptySpace pref="14" max="32767" attributes="0"/>
+                                  <Component id="ljcorreo3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="txtcantidadin" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="txtpreciosiniva" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="ljdireccion3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="txtprecioconiva" min="-2" pref="96" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="txtdescripcionin" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="jlcedula3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="txtcodigoin" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtdescripcionin" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jlnombre3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jlapellido3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtprecioin" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="ljdireccion3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtventain" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlcedula3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtcodigoin" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtcantidadin" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ljcorreo3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jlnombre3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtdescripcionin" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtcantidadin" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="ljcorreo3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlapellido3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="txtpreciosiniva" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ljdireccion3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtprecioconiva" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace pref="87" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jlapellido4" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtpreciomayorita" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlapellido5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="txtprecioclientefijo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jlapellido6" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtprecioclientenormal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlapellido7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="txtfechacaducidad" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="73" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1178,7 +1264,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Codigo del producto"/>
+                    <Property name="text" type="java.lang.String" value="C&#xf3;digo del producto"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="ljdireccion3">
@@ -1186,7 +1272,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Precio de la venta"/>
+                    <Property name="text" type="java.lang.String" value="Precio compra con iva"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jlapellido3">
@@ -1194,7 +1280,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Precio de la compra"/>
+                    <Property name="text" type="java.lang.String" value="Precio compra sin iva"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jlnombre3">
@@ -1202,7 +1288,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Descripcion"/>
+                    <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="ljcorreo3">
@@ -1223,12 +1309,12 @@
                     <Property name="toolTipText" type="java.lang.String" value="Ingrese la r&#xe1;zon social"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtprecioin">
+                <Component class="javax.swing.JTextField" name="txtpreciosiniva">
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Ingrese el tipo de actividad"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtventain">
+                <Component class="javax.swing.JTextField" name="txtprecioconiva">
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre del representante"/>
                   </Properties>
@@ -1236,6 +1322,58 @@
                 <Component class="javax.swing.JTextField" name="txtcantidadin">
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Ingrese el apellido del representante"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jlapellido4">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Precio mayorista"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtpreciomayorita">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Ingrese el tipo de actividad"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jlapellido5">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Precio cliente fijo"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtprecioclientefijo">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Ingrese el tipo de actividad"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jlapellido6">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Precio cliente normal"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtprecioclientenormal">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Ingrese el tipo de actividad"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jlapellido7">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Fecha de caducidad"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtfechacaducidad">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Ingrese el tipo de actividad"/>
                   </Properties>
                 </Component>
               </SubComponents>
