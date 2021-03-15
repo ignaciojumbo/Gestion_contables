@@ -25,6 +25,8 @@
         </Menu>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.ButtonGroup" name="botongrupo">
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -309,26 +311,25 @@
                               <Component id="jlcedula" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jlcorreo2" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtnombre" pref="344" max="32767" attributes="0"/>
-                                      <Component id="txtcedula" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="txtcedula" min="-2" pref="167" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="rbbottomcedula" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="rbbottompasaporte" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="118" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="cmbgenero" max="32767" attributes="0"/>
-                                      <Component id="txtcorreo" alignment="0" pref="344" max="32767" attributes="0"/>
-                                      <Component id="txtdireccion" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="txtapellido" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="txttelefono" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                              <Component id="cmbgenero" min="-2" pref="344" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="txtnombre" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtcorreo" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtdireccion" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtapellido" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txttelefono" alignment="0" pref="344" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+                          <EmptySpace pref="81" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -340,7 +341,11 @@
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                   <Component id="jlcedula" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="txtcedula" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                  <Component id="txtcedula" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rbbottomcedula" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rbbottompasaporte" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -383,7 +388,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="C&#xe9;dula"/>
+                    <Property name="text" type="java.lang.String" value="DNI"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="ljdireccion">
@@ -440,6 +445,9 @@
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Ingrese nombre"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnombreActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtapellido">
                   <Properties>
@@ -483,9 +491,28 @@
                     </Property>
                     <Property name="toolTipText" type="java.lang.String" value="Seleccione un g&#xe9;nero"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbgeneroActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbbottomcedula">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="botongrupo"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="C&#xe9;dula"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbbottompasaporte">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="botongrupo"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Pasaporte"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>

@@ -2,6 +2,7 @@ package com.istl.controlador;
 
 import com.istl.conexionbd.Conexion;
 import com.istl.modelo.Persona;
+import com.istl.utilidad.Utilidad;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.ResultSetImpl;
 import com.mysql.jdbc.Statement;
@@ -16,6 +17,12 @@ public class Personabd {
     Statement stm = null;
     Connection con = null;
     Conexion conexion = new Conexion();
+    Utilidad util;
+
+    public Personabd() {
+        util = new Utilidad();
+
+    }
 
     public String fecha() {
         Date fecha = new Date();
@@ -30,7 +37,7 @@ public class Personabd {
                 + " `Correo`, `Telefono`, `Fecha_registro`, `Genero`)"
                 + " VALUES ('" + persona.getCedula() + "', '" + persona.getNombre() + "', '" + persona.getApellido() + "',"
                 + " '" + persona.getDireccion() + "', '" + persona.getCorreo() + "', '" + persona.getTelefono() + "', "
-                + "'" + fecha() + "', '" + persona.getGenero() + "');";
+                + "'" + util.fecha(persona.getFecha_registro()) + "', '" + persona.getGenero() + "');";
 
         try {
 
@@ -67,12 +74,16 @@ public class Personabd {
 
     public boolean editar(Persona persona) throws SQLException {
         boolean actualiar = false;
-        String sql = "UPDATE `bdejercicio1`.`persona1` SET `Cedula` = '" + persona.getCedula() + "',"
-                + " `Nombre` = '" + persona.getNombre()
-                + "', `Apellido` = '" + persona.getApellido() + "', `Direccion` = '"
-                + persona.getDireccion() + "', `Correo` = '" + persona.getCorreo()
-                + "',`Telefono` = '" + persona.getTelefono() +"'"
-                + ",`Genero` = '" + persona.getGenero() + "' WHERE (`idpersona1` = '" + persona.getIdPersona() + "');";
+        String sql = "UPDATE `bdejercicio1`.`persona1` SET "
+                + "`Cedula` = '"+persona.getCedula()+"', "
+                + "`Nombre` = '"+persona.getNombre()+"', "
+                + "`Apellido` = '"+persona.getApellido()+"', "
+                + "`Direccion` = '"+persona.getDireccion()+"', "
+                + "`Correo` = '"+persona.getCorreo()+"', "
+                + "`Telefono` = '"+persona.getTelefono()+"', "
+                + "`Genero` = '"+persona.getGenero()+"', "
+                + "`Fecha_actualizacion` = '"+util.fecha(persona.getFecha_actualizacion())+"' "
+                + "WHERE (`idpersona1` = '"+persona.getIdPersona()+"');";
         try {
             con = conexion.getConexion();
             stm = (Statement) con.createStatement();
@@ -108,7 +119,7 @@ public class Personabd {
                 c.setDireccion(rs.getString(5));
                 c.setCorreo(rs.getString(6));
                 c.setTelefono(rs.getString(7));
-                c.setFecha_registro(rs.getString(8));
+                c.setFecha_registro(rs.getDate(8));
                 c.setGenero(rs.getString(9));
 
             }
@@ -143,7 +154,7 @@ public class Personabd {
                 c.setDireccion(rs.getString(5));
                 c.setCorreo(rs.getString(6));
                 c.setTelefono(rs.getString(7));
-                c.setFecha_registro(rs.getString(8));
+                c.setFecha_registro(rs.getDate(8));
                 c.setGenero(rs.getString(9));
             }
             stm.close();
@@ -176,7 +187,7 @@ public class Personabd {
                 c.setDireccion(rs.getString(5));
                 c.setCorreo(rs.getString(6));
                 c.setTelefono(rs.getString(7));
-                c.setFecha_registro(rs.getString(8));
+                c.setFecha_registro(rs.getDate(8));
                 c.setGenero(rs.getString(9));
                 personasEncontradas.add(c);
             }
@@ -210,7 +221,7 @@ public class Personabd {
                 c.setDireccion(rs.getString(5));
                 c.setCorreo(rs.getString(6));
                 c.setTelefono(rs.getString(7));
-                c.setFecha_registro(rs.getString(8));
+                c.setFecha_registro(rs.getDate(8));
                 c.setGenero(rs.getString(9));
                 personasEncontradas.add(c);
             }
@@ -245,7 +256,7 @@ public class Personabd {
                 c.setDireccion(rs.getString(5));
                 c.setCorreo(rs.getString(6));
                 c.setTelefono(rs.getString(7));
-                c.setFecha_registro(rs.getString(8));
+                c.setFecha_registro(rs.getDate(8));
                 c.setGenero(rs.getString(9));
                 listaPersonas.add(c);
             }

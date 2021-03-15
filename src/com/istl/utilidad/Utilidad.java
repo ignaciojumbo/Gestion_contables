@@ -5,6 +5,8 @@
  */
 package com.istl.utilidad;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -83,6 +85,12 @@ public class Utilidad {
  
         return mather.find() == true; //System.out.println("El email ingresado es válido.");
         //System.out.println("El email ingresado es inválido.");
+    }
+    
+     public String fecha(Date fecha) {
+        SimpleDateFormat f = new SimpleDateFormat("YY/MM/dd");
+        return f.format(fecha);
+
     }
 
 }

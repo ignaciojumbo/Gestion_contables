@@ -2,6 +2,7 @@ package com.istl.vista;
 
 import com.istl.modelo.Persona;
 import com.istl.utilidad.Utilidad;
+import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -102,7 +103,7 @@ public class GestionPersona {
 
     }
 
-     public Persona guardarEditar() {
+     public Persona guardarEditar(boolean isEditar) {
         Persona p = new Persona();
         
         if (txtnombre.getText().isEmpty()) {
@@ -148,8 +149,13 @@ public class GestionPersona {
         p.setDireccion(txtdireccion.getText());
         p.setCorreo(txtcorreo.getText());
         p.setTelefono(txttelefono.getText());
+        p.setFecha_registro(new Date());
         p.setGenero(cmbgenero.getSelectedItem().toString());
- 
+        if(isEditar){
+            p.setFecha_actualizacion(new Date());
+        }else{
+            p.setFecha_registro(new Date());
+        }
         
         return p;
 

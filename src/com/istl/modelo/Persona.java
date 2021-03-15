@@ -1,6 +1,8 @@
 
 package com.istl.modelo;
 
+import java.util.Date;
+
 
 public class Persona {
     private int idPersona;
@@ -10,8 +12,9 @@ public class Persona {
     private String direccion;
     private String correo;
     private String telefono;
-    private String fecha_registro;
+    private Date fecha_registro;
     private String genero;
+    private Date fecha_actualizacion;
 
     public int getIdPersona() {
         return idPersona;
@@ -69,11 +72,11 @@ public class Persona {
         this.telefono = telefono;
     }
 
-    public String getFecha_registro() {
+    public Date getFecha_registro() {
         return fecha_registro;
     }
 
-    public void setFecha_registro(String fecha_registro) {
+    public void setFecha_registro(Date fecha_registro) {
         this.fecha_registro = fecha_registro;
     }
 
@@ -85,11 +88,22 @@ public class Persona {
         this.genero = genero;
     }
 
-    @Override
-    public String toString() {
-        return "Persona{" + "idPersona=" + idPersona + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion + ", correo=" + correo + ", telefono=" + telefono + ", fecha_registro=" + fecha_registro + ", genero=" + genero + '}';
+    public Date getFecha_actualizacion() {
+        return fecha_actualizacion;
     }
 
+    public void setFecha_actualizacion(Date fecha_actualizacion) {
+        this.fecha_actualizacion = fecha_actualizacion;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "idPersona=" + idPersona + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion + ", correo=" + correo + ", telefono=" + telefono + ", fecha_registro=" + fecha_registro + ", genero=" + genero + ", fecha_actualizacion=" + fecha_actualizacion + '}';
+    }
+
+    
+
+  
    
     
     
