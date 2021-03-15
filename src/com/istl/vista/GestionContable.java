@@ -510,9 +510,14 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         jlcorreo3.setText("Buscar Proveedor");
 
         cmbbusquedapro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        cmbbusquedapro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ruc", "Razón social", "Tipo de actividad", "Nombre", "Apellido", "Telefono", "Correo" }));
+        cmbbusquedapro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ruc", "Nombre", "Razón social", "Tipo de actividad", "Apellido", "Telefono", "Correo" }));
 
         txtbuscarparametropro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtbuscarparametropro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtbuscarparametroproKeyReleased(evt);
+            }
+        });
 
         bnbuscarproveedores.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         bnbuscarproveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-alt-regular-24.png"))); // NOI18N
@@ -703,12 +708,9 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelproveedoresLayout.createSequentialGroup()
                 .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(panelproveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelproveedoresLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelproveedoresLayout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         panelproveedoresLayout.setVerticalGroup(
             panelproveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -717,9 +719,9 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -908,6 +910,11 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         });
 
         txtbuscarparametroinventario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtbuscarparametroinventario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtbuscarparametroinventarioKeyReleased(evt);
+            }
+        });
 
         bnbuscarinventario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         bnbuscarinventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-alt-regular-24.png"))); // NOI18N
@@ -1192,7 +1199,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
 
         } else {
             JOptionPane.showMessageDialog(rootPane, "Error al guardar", "ERROR", JOptionPane.ERROR_MESSAGE);
-            
+
         }
 
     }
@@ -1463,12 +1470,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     }//GEN-LAST:event_bnguardarproActionPerformed
 
     private void bnbuscarproveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnbuscarproveedoresActionPerformed
-        if (cmbbusquedapro.getSelectedItem().equals("Nombre")) {
-            List<Proveedor> personasNombre = controladorProveedor.buscarProveedorNombre(txtbuscarparametropro.getText());
-            modelTableProveedor.setProveedor(personasNombre);
-            modelTableProveedor.fireTableDataChanged();
 
-        }
     }//GEN-LAST:event_bnbuscarproveedoresActionPerformed
 
     private void bnlimpiarpro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnlimpiarpro1ActionPerformed
@@ -1486,6 +1488,20 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private void bnguardarinveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnguardarinveActionPerformed
         guardarInventario();
     }//GEN-LAST:event_bnguardarinveActionPerformed
+
+    public void buscarInventario() {
+        System.out.println("Combo" + cmbbusquedainven.getSelectedIndex());
+        switch (cmbbusquedainven.getSelectedIndex()) {
+            case 0://Codigo
+                modelTableInventario.setInventario(controladorInvenario.busquedadInventarioCodigo(txtbuscarparametroinventario.getText()));
+                modelTableInventario.fireTableDataChanged();
+                break;
+            case 1://7Descripcion
+                modelTableInventario.setInventario(controladorInvenario.buscarInventarioDescripcion(txtbuscarparametroinventario.getText()));
+                modelTableInventario.fireTableDataChanged();
+                break;
+        }
+    }
 
     private void bnbuscarinventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnbuscarinventarioActionPerformed
         System.out.println("Combo" + cmbbusquedainven.getSelectedIndex());
@@ -1542,6 +1558,14 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private void bnregistroMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bnregistroMouseReleased
         bnregistro.setBackground(Color.WHITE);
     }//GEN-LAST:event_bnregistroMouseReleased
+
+    private void txtbuscarparametroproKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarparametroproKeyReleased
+        buscarProveedor();
+    }//GEN-LAST:event_txtbuscarparametroproKeyReleased
+
+    private void txtbuscarparametroinventarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarparametroinventarioKeyReleased
+        buscarInventario();
+    }//GEN-LAST:event_txtbuscarparametroinventarioKeyReleased
     private void buscarCliente() {
         System.out.println("Combo" + cmbbusqueda.getSelectedIndex());
         switch (cmbbusqueda.getSelectedIndex()) {
@@ -1552,6 +1576,21 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
             case 1://Nombres
                 modelTablePersona.setPersonas(controladorPersona.buscarPersonasNombre(txtbuscarparametro.getText()));
                 modelTablePersona.fireTableDataChanged();
+                break;
+        }
+
+    }
+
+    private void buscarProveedor() {
+        System.out.println("Combo" + cmbbusquedapro.getSelectedIndex());
+        switch (cmbbusquedapro.getSelectedIndex()) {
+            case 0://Cedula
+                modelTableProveedor.setProveedor( controladorProveedor.buscarProveedorRuc(txtbuscarparametro.getText()));
+                modelTableProveedor.fireTableDataChanged();
+                break;
+            case 1://Nombres
+                modelTableProveedor.setProveedor(controladorProveedor.buscarProveedorNombre(txtbuscarparametro.getText()));
+                modelTableProveedor.fireTableDataChanged();
                 break;
         }
 

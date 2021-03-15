@@ -27,15 +27,15 @@ public class Inventariodb {
 
     public boolean RegistrarInventario(Inventario inventario) {
         boolean registrar = false;
-
+        
         String sql = "INSERT INTO `bdejercicio1`.`inventario` "
                 + "(`codigo_pro`, `can_productos`, `descripcion`, `precios_compra_sin_iva`, "
                 + "`precio_compra_con_iva`, `precio_mayorista`, `precio_cliente_fijo`, `precio_cliente_normal`, "
-                + "`fecha_caducida`, `fecha_registro`, `fecha_actualizacion`)"
+                + "`fecha_caducida`, `fecha_registro`)"
                 + " VALUES ('" + inventario.getCodigo_pro() + "', '" + inventario.getCan_productos() + "', '" + inventario.getDescripcion() + "', "
                 + "'" + inventario.getPrecios_compra_sin_iva() + "', '" + inventario.getPrecios_compra_con_iva() + "',"
                 + "'" + inventario.getPrecio_mayorita() + "', '" + inventario.getCliente_fijo() + "', "
-                + "'" + inventario.getCliente_normal() + "', '" + inventario.getFecha_caducidad() + "', '" + fecha() + "', '" + fecha() + "');";
+                + "'" + inventario.getCliente_normal() + "', '" + inventario.getFecha_caducidad() + "', '" + fecha() + "');";
         try {
 
             con = conexion.getConexion();
@@ -96,7 +96,8 @@ public class Inventariodb {
         System.out.println("BusquedaCodigo" + codigo);
         //Sentencia de JDBC para obtener valores de la base de datos.
         ResultSet rs = null;
-        String sql = "SELECT * FROM bdejercicio1.inventario where codigo_pro = '" + codigo + "';";
+        
+        String sql = "SELECT * FROM bdejercicio1.inventario where codigo_pro like \"%" + codigo + "%\"";
         List<Inventario> listaInventario = new ArrayList<Inventario>();
         try {
             con = new Conexion().getConexion();

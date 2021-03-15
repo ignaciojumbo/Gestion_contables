@@ -26,7 +26,6 @@ public class Personabd {
 
     public boolean RegistrarPersona(Persona persona) {
         boolean registrar = false;
-        String fecha = "2020-01-01";
         String sql = "INSERT INTO `bdejercicio1`.`persona1` (`Cedula`, `Nombre`, `Apellido`, `Direccion`,"
                 + " `Correo`, `Telefono`, `Fecha_registro`, `Genero`)"
                 + " VALUES ('" + persona.getCedula() + "', '" + persona.getNombre() + "', '" + persona.getApellido() + "',"
@@ -68,10 +67,11 @@ public class Personabd {
 
     public boolean editar(Persona persona) throws SQLException {
         boolean actualiar = false;
-        String sql = "UPDATE `bdejercicio1`.`persona1` SET `Cedula` = '" + persona.getCedula() + "', `Nombre` = '" + persona.getNombre()
+        String sql = "UPDATE `bdejercicio1`.`persona1` SET `Cedula` = '" + persona.getCedula() + "',"
+                + " `Nombre` = '" + persona.getNombre()
                 + "', `Apellido` = '" + persona.getApellido() + "', `Direccion` = '"
                 + persona.getDireccion() + "', `Correo` = '" + persona.getCorreo()
-                + "',`Telefono` = '" + persona.getTelefono() + "', `Fecha_registro` = '" + persona.getFecha_registro() + "'"
+                + "',`Telefono` = '" + persona.getTelefono() +"'"
                 + ",`Genero` = '" + persona.getGenero() + "' WHERE (`idpersona1` = '" + persona.getIdPersona() + "');";
         try {
             con = conexion.getConexion();

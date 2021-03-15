@@ -9,7 +9,8 @@ import javax.swing.table.AbstractTableModel;
 public class ModelTableInventario extends AbstractTableModel {
 
     public String[] n_colNames = {"CÓDIGO DEL PRODUCTO","CANTIDAD DE PRODUCTOS","DESCRIPCIÓN", 
-        "PRECIO SIN IVA", "PRECIO CON IVA", "PRECIO MAYORISTA","PRECIO CLIENTE FIJO","PRECIO CLIENTE NORMAL","FECHA CADUCIDAD"};
+        "PRECIO SIN IVA", "PRECIO CON IVA", "PRECIO MAYORISTA","PRECIO CLIENTE FIJO"
+            ,"PRECIO CLIENTE NORMAL","FECHA CADUCIDAD"};
     public List<Inventario> inventario;
     private GestionContable gContable;
 

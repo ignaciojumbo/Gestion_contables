@@ -148,12 +148,7 @@ public class GestionProveedor {
             txttelefonopro.requestFocus();
             return null;
         }
-//        if (!utilidad.validarNumero(txttelefono.getText())) {
-//            JOptionPane.showMessageDialog(frame, "Error numero", "ERROR", JOptionPane.ERROR_MESSAGE);
-//            txttelefono.requestFocus();
-//            return null;
-//
-//        }
+
         if (txtcorreopro.getText().isEmpty()) {
             JOptionPane.showMessageDialog(frame, "LLene los campos del correo", "ERROR", JOptionPane.ERROR_MESSAGE);
             txtcorreopro.requestFocus();

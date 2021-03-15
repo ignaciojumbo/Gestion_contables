@@ -72,8 +72,10 @@ public class Proveedorbd {
     public boolean editar(Proveedor proveedor) throws SQLException {
         boolean actualiar = false;
         
-        String sql = "UPDATE `bdejercicio1`.`proveedor` SET `ruc` = '"+proveedor.getRuc()+"', `razon_social` = '"+proveedor.getRazonSocial()+"',"
-                + " `tipo_actividad` = '"+proveedor.getTipoActividad()+"', `nombre_representante` = '"+proveedor.getNombreRepresentante()+"', "
+        String sql = "UPDATE `bdejercicio1`.`proveedor` SET `ruc` = '"+proveedor.getRuc()+"', "
+                + "`razon_social` = '"+proveedor.getRazonSocial()+"',"
+                + " `tipo_actividad` = '"+proveedor.getTipoActividad()+"', "
+                + "`nombre_representante` = '"+proveedor.getNombreRepresentante()+"', "
                 + "`telefono` = '"+proveedor.getApellidoRepresentante()+"', "
                 + "`correo` = '"+proveedor.getCorreo()+"', `direccion` = '"+proveedor.getDireccionpro()+"', "
                 + "`fecha_registro` = '"+fecha()+"' WHERE (`idproveedor` = '"+proveedor.getIdProveedor()+"');";
@@ -95,6 +97,40 @@ public class Proveedorbd {
         ResultSetImpl rs;
         List <Proveedor> proveedorEncontrado = new ArrayList<>();
         String sql = "SELECT * FROM bdejercicio1.proveedor where nombre_representante like \"%"+nombre+"%\"";
+
+        try {
+            con = new Conexion().getConexion();
+            stm = (Statement) con.createStatement();
+
+            rs = (ResultSetImpl) stm.executeQuery(sql);
+            while (rs.next()) {
+                Proveedor prove = new Proveedor();
+                prove.setIdProveedor(rs.getInt(1));
+                prove.setRuc(rs.getString(2));
+                prove.setRazonSocial(rs.getString(3));
+                prove.setTipoActividad(rs.getString(4));
+                prove.setNombreRepresentante(rs.getString(5));
+                prove.setApellidoRepresentante(rs.getString(6));
+                prove.setTelefono(rs.getString(7));
+                prove.setCorreo(rs.getString(8));
+                prove.setDireccionpro(rs.getString(9));
+                proveedorEncontrado.add(prove);
+            }
+            stm.close();
+            rs.close();
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error:" + e.getMessage());
+        }
+        return proveedorEncontrado;
+    }
+    
+     public List<Proveedor> buscarProveedorRuc(String ruc) {
+        Connection co = null;
+        //Sentencia de JDBC para obtener valores de la base de datos.
+        ResultSetImpl rs;
+        List<Proveedor> proveedorEncontrado = new ArrayList<>();
+        String sql = "SELECT * FROM bdejercicio1.proveedor where ruc like \"%" + ruc + "%\"";
 
         try {
             con = new Conexion().getConexion();

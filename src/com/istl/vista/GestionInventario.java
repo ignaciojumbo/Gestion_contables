@@ -2,8 +2,6 @@ package com.istl.vista;
 
 import com.istl.modelo.Inventario;
 import com.istl.utilidad.UtilidadInventario;
-import java.time.Instant;
-import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -108,12 +106,6 @@ public class GestionInventario {
         this.txtfechacaducidad = txtfechacaducidad;
     }
 
-    
-    
-
-
-
-
     public void limpiar() {
         txtcodigo_pro.setText("");
         txtcantidadin.setText("");
@@ -124,7 +116,6 @@ public class GestionInventario {
         txtprecioclientefijo.setText("");
         txtprecioclientenormal.setText("");
         txtfechacaducidad.setText("");
-        
 
     }
 
@@ -142,16 +133,34 @@ public class GestionInventario {
 
         }
 
+        if (txtcantidadin.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(frame, "LLene los campos de la cantidad de la cantidad de productos", "ERROR", JOptionPane.ERROR_MESSAGE);
+            txtcantidadin.requestFocus();
+            return null;
+        }
         if (txtdescripción.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "LLene los campos del nombre de la descripcion");
             txtdescripción.requestFocus();
             return null;
         }
-
-        if (txtcantidadin.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(frame, "LLene los campos de la cantidad de la cantidad de productos", "ERROR", JOptionPane.ERROR_MESSAGE);
-            txtcantidadin.requestFocus();
+        if (txtpreciomayorista.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "LLene los campos del precio mayorista");
+            txtpreciomayorista.requestFocus();
             return null;
+
+        }
+
+        if (txtfechacaducidad.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(frame, "LLene los campos de la fecha de caducidad", "ERROR", JOptionPane.ERROR_MESSAGE);
+            txtfechacaducidad.requestFocus();
+            return null;
+
+        }
+        if (!util.isFechaValida(txtfechacaducidad.getText())) {
+            JOptionPane.showMessageDialog(frame, "Error de formato de fecha", "ERROR", JOptionPane.ERROR_MESSAGE);
+            txtfechacaducidad.requestFocus();
+            return null;
+
         }
 
         p.setCodigo_pro(txtcodigo_pro.getText());
