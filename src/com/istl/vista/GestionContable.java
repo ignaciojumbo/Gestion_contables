@@ -259,6 +259,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
 
         cmbgenero.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         cmbgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No definido", "Hombre", "Mujer" }));
+        cmbgenero.setToolTipText("Seleccione un género");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -513,6 +514,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         cmbbusquedapro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ruc", "Nombre", "Razón social", "Tipo de actividad", "Apellido", "Telefono", "Correo" }));
 
         txtbuscarparametropro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtbuscarparametropro.setToolTipText("Ingrese los datos a buscar");
         txtbuscarparametropro.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtbuscarparametroproKeyReleased(evt);
@@ -610,7 +612,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
 
         txtapellidopro.setToolTipText("Ingrese el apellido del representante");
 
-        txttelefonopro.setToolTipText("Ingrse el teléfono");
+        txttelefonopro.setToolTipText("Ingrese el teléfono");
 
         jlcorreo5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jlcorreo5.setText("Correo");
@@ -620,7 +622,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         jlcorreo7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jlcorreo7.setText("Dirección");
 
-        txtdireccionpro.setToolTipText("Ingrse el correo electrónico");
+        txtdireccionpro.setToolTipText("Ingrese la dirección");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -749,35 +751,35 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         ljcorreo3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         ljcorreo3.setText("Cantidad de los productos");
 
-        txtcodigoin.setToolTipText("Ingrese el ruc");
+        txtcodigoin.setToolTipText("Ingrese el código del producto");
 
-        txtdescripcionin.setToolTipText("Ingrese la rázon social");
+        txtdescripcionin.setToolTipText("Ingrese una descripción del producto");
 
-        txtpreciosiniva.setToolTipText("Ingrese el tipo de actividad");
+        txtpreciosiniva.setToolTipText("Ingrese el precio sin iva");
 
-        txtprecioconiva.setToolTipText("Ingrese el nombre del representante");
+        txtprecioconiva.setToolTipText("Ingrese el precio con iva");
 
-        txtcantidadin.setToolTipText("Ingrese el apellido del representante");
+        txtcantidadin.setToolTipText("Ingrese la cantidad del producto");
 
         jlapellido4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jlapellido4.setText("Precio mayorista");
 
-        txtpreciomayorita.setToolTipText("Ingrese el tipo de actividad");
+        txtpreciomayorita.setToolTipText("Ingrese el precio mayorista");
 
         jlapellido5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jlapellido5.setText("Precio cliente fijo");
 
-        txtprecioclientefijo.setToolTipText("Ingrese el tipo de actividad");
+        txtprecioclientefijo.setToolTipText("Ingrese el precio cliente fijo");
 
         jlapellido6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jlapellido6.setText("Precio cliente normal");
 
-        txtprecioclientenormal.setToolTipText("Ingrese el tipo de actividad");
+        txtprecioclientenormal.setToolTipText("Ingrese el precio cliente normal");
 
         jlapellido7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jlapellido7.setText("Fecha de caducidad");
 
-        txtfechacaducidad.setToolTipText("Ingrese el tipo de actividad");
+        txtfechacaducidad.setToolTipText("Ingrese la fecha YY-MM-AA");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
