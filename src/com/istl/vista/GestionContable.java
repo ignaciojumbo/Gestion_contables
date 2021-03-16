@@ -1175,7 +1175,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
             JOptionPane.showMessageDialog(rootPane, "No hay un proveedpr para editar", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        Proveedor proveedorEditarLocal = gestionpro.guardarEditar();
+        Proveedor proveedorEditarLocal = gestionpro.guardarEditar(true);
         if (proveedorEditarLocal != null) {
             proveedorEditarLocal.setIdProveedor(proveedoreditar.getIdProveedor());
             try {
@@ -1218,7 +1218,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
 
         controladorProveedor = new Proveedorbd();
 
-        if (controladorProveedor.Registrarproveedor(gestionpro.guardarEditar())) {
+        if (controladorProveedor.Registrarproveedor(gestionpro.guardarEditar(false))) {
             JOptionPane.showMessageDialog(rootPane, "Proveedor Guardado", "Guardado", JOptionPane.INFORMATION_MESSAGE);
             tablaproveedor();
             gestionpro.limpiar();
@@ -1234,7 +1234,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
 
         controladorInvenario = new Inventariodb();
 
-        if (controladorInvenario.RegistrarInventario(gestioninven.guardarEditar())) {
+        if (controladorInvenario.RegistrarInventario(gestioninven.guardarEditar(false))) {
             JOptionPane.showMessageDialog(rootPane, "Inventario Guardado", "Guardado", JOptionPane.INFORMATION_MESSAGE);
             tablaInventario();
             gestioninven.limpiar();
@@ -1297,7 +1297,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
             JOptionPane.showMessageDialog(rootPane, "No hay una persona seleccionada para editar", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
-      
+
         if (proveedoreditar != null) {
             proveedoreditar.setIdProveedor(proveedoreditar.getIdProveedor());
             int confirmar = JOptionPane.showConfirmDialog(null, "¿ESTA SEGURO DE ELIMINAR A ESTE REGISTRO", "confirmar salida",
@@ -1326,9 +1326,9 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
             JOptionPane.showMessageDialog(rootPane, "No hay un inventario seleccionada para Eliminar", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        Inventario inventarioEditarLocal = gestioninven.guardarEditar();
-        if (inventarioEditarLocal != null) {
-            inventarioEditarLocal.setId_inventario(inventarioeditar.getId_inventario());
+        
+        if (inventarioeditar != null) {
+            inventarioeditar.setId_inventario(inventarioeditar.getId_inventario());
             int confirmar = JOptionPane.showConfirmDialog(null, "¿ESTA SEGURO DE ELIMINAR A ESTE INVENTARIO", "confirmar salida",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (confirmar == JOptionPane.YES_OPTION) {
@@ -1355,7 +1355,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
             JOptionPane.showMessageDialog(rootPane, "No hay un proveedpr para editar", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        Inventario inventarioEditarLocal = gestioninven.guardarEditar();
+        Inventario inventarioEditarLocal = gestioninven.guardarEditar(true);
         if (inventarioEditarLocal != null) {
             inventarioEditarLocal.setId_inventario(inventarioeditar.getId_inventario());
             try {
@@ -1445,6 +1445,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
 
     private void bnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnlimpiarActionPerformed
         gestion.limpiar();
+        bnguardar.setEnabled(true);
     }//GEN-LAST:event_bnlimpiarActionPerformed
 
     private void bnbuscarpersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnbuscarpersonaActionPerformed
@@ -1577,7 +1578,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     }//GEN-LAST:event_txtcedulaMouseExited
 
     private void bnlimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bnlimpiarMouseClicked
-        JOptionPane.showMessageDialog(rootPane, "Has limpiado los campos correctamente");
+        //JOptionPane.showMessageDialog(rootPane, "Has limpiado los campos correctamente");
     }//GEN-LAST:event_bnlimpiarMouseClicked
 
     private void bnregistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bnregistroMousePressed
@@ -1795,6 +1796,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txtcorreo.setText(p.getCorreo());
         cmbgenero.setSelectedItem(p.getGenero());
         // cmbgenero.setSelectedIndex(p.getGenero());
+        bnguardar.setEnabled(false);
         personaEditar = p;
 
     }

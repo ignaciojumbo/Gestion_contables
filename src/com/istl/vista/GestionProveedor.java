@@ -3,6 +3,7 @@ package com.istl.vista;
 import com.istl.modelo.Persona;
 import com.istl.modelo.Proveedor;
 import com.istl.utilidad.Utilidad;
+import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -94,7 +95,6 @@ public class GestionProveedor {
     public void setTxtdireccionpro(JTextField txtdireccionpro) {
         this.txtdireccionpro = txtdireccionpro;
     }
-   
 
     public void limpiar() {
         txtrucpro.setText("");
@@ -108,19 +108,14 @@ public class GestionProveedor {
 
     }
 
-    public Proveedor guardarEditar() {
+    public Proveedor guardarEditar(boolean isEditar) {
         Proveedor p = new Proveedor();
         if (txtrazonpro.getText().isEmpty()) {
             JOptionPane.showMessageDialog(frame, "LLene los campos del ruc", "ERROR", JOptionPane.ERROR_MESSAGE);
             txtrucpro.requestFocus();
             return null;
         }
-//        if (!utilidad.validadorDeCedula(txtcedula.getText())) {
-//            JOptionPane.showMessageDialog(frame, "Error de cedula", "ERROR", JOptionPane.ERROR_MESSAGE);
-//            txtcedula.requestFocus();
-//            return null;
-//
-//        }
+
         if (txtnombrepro.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "LLene los campos del nombre de representante");
             txtnombrepro.requestFocus();
@@ -163,6 +158,12 @@ public class GestionProveedor {
         p.setTelefono(txttelefonopro.getText());
         p.setCorreo(txtcorreopro.getText());
         p.setDireccionpro(txtdireccionpro.getText());
+        if (isEditar) {
+            p.setFecha_actualizacion(new Date());
+        } else {
+            p.setFecha_registro(new Date());
+        }
+
         return p;
 
     }

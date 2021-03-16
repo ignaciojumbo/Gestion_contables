@@ -2,6 +2,7 @@ package com.istl.controlador;
 
 import com.istl.conexionbd.Conexion;
 import com.istl.modelo.Inventario;
+import com.istl.utilidad.Utilidad;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.ResultSetImpl;
 import com.mysql.jdbc.Statement;
@@ -17,6 +18,12 @@ public class Inventariodb {
     Statement stm = null;
     Connection con = null;
     Conexion conexion = new Conexion();
+    Utilidad util ;
+    
+    public Inventariodb(){
+        util = new Utilidad();
+    }
+    
 
     public String fecha() {
         Date fecha = new Date();
@@ -35,7 +42,7 @@ public class Inventariodb {
                 + " VALUES ('" + inventario.getCodigo_pro() + "', '" + inventario.getCan_productos() + "', '" + inventario.getDescripcion() + "', "
                 + "'" + inventario.getPrecios_compra_sin_iva() + "', '" + inventario.getPrecios_compra_con_iva() + "',"
                 + "'" + inventario.getPrecio_mayorita() + "', '" + inventario.getCliente_fijo() + "', "
-                + "'" + inventario.getCliente_normal() + "', '" + inventario.getFecha_caducidad() + "', '" + fecha() + "');";
+                + "'" + inventario.getCliente_normal() + "', '" + inventario.getFecha_caducidad() + "', '" + util.fecha(inventario.getFecha_registro()) + "');";
         try {
 
             con = conexion.getConexion();
@@ -72,12 +79,15 @@ public class Inventariodb {
     public boolean editar(Inventario inventario) throws SQLException {
         boolean actualizar = false;
         String sql = "UPDATE `bdejercicio1`.`inventario` SET `codigo_pro` = '" + inventario.getCodigo_pro() + "', "
-                + "`can_productos` = '" + inventario.getCan_productos() + "', `descripcion` = '" + inventario.getDescripcion() + "',"
+                + "`can_productos` = '" + inventario.getCan_productos() + "', "
+                + "`descripcion` = '" + inventario.getDescripcion() + "',"
                 + " `precios_compra_sin_iva` = '" + inventario.getPrecios_compra_sin_iva() + "', "
                 + "`precio_compra_con_iva` = '" + inventario.getPrecios_compra_con_iva() + "', "
-                + "`precio_mayorista` = '" + inventario.getPrecio_mayorita() + "', `precio_cliente_fijo` = '" + inventario.getCliente_fijo() + "',"
+                + "`precio_mayorista` = '" + inventario.getPrecio_mayorita() + "', "
+                + "`precio_cliente_fijo` = '" + inventario.getCliente_fijo() + "',"
                 + " `precio_cliente_normal` = '" + inventario.getCliente_normal() + "', "
-                + "`fecha_caducida` = '" +inventario.getFecha_caducidad() + "', `fecha_actualizacion` = '" + fecha() + "' "
+                + "`fecha_caducida` = '" +inventario.getFecha_caducidad() + "', "
+                + "`fecha_actualizacion` = '" +util.fecha(inventario.getFecha_actualizacion()) + "' "
                 + "WHERE (`id_inventario` = '" + inventario.getId_inventario() + "');";
         try {
             con = conexion.getConexion();

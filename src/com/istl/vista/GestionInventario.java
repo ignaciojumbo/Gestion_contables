@@ -2,6 +2,7 @@ package com.istl.vista;
 
 import com.istl.modelo.Inventario;
 import com.istl.utilidad.UtilidadInventario;
+import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -119,7 +120,7 @@ public class GestionInventario {
 
     }
 
-    public Inventario guardarEditar() {
+    public Inventario guardarEditar(boolean isEditable) {
         Inventario p = new Inventario();
         if (txtcodigo_pro.getText().isEmpty()) {
             JOptionPane.showMessageDialog(frame, "LLene los campos del codigo", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -172,6 +173,11 @@ public class GestionInventario {
         p.setCliente_fijo(txtprecioclientefijo.getText());
         p.setCliente_normal(txtprecioclientenormal.getText());
         p.setFecha_caducidad(txtfechacaducidad.getText());
+        if(isEditable){
+            p.setFecha_actualizacion(new Date());
+        }else{
+            p.setFecha_registro(new Date());
+        }
 
         return p;
 

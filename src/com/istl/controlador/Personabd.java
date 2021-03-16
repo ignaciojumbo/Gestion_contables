@@ -24,13 +24,6 @@ public class Personabd {
 
     }
 
-    public String fecha() {
-        Date fecha = new Date();
-        SimpleDateFormat f = new SimpleDateFormat("YY/MM/dd");
-        return f.format(fecha);
-
-    }
-
     public boolean RegistrarPersona(Persona persona) {
         boolean registrar = false;
         String sql = "INSERT INTO `bdejercicio1`.`persona1` (`Cedula`, `Nombre`, `Apellido`, `Direccion`,"
