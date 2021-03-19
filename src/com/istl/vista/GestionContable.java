@@ -52,6 +52,8 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         gestion = new GestionPersona(txtcedula, txtnombre, txtapellido, txtdireccion, txttelefono, txtcorreo, cmbgenero, utilidad, this);
         gestionpro = new GestionProveedor(txtrucpro, txtrazonpro, txtactividadpro, txtnombrepro, txtapellidopro, txttelefonopro, txtcorreopro, txtdireccionpro, this);
         gestioninven = new GestionInventario(txtcodigoin, txtcantidadin, txtdescripcionin, txtpreciosiniva, txtprecioconiva, txtpreciomayorita, txtprecioclientefijo, txtprecioclientenormal, txtfechacaducidad, util, this);
+        bneliminar.setEnabled(false);
+        bneditar.setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -181,9 +183,10 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         setTitle("Sistema de ventas");
         setResizable(false);
 
+        jTabbedPane2.setBackground(new java.awt.Color(204, 204, 204));
         jTabbedPane2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        panelclientes.setBackground(new java.awt.Color(204, 204, 204));
+        panelclientes.setBackground(new java.awt.Color(0, 153, 153));
 
         bnlimpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         bnlimpiar.setText("Limpiar");
@@ -212,6 +215,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Registro de usuarios");
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setToolTipText("");
 
@@ -430,7 +434,6 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                 .addGap(50, 50, 50)
                 .addGroup(panelclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelclientesLayout.createSequentialGroup()
                         .addComponent(jlcorreo1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -440,15 +443,20 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                         .addGap(42, 42, 42)
                         .addComponent(bnbuscarpersona))
                     .addGroup(panelclientesLayout.createSequentialGroup()
-                        .addComponent(bnguardar)
-                        .addGap(31, 31, 31)
-                        .addComponent(bneditar)
-                        .addGap(29, 29, 29)
-                        .addComponent(bneliminar)
-                        .addGap(18, 18, 18)
-                        .addComponent(bnregistro)
-                        .addGap(18, 18, 18)
-                        .addComponent(bnlimpiar)))
+                        .addGap(23, 23, 23)
+                        .addGroup(panelclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelclientesLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(bnguardar)
+                                .addGap(31, 31, 31)
+                                .addComponent(bneditar)
+                                .addGap(29, 29, 29)
+                                .addComponent(bneliminar)
+                                .addGap(18, 18, 18)
+                                .addComponent(bnregistro)
+                                .addGap(18, 18, 18)
+                                .addComponent(bnlimpiar))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         panelclientesLayout.setVerticalGroup(
@@ -458,14 +466,14 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(14, 14, 14)
                 .addGroup(panelclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bneliminar)
                     .addComponent(bneditar)
                     .addComponent(bnguardar)
                     .addComponent(bnregistro)
                     .addComponent(bnlimpiar))
-                .addGap(21, 21, 21)
+                .addGap(18, 18, 18)
                 .addGroup(panelclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlcorreo1)
                     .addComponent(cmbbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -478,7 +486,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
 
         jTabbedPane2.addTab("Clientes", panelclientes);
 
-        panelproveedores.setBackground(new java.awt.Color(204, 204, 204));
+        panelproveedores.setBackground(new java.awt.Color(0, 153, 153));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel2.setText("Registro de proveedores");
@@ -564,12 +572,12 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jlcorreo3)
                 .addGap(18, 18, 18)
-                .addComponent(cmbbusquedapro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtbuscarparametropro, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbbusquedapro, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtbuscarparametropro, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(bnbuscarproveedores)
-                .addGap(30, 30, 30))
+                .addGap(61, 61, 61))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(29, 29, 29)
@@ -582,7 +590,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                     .addComponent(bnregistropro)
                     .addGap(18, 18, 18)
                     .addComponent(bnlimpiarpro)
-                    .addContainerGap(29, Short.MAX_VALUE)))
+                    .addContainerGap(72, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -606,6 +614,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                     .addContainerGap(57, Short.MAX_VALUE)))
         );
 
+        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel4.setToolTipText("");
         jPanel4.setName("Registro"); // NOI18N
@@ -726,19 +735,20 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         panelproveedoresLayout.setHorizontalGroup(
             panelproveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelproveedoresLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 260, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(247, 247, 247))
             .addGroup(panelproveedoresLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelproveedoresLayout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(panelproveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(panelproveedoresLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(panelproveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(panelproveedoresLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelproveedoresLayout.setVerticalGroup(
             panelproveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -749,14 +759,16 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jPanel4.getAccessibleContext().setAccessibleName("");
 
         jTabbedPane2.addTab("Proveedores", panelproveedores);
+
+        panelinventario.setBackground(new java.awt.Color(0, 153, 153));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel5.setToolTipText("");
@@ -965,10 +977,10 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                         .addGap(18, 18, 18)
                         .addComponent(cmbbusquedainven, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtbuscarparametroinventario, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtbuscarparametroinventario, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(bnbuscarinventario)
-                        .addGap(30, 30, 30))
+                        .addGap(57, 57, 57))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addComponent(bneditarpro1)
                         .addGap(75, 75, 75)
@@ -980,7 +992,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                     .addComponent(bnguardarinve)
                     .addGap(431, 431, 431)
                     .addComponent(bnlimpiarpro1)
-                    .addContainerGap(29, Short.MAX_VALUE)))
+                    .addContainerGap(71, Short.MAX_VALUE)))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1021,17 +1033,16 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
             .addGroup(panelinventarioLayout.createSequentialGroup()
                 .addGroup(panelinventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelinventarioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelinventarioLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(244, 244, 244)
+                        .addComponent(jLabel3))
                     .addGroup(panelinventarioLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelinventarioLayout.createSequentialGroup()
-                        .addGap(244, 244, 244)
-                        .addComponent(jLabel3)))
+                        .addGap(44, 44, 44)
+                        .addGroup(panelinventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         panelinventarioLayout.setVerticalGroup(
@@ -1041,14 +1052,16 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Inventario", panelinventario);
+
+        panelventas.setBackground(new java.awt.Color(0, 153, 153));
 
         javax.swing.GroupLayout panelventasLayout = new javax.swing.GroupLayout(panelventas);
         panelventas.setLayout(panelventasLayout);
@@ -1063,6 +1076,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
 
         jTabbedPane2.addTab("Venta", panelventas);
 
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
         jMenuBar1.setForeground(new java.awt.Color(102, 255, 102));
 
         menuarchivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/folder-regular-24.png"))); // NOI18N
@@ -1160,6 +1174,9 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                     gestion.limpiar();
                     personaEditar = null;
                     tabla();
+                    bnguardar.setEnabled(true);
+                    bneditar.setEnabled(false);
+                    bneliminar.setEnabled(false);
 
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "No se puede editar persona", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -1186,6 +1203,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                     gestionpro.limpiar();
                     personaEditar = null;
                     tablaproveedor();
+                    bnguardarpro.setEnabled(true);
 
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "No se puede editar proveedor", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -1283,12 +1301,18 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                         gestion.limpiar();
                         personaEditar = null;
                         tabla();
+                        bnguardar.setEnabled(true);
+                        bneditar.setEnabled(false);
+                        bneliminar.setEnabled(false);
                     } else {
                         JOptionPane.showMessageDialog(rootPane, "No se puede eliminar persona", "ERROR", JOptionPane.ERROR_MESSAGE);
                     }
                 }
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Acción cancelada", "Alerta", JOptionPane.INFORMATION_MESSAGE);
+                bnguardar.setEnabled(true);
+                bneditar.setEnabled(false);
+                bneliminar.setEnabled(false);
                 gestion.limpiar();
             }
         }
@@ -1328,7 +1352,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
             JOptionPane.showMessageDialog(rootPane, "No hay un inventario seleccionada para Eliminar", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         if (inventarioeditar != null) {
             inventarioeditar.setId_inventario(inventarioeditar.getId_inventario());
             int confirmar = JOptionPane.showConfirmDialog(null, "¿ESTA SEGURO DE ELIMINAR A ESTE INVENTARIO", "confirmar salida",
@@ -1448,6 +1472,8 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private void bnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnlimpiarActionPerformed
         gestion.limpiar();
         bnguardar.setEnabled(true);
+        bneliminar.setEnabled(false);
+        bneditar.setEnabled(false);
     }//GEN-LAST:event_bnlimpiarActionPerformed
 
     private void bnbuscarpersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnbuscarpersonaActionPerformed
@@ -1467,6 +1493,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
 
     private void bnlimpiarproActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnlimpiarproActionPerformed
         gestionpro.limpiar();
+        bnguardarpro.setEnabled(true);
     }//GEN-LAST:event_bnlimpiarproActionPerformed
 
     private void bnregistroproActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnregistroproActionPerformed
@@ -1799,6 +1826,8 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         cmbgenero.setSelectedItem(p.getGenero());
         // cmbgenero.setSelectedIndex(p.getGenero());
         bnguardar.setEnabled(false);
+        bneliminar.setEnabled(true);
+        bneditar.setEnabled(true);
         personaEditar = p;
 
     }
@@ -1813,6 +1842,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txttelefonopro.setText(pro.getTelefono());
         txtcorreopro.setText(pro.getCorreo());
         txtdireccionpro.setText(pro.getDireccionpro());
+        bnguardarpro.setEnabled(false);
         proveedoreditar = pro;
     }
 
