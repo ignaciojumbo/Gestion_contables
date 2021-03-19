@@ -49,7 +49,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         this.setLocationRelativeTo(null);
         utilidad = new Utilidad();
         util = new UtilidadInventario();
-        gestion = new GestionPersona(txtcedula, txtnombre, txtapellido, txtdireccion, txttelefono, txtcorreo, cmbgenero, utilidad, this);
+        gestion = new GestionPersona(txtcedula, txtnombre, txtapellido, txtdireccion, txttelefono, txtcorreo, cmbgenero, jdatefechanacimiento, utilidad, this);
         gestionpro = new GestionProveedor(txtrucpro, txtrazonpro, txtactividadpro, txtnombrepro, txtapellidopro, txttelefonopro, txtcorreopro, txtdireccionpro, this);
         gestioninven = new GestionInventario(txtcodigoin, txtcantidadin, txtdescripcionin, txtpreciosiniva, txtprecioconiva, txtpreciomayorita, txtprecioclientefijo, txtprecioclientenormal, txtfechacaducidad, util, this);
         bneliminar.setEnabled(false);
@@ -87,6 +87,8 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         cmbgenero = new javax.swing.JComboBox<>();
         rbbottomcedula = new javax.swing.JRadioButton();
         rbbottompasaporte = new javax.swing.JRadioButton();
+        jlcorreo6 = new javax.swing.JLabel();
+        jdatefechanacimiento = new com.toedter.calendar.JDateChooser();
         bneliminar = new javax.swing.JButton();
         bnregistro = new javax.swing.JButton();
         bneditar = new javax.swing.JButton();
@@ -287,21 +289,27 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         rbbottompasaporte.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         rbbottompasaporte.setText("Pasaporte");
 
+        jlcorreo6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlcorreo6.setText("Fecha de nacimineto");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ljdireccion)
-                    .addComponent(jlapellido)
-                    .addComponent(jlnombre)
-                    .addComponent(ljcorreo)
-                    .addComponent(jlcorreo)
-                    .addComponent(jlcedula)
-                    .addComponent(jlcorreo2))
-                .addGap(103, 103, 103)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ljdireccion)
+                            .addComponent(jlapellido)
+                            .addComponent(jlnombre)
+                            .addComponent(ljcorreo)
+                            .addComponent(jlcorreo)
+                            .addComponent(jlcedula)
+                            .addComponent(jlcorreo2)))
+                    .addComponent(jlcorreo6))
+                .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -309,13 +317,15 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                         .addComponent(rbbottomcedula)
                         .addGap(27, 27, 27)
                         .addComponent(rbbottompasaporte))
-                    .addComponent(cmbgenero, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(txtnombre, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtcorreo, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtdireccion)
                         .addComponent(txtapellido)
-                        .addComponent(txttelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)))
+                        .addComponent(txttelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jdatefechanacimiento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cmbgenero, javax.swing.GroupLayout.Alignment.LEADING, 0, 344, Short.MAX_VALUE)))
                 .addContainerGap(81, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -353,7 +363,11 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlcorreo2)
                     .addComponent(cmbgenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlcorreo6)
+                    .addComponent(jdatefechanacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         bneliminar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -744,7 +758,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                         .addGap(35, 35, 35)
                         .addGroup(panelproveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 696, Short.MAX_VALUE)))
                     .addGroup(panelproveedoresLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1745,6 +1759,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
+    private com.toedter.calendar.JDateChooser jdatefechanacimiento;
     private javax.swing.JLabel jlapellido;
     private javax.swing.JLabel jlapellido2;
     private javax.swing.JLabel jlapellido3;
@@ -1761,6 +1776,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private javax.swing.JLabel jlcorreo3;
     private javax.swing.JLabel jlcorreo4;
     private javax.swing.JLabel jlcorreo5;
+    private javax.swing.JLabel jlcorreo6;
     private javax.swing.JLabel jlcorreo7;
     private javax.swing.JLabel jlcorreo8;
     private javax.swing.JLabel jlnombre;
@@ -1824,7 +1840,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txttelefono.setText(p.getTelefono());
         txtcorreo.setText(p.getCorreo());
         cmbgenero.setSelectedItem(p.getGenero());
-        // cmbgenero.setSelectedIndex(p.getGenero());
+        jdatefechanacimiento.setDate(p.getFecha_nacimiento());
         bnguardar.setEnabled(false);
         bneliminar.setEnabled(true);
         bneditar.setEnabled(true);

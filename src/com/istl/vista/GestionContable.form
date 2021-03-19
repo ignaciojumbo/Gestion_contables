@@ -316,17 +316,22 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="ljdireccion" min="-2" max="-2" attributes="0"/>
-                              <Component id="jlapellido" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jlnombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="ljcorreo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jlcorreo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jlcedula" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jlcorreo2" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="ljdireccion" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jlapellido" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jlnombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ljcorreo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jlcorreo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jlcedula" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jlcorreo2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="jlcorreo6" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="txtcedula" min="-2" pref="167" max="-2" attributes="0"/>
@@ -335,13 +340,16 @@
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   <Component id="rbbottompasaporte" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="cmbgenero" min="-2" pref="344" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="txtnombre" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtcorreo" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtdireccion" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txtapellido" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txttelefono" alignment="0" pref="344" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jdatefechanacimiento" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cmbgenero" alignment="0" pref="344" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="81" max="32767" attributes="0"/>
@@ -392,7 +400,12 @@
                               <Component id="jlcorreo2" min="-2" max="-2" attributes="0"/>
                               <Component id="cmbgenero" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="51" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jlcorreo6" min="-2" max="-2" attributes="0"/>
+                              <Component id="jdatefechanacimiento" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="13" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -534,6 +547,16 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Pasaporte"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jlcorreo6">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Fecha de nacimineto"/>
+                  </Properties>
+                </Component>
+                <Component class="com.toedter.calendar.JDateChooser" name="jdatefechanacimiento">
                 </Component>
               </SubComponents>
             </Container>
@@ -692,7 +715,7 @@
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jPanel4" max="32767" attributes="0"/>
-                                  <Component id="jPanel3" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jPanel3" pref="696" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">

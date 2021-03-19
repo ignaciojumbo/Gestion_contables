@@ -15,6 +15,7 @@ public class Persona {
     private Date fecha_registro;
     private String genero;
     private Date fecha_actualizacion;
+    private Date fecha_nacimiento;
 
     public int getIdPersona() {
         return idPersona;
@@ -96,15 +97,18 @@ public class Persona {
         this.fecha_actualizacion = fecha_actualizacion;
     }
 
-    @Override
-    public String toString() {
-        return "Persona{" + "idPersona=" + idPersona + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion + ", correo=" + correo + ", telefono=" + telefono + ", fecha_registro=" + fecha_registro + ", genero=" + genero + ", fecha_actualizacion=" + fecha_actualizacion + '}';
+    public Date getFecha_nacimiento() {
+        return fecha_nacimiento;
     }
 
-    
+    public void setFecha_nacimiento(Date fecha_nacimiento) {
+        this.fecha_nacimiento = fecha_nacimiento;
+    }
 
-  
+    @Override
+    public String toString() {
+        return "Persona{" + "idPersona=" + idPersona + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion + ", correo=" + correo + ", telefono=" + telefono + ", fecha_registro=" + fecha_registro + ", genero=" + genero + ", fecha_actualizacion=" + fecha_actualizacion + ", fecha_nacimiento=" + fecha_nacimiento + '}';
+    }
+    
    
-    
-    
 }

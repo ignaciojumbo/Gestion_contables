@@ -7,9 +7,7 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.ResultSetImpl;
 import com.mysql.jdbc.Statement;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Personabd {
@@ -26,12 +24,21 @@ public class Personabd {
 
     public boolean RegistrarPersona(Persona persona) {
         boolean registrar = false;
-        String sql = "INSERT INTO `bdejercicio1`.`persona1` (`Cedula`, `Nombre`, `Apellido`, `Direccion`,"
-                + " `Correo`, `Telefono`, `Fecha_registro`, `Genero`)"
+        String sql;
+
+        if (persona.getFecha_nacimiento() == null) {
+            sql = "INSERT INTO `bdejercicio1`.`persona1` (`Cedula`, `Nombre`, `Apellido`, `Direccion`,"
+                    + " `Correo`, `Telefono`, `Fecha_registro`, `Genero`)"
+                    + " VALUES ('" + persona.getCedula() + "', '" + persona.getNombre() + "', '" + persona.getApellido() + "',"
+                    + " '" + persona.getDireccion() + "', '" + persona.getCorreo() + "', '" + persona.getTelefono() + "', "
+                    + "'" + util.fecha(persona.getFecha_registro()) + "', '" + persona.getGenero() + "');";
+        }else{
+            sql = "INSERT INTO `bdejercicio1`.`persona1` (`Cedula`, `Nombre`, `Apellido`, `Direccion`,"
+                + " `Correo`, `Telefono`, `Fecha_registro`, `Genero`,`Fecha_nacimiento`)"
                 + " VALUES ('" + persona.getCedula() + "', '" + persona.getNombre() + "', '" + persona.getApellido() + "',"
                 + " '" + persona.getDireccion() + "', '" + persona.getCorreo() + "', '" + persona.getTelefono() + "', "
-                + "'" + util.fecha(persona.getFecha_registro()) + "', '" + persona.getGenero() + "');";
-
+                + "'" + util.fecha(persona.getFecha_registro()) + "', '" + persona.getGenero() + "', '" + util.fecha(persona.getFecha_nacimiento())+ "');";
+        }
         try {
 
             con = conexion.getConexion();
@@ -67,7 +74,7 @@ public class Personabd {
 
     public boolean editar(Persona persona) throws SQLException {
         boolean actualiar = false;
-        String sql = "UPDATE `bdejercicio1`.`persona1` SET "
+        String sql ="UPDATE `bdejercicio1`.`persona1` SET "
                 + "`Cedula` = '"+persona.getCedula()+"', "
                 + "`Nombre` = '"+persona.getNombre()+"', "
                 + "`Apellido` = '"+persona.getApellido()+"', "
@@ -75,7 +82,8 @@ public class Personabd {
                 + "`Correo` = '"+persona.getCorreo()+"', "
                 + "`Telefono` = '"+persona.getTelefono()+"', "
                 + "`Genero` = '"+persona.getGenero()+"', "
-                + "`Fecha_actualizacion` = '"+util.fecha(persona.getFecha_actualizacion())+"' "
+                + "`Fecha_actualizacion` = '"+util.fecha(persona.getFecha_actualizacion())+"', "
+                + "`Fecha_nacimiento` = '"+util.fecha(persona.getFecha_nacimiento())+"' "
                 + "WHERE (`idpersona1` = '"+persona.getIdPersona()+"');";
         try {
             con = conexion.getConexion();
@@ -114,6 +122,7 @@ public class Personabd {
                 c.setTelefono(rs.getString(7));
                 c.setFecha_registro(rs.getDate(8));
                 c.setGenero(rs.getString(9));
+                c.setFecha_nacimiento(rs.getDate(10));
 
             }
             stm.close();
@@ -149,6 +158,7 @@ public class Personabd {
                 c.setTelefono(rs.getString(7));
                 c.setFecha_registro(rs.getDate(8));
                 c.setGenero(rs.getString(9));
+                c.setFecha_nacimiento(rs.getDate(10));
             }
             stm.close();
             rs.close();
@@ -182,6 +192,7 @@ public class Personabd {
                 c.setTelefono(rs.getString(7));
                 c.setFecha_registro(rs.getDate(8));
                 c.setGenero(rs.getString(9));
+                c.setFecha_nacimiento(rs.getDate(10));
                 personasEncontradas.add(c);
             }
             stm.close();
@@ -216,6 +227,7 @@ public class Personabd {
                 c.setTelefono(rs.getString(7));
                 c.setFecha_registro(rs.getDate(8));
                 c.setGenero(rs.getString(9));
+                c.setFecha_nacimiento(rs.getDate(10));
                 personasEncontradas.add(c);
             }
             stm.close();
@@ -251,6 +263,7 @@ public class Personabd {
                 c.setTelefono(rs.getString(7));
                 c.setFecha_registro(rs.getDate(8));
                 c.setGenero(rs.getString(9));
+                c.setFecha_nacimiento(rs.getDate(10));
                 listaPersonas.add(c);
             }
             stm.close();

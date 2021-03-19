@@ -2,6 +2,7 @@ package com.istl.vista;
 
 import com.istl.modelo.Persona;
 import com.istl.utilidad.Utilidad;
+import com.toedter.calendar.JDateChooser;
 import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -17,21 +18,24 @@ public class GestionPersona {
     private JTextField txttelefono;
     private JTextField txtcorreo;
     private JComboBox cmbgenero;
+    private JDateChooser jdfecha_nacimineto;
     private Utilidad utilidad;
     private JFrame frame;
 
-    public GestionPersona(JTextField txtcedula, JTextField txtnombre, JTextField txtapellido, JTextField txtdireccion, JTextField txttelefono, JTextField txtcorreo, JComboBox cmbgenero, Utilidad utilidad, JFrame frame) {
+    public GestionPersona(JTextField txtcedula, JTextField txtnombre, JTextField txtapellido, JTextField txtdireccion, JTextField txttelefono, JTextField txtcorreo, JComboBox cmbgenero, JDateChooser jdfecha_nacimineto, Utilidad utilidad, JFrame frame) {
         this.txtcedula = txtcedula;
         this.txtnombre = txtnombre;
         this.txtapellido = txtapellido;
         this.txtdireccion = txtdireccion;
         this.txttelefono = txttelefono;
         this.txtcorreo = txtcorreo;
-
         this.cmbgenero = cmbgenero;
+        this.jdfecha_nacimineto = jdfecha_nacimineto;
         this.utilidad = utilidad;
         this.frame = frame;
     }
+
+   
 
     public JTextField getTxtcedula() {
         return txtcedula;
@@ -91,6 +95,15 @@ public class GestionPersona {
         this.cmbgenero = cmbgenero;
     }
 
+    public JDateChooser getJdfecha_nacimineto() {
+        return jdfecha_nacimineto;
+    }
+
+    public void setJdfecha_nacimineto(JDateChooser jdfecha_nacimineto) {
+        this.jdfecha_nacimineto = jdfecha_nacimineto;
+    }
+    
+
     public void limpiar() {
         txtcedula.setText("");
         txtnombre.setText("");
@@ -99,6 +112,7 @@ public class GestionPersona {
         txttelefono.setText("");
         txtcorreo.setText("");
         cmbgenero.setSelectedIndex(0);
+        jdfecha_nacimineto.setDate(null);
       
 
     }
@@ -151,6 +165,7 @@ public class GestionPersona {
         p.setTelefono(txttelefono.getText());
         p.setFecha_registro(new Date());
         p.setGenero(cmbgenero.getSelectedItem().toString());
+        p.setFecha_nacimiento(jdfecha_nacimineto.getDate());
         if(isEditar){
             p.setFecha_actualizacion(new Date());
         }else{
