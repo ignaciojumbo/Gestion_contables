@@ -276,9 +276,11 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         });
 
         botongrupo.add(rbbottomcedula);
+        rbbottomcedula.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         rbbottomcedula.setText("Cédula");
 
         botongrupo.add(rbbottompasaporte);
+        rbbottompasaporte.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         rbbottompasaporte.setText("Pasaporte");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
