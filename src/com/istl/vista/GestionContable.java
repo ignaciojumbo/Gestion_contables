@@ -17,7 +17,6 @@ import com.istl.modelJTable.ModelTableProveedor;
 import com.istl.modelo.Inventario;
 import com.istl.utilidad.UtilidadInventario;
 import java.awt.Color;
-import java.util.Date;
 
 public class GestionContable extends javax.swing.JFrame implements ComunicacionVistadeTablas {
 
@@ -37,7 +36,6 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private UtilidadInventario util;
 
     public GestionContable() {
-        Date fecha = new Date();
         controladorPersona = new Personabd();
         controladorProveedor = new Proveedorbd();
         controladorInvenario = new Inventariodb();
@@ -50,10 +48,12 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         utilidad = new Utilidad();
         util = new UtilidadInventario();
         gestion = new GestionPersona(txtcedula, txtnombre, txtapellido, txtdireccion, txttelefono, txtcorreo, cmbgenero, jdatefechanacimiento, utilidad, this);
-        gestionpro = new GestionProveedor(txtrucpro, txtrazonpro, txtactividadpro, txtnombrepro, txtapellidopro, txttelefonopro, txtcorreopro, txtdireccionpro, this);
+        gestionpro = new GestionProveedor(txtrucpro, txtrazonpro, txtactividadpro, txtnombrepro, txtapellidopro, txttelefonopro, txtcorreopro, txtdireccionpro, jdatefechavencimientopro, this);
         gestioninven = new GestionInventario(txtcodigoin, txtcantidadin, txtdescripcionin, txtpreciosiniva, txtprecioconiva, txtpreciomayorita, txtprecioclientefijo, txtprecioclientenormal, txtfechacaducidad, util, this);
         bneliminar.setEnabled(false);
         bneditar.setEnabled(false);
+        bneliminarpro.setEnabled(false);
+        bneditarpro.setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -127,6 +127,8 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txtcorreopro = new javax.swing.JTextField();
         jlcorreo7 = new javax.swing.JLabel();
         txtdireccionpro = new javax.swing.JTextField();
+        jlcorreo9 = new javax.swing.JLabel();
+        jdatefechavencimientopro = new com.toedter.calendar.JDateChooser();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtproveedor = new javax.swing.JTable();
         panelinventario = new javax.swing.JPanel();
@@ -150,9 +152,9 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         jlapellido7 = new javax.swing.JLabel();
         txtfechacaducidad = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
-        bnlimpiarpro1 = new javax.swing.JButton();
-        bneliminarpro1 = new javax.swing.JButton();
-        bneditarpro1 = new javax.swing.JButton();
+        bnlimpiarinve = new javax.swing.JButton();
+        bneliminarinve = new javax.swing.JButton();
+        bneditarinve = new javax.swing.JButton();
         bnguardarinve = new javax.swing.JButton();
         jlcorreo8 = new javax.swing.JLabel();
         cmbbusquedainven = new javax.swing.JComboBox<>();
@@ -673,6 +675,9 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
 
         txtdireccionpro.setToolTipText("Ingrese la dirección");
 
+        jlcorreo9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlcorreo9.setText("Fecha vencimiento");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -687,7 +692,8 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                     .addComponent(jlcorreo4)
                     .addComponent(jlcedula2)
                     .addComponent(jlcorreo5)
-                    .addComponent(jlcorreo7))
+                    .addComponent(jlcorreo7)
+                    .addComponent(jlcorreo9))
                 .addGap(80, 80, 80)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtdireccionpro)
@@ -697,7 +703,8 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                     .addComponent(txtactividadpro, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txttelefonopro)
                     .addComponent(txtcorreopro)
-                    .addComponent(txtrucpro))
+                    .addComponent(txtrucpro)
+                    .addComponent(jdatefechavencimientopro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(82, 82, 82))
         );
         jPanel4Layout.setVerticalGroup(
@@ -735,7 +742,11 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtdireccionpro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlcorreo7))
-                .addGap(60, 60, 60))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlcorreo9)
+                    .addComponent(jdatefechavencimientopro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29))
         );
 
         jtproveedor.setBackground(new java.awt.Color(51, 255, 153));
@@ -770,10 +781,10 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                 .addGap(13, 13, 13)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
@@ -913,32 +924,32 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
 
         jPanel6.setBackground(new java.awt.Color(204, 204, 204));
 
-        bnlimpiarpro1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bnlimpiarpro1.setText("Limpiar");
-        bnlimpiarpro1.setToolTipText("Limpiar campos");
-        bnlimpiarpro1.addActionListener(new java.awt.event.ActionListener() {
+        bnlimpiarinve.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnlimpiarinve.setText("Limpiar");
+        bnlimpiarinve.setToolTipText("Limpiar campos");
+        bnlimpiarinve.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bnlimpiarpro1ActionPerformed(evt);
+                bnlimpiarinveActionPerformed(evt);
             }
         });
 
-        bneliminarpro1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bneliminarpro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash-alt-regular-24.png"))); // NOI18N
-        bneliminarpro1.setText("Eliminar");
-        bneliminarpro1.setToolTipText("Eliminar registro");
-        bneliminarpro1.addActionListener(new java.awt.event.ActionListener() {
+        bneliminarinve.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bneliminarinve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash-alt-regular-24.png"))); // NOI18N
+        bneliminarinve.setText("Eliminar");
+        bneliminarinve.setToolTipText("Eliminar registro");
+        bneliminarinve.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bneliminarpro1ActionPerformed(evt);
+                bneliminarinveActionPerformed(evt);
             }
         });
 
-        bneditarpro1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bneditarpro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/edit-alt-regular-24.png"))); // NOI18N
-        bneditarpro1.setText("Editar");
-        bneditarpro1.setToolTipText("Editar registro");
-        bneditarpro1.addActionListener(new java.awt.event.ActionListener() {
+        bneditarinve.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bneditarinve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/edit-alt-regular-24.png"))); // NOI18N
+        bneditarinve.setText("Editar");
+        bneditarinve.setToolTipText("Editar registro");
+        bneditarinve.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bneditarpro1ActionPerformed(evt);
+                bneditarinveActionPerformed(evt);
             }
         });
 
@@ -996,16 +1007,16 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                         .addComponent(bnbuscarinventario)
                         .addGap(57, 57, 57))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addComponent(bneditarpro1)
+                        .addComponent(bneditarinve)
                         .addGap(75, 75, 75)
-                        .addComponent(bneliminarpro1)
+                        .addComponent(bneliminarinve)
                         .addGap(233, 233, 233))))
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel6Layout.createSequentialGroup()
                     .addGap(29, 29, 29)
                     .addComponent(bnguardarinve)
                     .addGap(431, 431, 431)
-                    .addComponent(bnlimpiarpro1)
+                    .addComponent(bnlimpiarinve)
                     .addContainerGap(71, Short.MAX_VALUE)))
         );
         jPanel6Layout.setVerticalGroup(
@@ -1013,8 +1024,8 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bneliminarpro1)
-                    .addComponent(bneditarpro1))
+                    .addComponent(bneliminarinve)
+                    .addComponent(bneditarinve))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlcorreo8)
@@ -1027,7 +1038,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                     .addGap(18, 18, 18)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(bnguardarinve)
-                        .addComponent(bnlimpiarpro1))
+                        .addComponent(bnlimpiarinve))
                     .addContainerGap(57, Short.MAX_VALUE)))
         );
 
@@ -1218,6 +1229,8 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                     personaEditar = null;
                     tablaproveedor();
                     bnguardarpro.setEnabled(true);
+                    bneditarpro.setEnabled(false);
+                    bneliminarpro.setEnabled(false);
 
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "No se puede editar proveedor", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -1236,7 +1249,6 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
             JOptionPane.showMessageDialog(rootPane, " La persona con ese número de cédula ya se encuentra registrada en el sistema. ");
         } else {
             controladorPersona = new Personabd();
-
             if (controladorPersona.RegistrarPersona(gestion.guardarEditar(false))) {
                 JOptionPane.showMessageDialog(rootPane, "Usuario Guardado", "Guardado", JOptionPane.INFORMATION_MESSAGE);
                 gestion.limpiar();
@@ -1251,7 +1263,6 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     public void guardarproveedor() {
 
         controladorProveedor = new Proveedorbd();
-
         if (controladorProveedor.Registrarproveedor(gestionpro.guardarEditar(false))) {
             JOptionPane.showMessageDialog(rootPane, "Proveedor Guardado", "Guardado", JOptionPane.INFORMATION_MESSAGE);
             tablaproveedor();
@@ -1348,6 +1359,9 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                     gestionpro.limpiar();
                     proveedoreditar = null;
                     tablaproveedor();
+                    bnguardarpro.setEnabled(true);
+                    bneditarpro.setEnabled(false);
+                    bneliminarpro.setEnabled(false);
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "No se puede eliminar el proveedor", "ERROR", JOptionPane.ERROR_MESSAGE);
                 }
@@ -1472,6 +1486,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txtdireccion.setText(personaEditar.getDireccion());
         txttelefono.setText(personaEditar.getTelefono());
         txtcorreo.setText(personaEditar.getCorreo());
+        
     }//GEN-LAST:event_bnregistroActionPerformed
 
     private void bneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bneliminarActionPerformed
@@ -1508,18 +1523,22 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private void bnlimpiarproActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnlimpiarproActionPerformed
         gestionpro.limpiar();
         bnguardarpro.setEnabled(true);
+        bneditarpro.setEnabled(false);
+        bneliminarpro.setEnabled(false);
     }//GEN-LAST:event_bnlimpiarproActionPerformed
 
     private void bnregistroproActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnregistroproActionPerformed
-        List<Proveedor> obtenerProveedor = controladorProveedor.obtenerProveedor();
-        proveedoreditar = obtenerProveedor.get(obtenerProveedor.size() - 1);
-        txtrucpro.setText(proveedoreditar.getRuc());
-        txtrazonpro.setText(proveedoreditar.getRazonSocial());
-        txtactividadpro.setText(proveedoreditar.getTipoActividad());
-        txtnombrepro.setText(proveedoreditar.getNombreRepresentante());
-        txtapellidopro.setText(proveedoreditar.getApellidoRepresentante());
-        txttelefonopro.setText(proveedoreditar.getTelefono());
-        txtcorreopro.setText(proveedoreditar.getCorreo());
+//        List<Proveedor> obtenerProveedor = controladorProveedor.obtenerProveedor();
+//        proveedoreditar = obtenerProveedor.get(obtenerProveedor.size() - 1);
+//        txtrucpro.setText(proveedoreditar.getRuc());
+//        txtrazonpro.setText(proveedoreditar.getRazonSocial());
+//        txtactividadpro.setText(proveedoreditar.getTipoActividad());
+//        txtnombrepro.setText(proveedoreditar.getNombreRepresentante());
+//        txtapellidopro.setText(proveedoreditar.getApellidoRepresentante());
+//        txttelefonopro.setText(proveedoreditar.getTelefono());
+//        txtcorreopro.setText(proveedoreditar.getCorreo());
+//        txtdireccionpro.setText(proveedoreditar.getDireccionpro());
+//        jdatefechanacimiento.setDate(proveedoreditar.getFecha_vencimiento());
     }//GEN-LAST:event_bnregistroproActionPerformed
 
     private void bneliminarproActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bneliminarproActionPerformed
@@ -1540,17 +1559,17 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
 
     }//GEN-LAST:event_bnbuscarproveedoresActionPerformed
 
-    private void bnlimpiarpro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnlimpiarpro1ActionPerformed
+    private void bnlimpiarinveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnlimpiarinveActionPerformed
         gestioninven.limpiar();
-    }//GEN-LAST:event_bnlimpiarpro1ActionPerformed
+    }//GEN-LAST:event_bnlimpiarinveActionPerformed
 
-    private void bneliminarpro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bneliminarpro1ActionPerformed
+    private void bneliminarinveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bneliminarinveActionPerformed
         eliminarInventario();
-    }//GEN-LAST:event_bneliminarpro1ActionPerformed
+    }//GEN-LAST:event_bneliminarinveActionPerformed
 
-    private void bneditarpro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bneditarpro1ActionPerformed
+    private void bneditarinveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bneditarinveActionPerformed
         editarInventero();
-    }//GEN-LAST:event_bneditarpro1ActionPerformed
+    }//GEN-LAST:event_bneditarinveActionPerformed
 
     private void bnguardarinveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnguardarinveActionPerformed
         guardarInventario();
@@ -1720,17 +1739,17 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private javax.swing.JButton bnbuscarpersona;
     private javax.swing.JButton bnbuscarproveedores;
     private javax.swing.JButton bneditar;
+    private javax.swing.JButton bneditarinve;
     private javax.swing.JButton bneditarpro;
-    private javax.swing.JButton bneditarpro1;
     private javax.swing.JButton bneliminar;
+    private javax.swing.JButton bneliminarinve;
     private javax.swing.JButton bneliminarpro;
-    private javax.swing.JButton bneliminarpro1;
     private javax.swing.JButton bnguardar;
     private javax.swing.JButton bnguardarinve;
     private javax.swing.JButton bnguardarpro;
     private javax.swing.JButton bnlimpiar;
+    private javax.swing.JButton bnlimpiarinve;
     private javax.swing.JButton bnlimpiarpro;
-    private javax.swing.JButton bnlimpiarpro1;
     private javax.swing.JButton bnregistro;
     private javax.swing.JButton bnregistropro;
     private javax.swing.ButtonGroup botongrupo;
@@ -1760,6 +1779,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
     private com.toedter.calendar.JDateChooser jdatefechanacimiento;
+    private com.toedter.calendar.JDateChooser jdatefechavencimientopro;
     private javax.swing.JLabel jlapellido;
     private javax.swing.JLabel jlapellido2;
     private javax.swing.JLabel jlapellido3;
@@ -1779,6 +1799,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private javax.swing.JLabel jlcorreo6;
     private javax.swing.JLabel jlcorreo7;
     private javax.swing.JLabel jlcorreo8;
+    private javax.swing.JLabel jlcorreo9;
     private javax.swing.JLabel jlnombre;
     private javax.swing.JLabel jlnombre2;
     private javax.swing.JLabel jlnombre3;
@@ -1841,10 +1862,11 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txtcorreo.setText(p.getCorreo());
         cmbgenero.setSelectedItem(p.getGenero());
         jdatefechanacimiento.setDate(p.getFecha_nacimiento());
+        personaEditar = p;
         bnguardar.setEnabled(false);
         bneliminar.setEnabled(true);
         bneditar.setEnabled(true);
-        personaEditar = p;
+        
 
     }
 
@@ -1858,8 +1880,12 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txttelefonopro.setText(pro.getTelefono());
         txtcorreopro.setText(pro.getCorreo());
         txtdireccionpro.setText(pro.getDireccionpro());
-        bnguardarpro.setEnabled(false);
+        jdatefechavencimientopro.setDate(pro.getFecha_vencimiento());
         proveedoreditar = pro;
+        bnguardarpro.setEnabled(false);
+        bneliminarpro.setEnabled(true);
+        bneditarpro.setEnabled(true);
+        
     }
 
     @Override

@@ -733,10 +733,10 @@
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel4" min="-2" pref="282" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jPanel4" min="-2" pref="296" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="121" max="-2" attributes="0"/>
                       <EmptySpace pref="19" max="32767" attributes="0"/>
                   </Group>
@@ -964,7 +964,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="ljdireccion2" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -975,6 +975,7 @@
                               <Component id="jlcedula2" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jlcorreo5" min="-2" max="-2" attributes="0"/>
                               <Component id="jlcorreo7" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlcorreo9" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -986,6 +987,7 @@
                               <Component id="txttelefonopro" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtcorreopro" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtrucpro" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jdatefechavencimientopro" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                       </Group>
@@ -1034,7 +1036,12 @@
                               <Component id="txtdireccionpro" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jlcorreo7" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jlcorreo9" min="-2" max="-2" attributes="0"/>
+                              <Component id="jdatefechavencimientopro" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1143,6 +1150,16 @@
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Ingrese la direcci&#xf3;n"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jlcorreo9">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Fecha vencimiento"/>
+                  </Properties>
+                </Component>
+                <Component class="com.toedter.calendar.JDateChooser" name="jdatefechavencimientopro">
                 </Component>
               </SubComponents>
             </Container>
@@ -1483,9 +1500,9 @@
                                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="bneditarpro1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bneditarinve" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                                  <Component id="bneliminarpro1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bneliminarinve" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -1495,7 +1512,7 @@
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                               <Component id="bnguardarinve" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="431" max="-2" attributes="0"/>
-                              <Component id="bnlimpiarpro1" min="-2" max="-2" attributes="0"/>
+                              <Component id="bnlimpiarinve" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="71" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1506,8 +1523,8 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="20" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="bneliminarpro1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="bneditarpro1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="bneliminarinve" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="bneditarinve" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1523,7 +1540,7 @@
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="bnguardarinve" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="bnlimpiarpro1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bnlimpiarinve" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="57" max="32767" attributes="0"/>
                           </Group>
@@ -1532,7 +1549,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="bnlimpiarpro1">
+                <Component class="javax.swing.JButton" name="bnlimpiarinve">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -1541,10 +1558,10 @@
                     <Property name="toolTipText" type="java.lang.String" value="Limpiar campos"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bnlimpiarpro1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bnlimpiarinveActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="bneliminarpro1">
+                <Component class="javax.swing.JButton" name="bneliminarinve">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -1556,10 +1573,10 @@
                     <Property name="toolTipText" type="java.lang.String" value="Eliminar registro"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bneliminarpro1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bneliminarinveActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="bneditarpro1">
+                <Component class="javax.swing.JButton" name="bneditarinve">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -1571,7 +1588,7 @@
                     <Property name="toolTipText" type="java.lang.String" value="Editar registro"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bneditarpro1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bneditarinveActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="bnguardarinve">

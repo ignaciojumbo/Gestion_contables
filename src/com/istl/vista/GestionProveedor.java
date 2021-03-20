@@ -3,6 +3,7 @@ package com.istl.vista;
 import com.istl.modelo.Persona;
 import com.istl.modelo.Proveedor;
 import com.istl.utilidad.Utilidad;
+import com.toedter.calendar.JDateChooser;
 import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -18,9 +19,10 @@ public class GestionProveedor {
     private JTextField txttelefonopro;
     private JTextField txtcorreopro;
     private JTextField txtdireccionpro;
+    private JDateChooser jdatefechavencimientopro;
     private JFrame frame;
 
-    public GestionProveedor(JTextField txtrucpro, JTextField txtrazonpro, JTextField txtactividadpro, JTextField txtnombrepro, JTextField txtapellidopro, JTextField txttelefonopro, JTextField txtcorreopro, JTextField txtdireccionpro, JFrame frame) {
+    public GestionProveedor(JTextField txtrucpro, JTextField txtrazonpro, JTextField txtactividadpro, JTextField txtnombrepro, JTextField txtapellidopro, JTextField txttelefonopro, JTextField txtcorreopro, JTextField txtdireccionpro, JDateChooser jdatefechavencimientopro, JFrame frame) {
         this.txtrucpro = txtrucpro;
         this.txtrazonpro = txtrazonpro;
         this.txtactividadpro = txtactividadpro;
@@ -29,6 +31,7 @@ public class GestionProveedor {
         this.txttelefonopro = txttelefonopro;
         this.txtcorreopro = txtcorreopro;
         this.txtdireccionpro = txtdireccionpro;
+        this.jdatefechavencimientopro = jdatefechavencimientopro;
         this.frame = frame;
     }
 
@@ -96,6 +99,14 @@ public class GestionProveedor {
         this.txtdireccionpro = txtdireccionpro;
     }
 
+    public JDateChooser getJdatefechavencimientopro() {
+        return jdatefechavencimientopro;
+    }
+
+    public void setJdatefechavencimientopro(JDateChooser jdatefechavencimientopro) {
+        this.jdatefechavencimientopro = jdatefechavencimientopro;
+    }
+
     public void limpiar() {
         txtrucpro.setText("");
         txtrazonpro.setText("");
@@ -105,6 +116,7 @@ public class GestionProveedor {
         txttelefonopro.setText("");
         txtcorreopro.setText("");
         txtdireccionpro.setText("");
+        jdatefechavencimientopro.setDate(null);
 
     }
 
@@ -158,6 +170,7 @@ public class GestionProveedor {
         p.setTelefono(txttelefonopro.getText());
         p.setCorreo(txtcorreopro.getText());
         p.setDireccionpro(txtdireccionpro.getText());
+        p.setFecha_vencimiento(jdatefechavencimientopro.getDate());
         if (isEditar) {
             p.setFecha_actualizacion(new Date());
         } else {

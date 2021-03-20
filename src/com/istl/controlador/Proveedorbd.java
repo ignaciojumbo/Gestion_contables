@@ -6,7 +6,6 @@ import com.istl.utilidad.Utilidad;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.ResultSetImpl;
 import com.mysql.jdbc.Statement;
-import com.mysql.jdbc.Util;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,9 +33,17 @@ public class Proveedorbd {
     public boolean Registrarproveedor(Proveedor proveedor) {
         boolean registrar = false;
 
-        String sql = "INSERT INTO `bdejercicio1`.`proveedor` (`ruc`, `razon_social`, "
-                + "`tipo_actividad`, `nombre_representante`, `apellido_representante`, "
-                + "`telefono`, `correo`, `direccion`, `fecha_registro`) "
+        String sql = "INSERT INTO `bdejercicio1`.`proveedor` ("
+                + "`ruc`, "
+                + "`razon_social`, "
+                + "`tipo_actividad`, "
+                + "`nombre_representante`, "
+                + "`apellido_representante`, "
+                + "`telefono`, "
+                + "`correo`, "
+                + "`direccion`, "
+                + "`fecha_registro`, "
+                + "`fecha_vencimiento`) "
                 + "VALUES ('" + proveedor.getRuc() + "', "
                 + "'" + proveedor.getRazonSocial() + "', "
                 + "'" + proveedor.getTipoActividad() + "'"
@@ -45,6 +52,7 @@ public class Proveedorbd {
                 + "'" + proveedor.getTelefono() + "'"
                 + ", '" + proveedor.getCorreo() + "', "
                 + "'" + proveedor.getDireccionpro() + "', "
+                + "'" + util.fecha(proveedor.getFecha_vencimiento()) + "', "
                 + "'" + util.fecha(proveedor.getFecha_registro()) + "');";
 
         try {
@@ -83,7 +91,7 @@ public class Proveedorbd {
     public boolean editar(Proveedor proveedor) throws SQLException {
         boolean actualiar = false;
 
-        String sql = "UPDATE `bdejercicio1`.`proveedor` SET "
+        String sql ="UPDATE `bdejercicio1`.`proveedor` SET "
                 + "`ruc` = '"+proveedor.getRuc()+"', "
                 + "`razon_social` = '"+proveedor.getRazonSocial()+"', "
                 + "`tipo_actividad` = '"+proveedor.getTipoActividad()+"', "
@@ -92,7 +100,8 @@ public class Proveedorbd {
                 + "`telefono` = '"+proveedor.getTelefono()+"', "
                 + "`correo` = '"+proveedor.getCorreo()+"', "
                 + "`direccion` = '"+proveedor.getDireccionpro()+"', "
-                + "`fecha_actualizacion` = '"+util.fecha(proveedor.getFecha_actualizacion())+"' "
+                + "`fecha_actualizacion` = '"+util.fecha(proveedor.getFecha_actualizacion())+"', "
+                + "`fecha_vencimiento` = '"+util.fecha(proveedor.getFecha_vencimiento())+"' "
                 + "WHERE (`idproveedor` = '"+proveedor.getIdProveedor()+"');";
         try {
             con = conexion.getConexion();
@@ -130,6 +139,8 @@ public class Proveedorbd {
                 prove.setTelefono(rs.getString(7));
                 prove.setCorreo(rs.getString(8));
                 prove.setDireccionpro(rs.getString(9));
+                //prove.setFecha_actualizacion(rs.getDate(10));
+                prove.setFecha_vencimiento(rs.getDate(10));
                 proveedorEncontrado.add(prove);
             }
             stm.close();
@@ -164,6 +175,8 @@ public class Proveedorbd {
                 prove.setTelefono(rs.getString(7));
                 prove.setCorreo(rs.getString(8));
                 prove.setDireccionpro(rs.getString(9));
+               // prove.setFecha_actualizacion(rs.getDate(10));
+                prove.setFecha_vencimiento(rs.getDate(10));
                 proveedorEncontrado.add(prove);
             }
             stm.close();
@@ -200,6 +213,8 @@ public class Proveedorbd {
                 prove.setTelefono(rs.getString(7));
                 prove.setCorreo(rs.getString(8));
                 prove.setDireccionpro(rs.getString(9));
+               // prove.setFecha_actualizacion(rs.getDate(10));
+                prove.setFecha_vencimiento(rs.getDate(10));
                 listaproveedores.add(prove);
             }
             stm.close();

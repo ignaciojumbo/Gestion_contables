@@ -15,6 +15,7 @@ public class Proveedor {
     private String direccionpro;
     private Date fecha_registro;
     private Date fecha_actualizacion;
+    private Date fecha_vencimiento;
 
     public int getIdProveedor() {
         return idProveedor;
@@ -104,18 +105,13 @@ public class Proveedor {
         this.fecha_actualizacion = fecha_actualizacion;
     }
 
-    @Override
-    public String toString() {
-        return "Proveedor{" + "idProveedor=" + idProveedor + ", ruc=" + ruc + ", RazonSocial=" + RazonSocial + ", tipoActividad=" + tipoActividad + ", nombreRepresentante=" + nombreRepresentante + ", apellidoRepresentante=" + apellidoRepresentante + ", telefono=" + telefono + ", correo=" + correo + ", direccionpro=" + direccionpro + ", fecha_registro=" + fecha_registro + ", fecha_actualizacion=" + fecha_actualizacion + '}';
+    public Date getFecha_vencimiento() {
+        return fecha_vencimiento;
+    }
+
+    public void setFecha_vencimiento(Date fecha_vencimiento) {
+        this.fecha_vencimiento = fecha_vencimiento;
     }
     
-
-
-    
-
-   
-    
-    
-
 
 }
