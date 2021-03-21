@@ -122,7 +122,7 @@ public class Personabd {
                 c.setTelefono(rs.getString(7));
                 c.setFecha_registro(rs.getDate(8));
                 c.setGenero(rs.getString(9));
-                c.setFecha_nacimiento(rs.getDate(10));
+                c.setFecha_nacimiento(rs.getDate(11));
 
             }
             stm.close();
@@ -158,7 +158,7 @@ public class Personabd {
                 c.setTelefono(rs.getString(7));
                 c.setFecha_registro(rs.getDate(8));
                 c.setGenero(rs.getString(9));
-                c.setFecha_nacimiento(rs.getDate(10));
+                c.setFecha_nacimiento(rs.getDate(11));
             }
             stm.close();
             rs.close();
@@ -192,7 +192,7 @@ public class Personabd {
                 c.setTelefono(rs.getString(7));
                 c.setFecha_registro(rs.getDate(8));
                 c.setGenero(rs.getString(9));
-                c.setFecha_nacimiento(rs.getDate(10));
+                c.setFecha_nacimiento(rs.getDate(11));
                 personasEncontradas.add(c);
             }
             stm.close();
@@ -227,7 +227,7 @@ public class Personabd {
                 c.setTelefono(rs.getString(7));
                 c.setFecha_registro(rs.getDate(8));
                 c.setGenero(rs.getString(9));
-                c.setFecha_nacimiento(rs.getDate(10));
+                c.setFecha_nacimiento(rs.getDate(11));
                 personasEncontradas.add(c);
             }
             stm.close();
@@ -263,7 +263,7 @@ public class Personabd {
                 c.setTelefono(rs.getString(7));
                 c.setFecha_registro(rs.getDate(8));
                 c.setGenero(rs.getString(9));
-                c.setFecha_nacimiento(rs.getDate(10));
+                c.setFecha_nacimiento(rs.getDate(11));
                 listaPersonas.add(c);
             }
             stm.close();

@@ -42,7 +42,7 @@ public class Inventariodb {
                 + " VALUES ('" + inventario.getCodigo_pro() + "', '" + inventario.getCan_productos() + "', '" + inventario.getDescripcion() + "', "
                 + "'" + inventario.getPrecios_compra_sin_iva() + "', '" + inventario.getPrecios_compra_con_iva() + "',"
                 + "'" + inventario.getPrecio_mayorita() + "', '" + inventario.getCliente_fijo() + "', "
-                + "'" + inventario.getCliente_normal() + "', '" + inventario.getFecha_caducidad() + "', '" + util.fecha(inventario.getFecha_registro()) + "');";
+                + "'" + inventario.getCliente_normal() + "', '" + util.fecha(inventario.getFecha_caducidad()) + "', '" + util.fecha(inventario.getFecha_registro()) + "');";
         try {
 
             con = conexion.getConexion();
@@ -124,7 +124,7 @@ public class Inventariodb {
                 in.setPrecio_mayorita(rs.getString(7));
                 in.setCliente_fijo(rs.getString(8));
                 in.setCliente_normal(rs.getString(9));
-                in.setFecha_caducidad(rs.getString(10));
+                in.setFecha_caducidad(rs.getDate(10));
                 listaInventario.add(in);
             }
             stm.close();
@@ -160,7 +160,7 @@ public class Inventariodb {
                 in.setPrecio_mayorita(rs.getString(7));
                 in.setCliente_fijo(rs.getString(8));
                 in.setCliente_normal(rs.getString(9));
-                in.setFecha_caducidad(rs.getString(10));
+                in.setFecha_caducidad(rs.getDate(10));
 
                 descripcionEncontrado.add(in);
             }
@@ -197,7 +197,7 @@ public class Inventariodb {
                 in.setPrecio_mayorita(rs.getString(7));
                 in.setCliente_fijo(rs.getString(8));
                 in.setCliente_normal(rs.getString(9));
-                in.setFecha_caducidad(rs.getString(10));
+                in.setFecha_caducidad(rs.getDate(10));
                 listaInventario.add(in);
             }
             stm.close();

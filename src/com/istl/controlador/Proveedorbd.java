@@ -52,8 +52,8 @@ public class Proveedorbd {
                 + "'" + proveedor.getTelefono() + "'"
                 + ", '" + proveedor.getCorreo() + "', "
                 + "'" + proveedor.getDireccionpro() + "', "
-                + "'" + util.fecha(proveedor.getFecha_vencimiento()) + "', "
-                + "'" + util.fecha(proveedor.getFecha_registro()) + "');";
+                + "'" + util.fecha(proveedor.getFecha_registro()) + "', "
+                + "'" + util.fecha(proveedor.getFecha_vencimiento()) + "');";
 
         try {
 
@@ -140,7 +140,7 @@ public class Proveedorbd {
                 prove.setCorreo(rs.getString(8));
                 prove.setDireccionpro(rs.getString(9));
                 //prove.setFecha_actualizacion(rs.getDate(10));
-                prove.setFecha_vencimiento(rs.getDate(10));
+                prove.setFecha_vencimiento(rs.getDate(12));
                 proveedorEncontrado.add(prove);
             }
             stm.close();
@@ -176,7 +176,7 @@ public class Proveedorbd {
                 prove.setCorreo(rs.getString(8));
                 prove.setDireccionpro(rs.getString(9));
                // prove.setFecha_actualizacion(rs.getDate(10));
-                prove.setFecha_vencimiento(rs.getDate(10));
+                prove.setFecha_vencimiento(rs.getDate(12));
                 proveedorEncontrado.add(prove);
             }
             stm.close();
@@ -214,7 +214,7 @@ public class Proveedorbd {
                 prove.setCorreo(rs.getString(8));
                 prove.setDireccionpro(rs.getString(9));
                // prove.setFecha_actualizacion(rs.getDate(10));
-                prove.setFecha_vencimiento(rs.getDate(10));
+                prove.setFecha_vencimiento(rs.getDate(12));
                 listaproveedores.add(prove);
             }
             stm.close();

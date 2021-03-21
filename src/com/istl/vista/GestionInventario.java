@@ -2,6 +2,7 @@ package com.istl.vista;
 
 import com.istl.modelo.Inventario;
 import com.istl.utilidad.UtilidadInventario;
+import com.toedter.calendar.JDateChooser;
 import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -17,11 +18,11 @@ public class GestionInventario {
     private JTextField txtpreciomayorista;
     private JTextField txtprecioclientefijo;
     private JTextField txtprecioclientenormal;
-    private JTextField txtfechacaducidad;
+    private JDateChooser jdfechacaducidadinve;
     private UtilidadInventario util;
     private JFrame frame;
 
-    public GestionInventario(JTextField txtcodigo_pro, JTextField txtcantidadin, JTextField txtdescripción, JTextField txtpreciosiniva, JTextField txtprecioconiva, JTextField txtpreciomayorista, JTextField txtprecioclientefijo, JTextField txtprecioclientenorma, JTextField txtfechacaducidad, UtilidadInventario util, JFrame frame) {
+    public GestionInventario(JTextField txtcodigo_pro, JTextField txtcantidadin, JTextField txtdescripción, JTextField txtpreciosiniva, JTextField txtprecioconiva, JTextField txtpreciomayorista, JTextField txtprecioclientefijo, JTextField txtprecioclientenormal, JDateChooser jdfechacaducidadinve, UtilidadInventario util, JFrame frame) {
         this.txtcodigo_pro = txtcodigo_pro;
         this.txtcantidadin = txtcantidadin;
         this.txtdescripción = txtdescripción;
@@ -29,11 +30,13 @@ public class GestionInventario {
         this.txtprecioconiva = txtprecioconiva;
         this.txtpreciomayorista = txtpreciomayorista;
         this.txtprecioclientefijo = txtprecioclientefijo;
-        this.txtprecioclientenormal = txtprecioclientenorma;
-        this.txtfechacaducidad = txtfechacaducidad;
+        this.txtprecioclientenormal = txtprecioclientenormal;
+        this.jdfechacaducidadinve = jdfechacaducidadinve;
         this.util = util;
         this.frame = frame;
     }
+
+  
 
     public JTextField getTxtcodigo_pro() {
         return txtcodigo_pro;
@@ -99,13 +102,23 @@ public class GestionInventario {
         this.txtprecioclientenormal = txtprecioclientenorma;
     }
 
-    public JTextField getTxtfechacaducidad() {
-        return txtfechacaducidad;
+    public JTextField getTxtprecioclientenormal() {
+        return txtprecioclientenormal;
     }
 
-    public void setTxtfechacaducidad(JTextField txtfechacaducidad) {
-        this.txtfechacaducidad = txtfechacaducidad;
+    public void setTxtprecioclientenormal(JTextField txtprecioclientenormal) {
+        this.txtprecioclientenormal = txtprecioclientenormal;
     }
+
+    public JDateChooser getJdfechacaducidadinve() {
+        return jdfechacaducidadinve;
+    }
+
+    public void setJdfechacaducidadinve(JDateChooser jdfechacaducidadinve) {
+        this.jdfechacaducidadinve = jdfechacaducidadinve;
+    }
+
+
 
     public void limpiar() {
         txtcodigo_pro.setText("");
@@ -116,7 +129,7 @@ public class GestionInventario {
         txtpreciomayorista.setText("");
         txtprecioclientefijo.setText("");
         txtprecioclientenormal.setText("");
-        txtfechacaducidad.setText("");
+        jdfechacaducidadinve.setDate(null);
 
     }
 
@@ -151,18 +164,18 @@ public class GestionInventario {
 
         }
 
-        if (txtfechacaducidad.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(frame, "LLene los campos de la fecha de caducidad", "ERROR", JOptionPane.ERROR_MESSAGE);
-            txtfechacaducidad.requestFocus();
-            return null;
-
-        }
-        if (!util.isFechaValida(txtfechacaducidad.getText())) {
-            JOptionPane.showMessageDialog(frame, "Error de formato de fecha", "ERROR", JOptionPane.ERROR_MESSAGE);
-            txtfechacaducidad.requestFocus();
-            return null;
-
-        }
+//        if (txtfechacaducidad.getText().isEmpty()) {
+//            JOptionPane.showMessageDialog(frame, "LLene los campos de la fecha de caducidad", "ERROR", JOptionPane.ERROR_MESSAGE);
+//            txtfechacaducidad.requestFocus();
+//            return null;
+//
+//        }
+//        if (!util.isFechaValida(txtfechacaducidad.getText())) {
+//            JOptionPane.showMessageDialog(frame, "Error de formato de fecha", "ERROR", JOptionPane.ERROR_MESSAGE);
+//            txtfechacaducidad.requestFocus();
+//            return null;
+//
+//        }
 
         p.setCodigo_pro(txtcodigo_pro.getText());
         p.setCan_productos(Integer.valueOf(txtcantidadin.getText()));
@@ -172,7 +185,7 @@ public class GestionInventario {
         p.setPrecio_mayorita(txtpreciomayorista.getText());
         p.setCliente_fijo(txtprecioclientefijo.getText());
         p.setCliente_normal(txtprecioclientenormal.getText());
-        p.setFecha_caducidad(txtfechacaducidad.getText());
+        p.setFecha_caducidad(jdfechacaducidadinve.getDate());
         if(isEditable){
             p.setFecha_actualizacion(new Date());
         }else{

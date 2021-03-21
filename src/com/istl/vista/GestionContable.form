@@ -316,22 +316,18 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="ljdireccion" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jlapellido" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jlnombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ljcorreo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jlcorreo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jlcedula" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jlcorreo2" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="jlcorreo6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="ljdireccion" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlapellido" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlnombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="ljcorreo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlcorreo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlcedula" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlcorreo2" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlcorreo6" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="txtcedula" min="-2" pref="167" max="-2" attributes="0"/>
@@ -553,7 +549,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Fecha de nacimineto"/>
+                    <Property name="text" type="java.lang.String" value="Fecha de nacimiento"/>
                   </Properties>
                 </Component>
                 <Component class="com.toedter.calendar.JDateChooser" name="jdatefechanacimiento">
@@ -1276,20 +1272,6 @@
                           <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="txtprecioclientenormal" min="-2" pref="96" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jlapellido7" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtfechacaducidad" min="-2" pref="96" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="txtpreciomayorita" min="-2" pref="96" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jlapellido5" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtprecioclientefijo" min="-2" pref="96" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
                                   <Component id="txtcodigoin" min="-2" pref="100" max="-2" attributes="0"/>
                                   <EmptySpace pref="14" max="32767" attributes="0"/>
                                   <Component id="ljcorreo3" min="-2" max="-2" attributes="0"/>
@@ -1304,6 +1286,25 @@
                                   <Component id="txtprecioconiva" min="-2" pref="96" max="-2" attributes="0"/>
                               </Group>
                               <Component id="txtdescripcionin" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="txtpreciomayorita" min="-2" pref="96" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jlapellido5" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="txtprecioclientenormal" min="-2" pref="96" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jlapellido7" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtprecioclientefijo" pref="96" max="32767" attributes="0"/>
+                                      <Component id="jdfechacaducidadonve" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
@@ -1349,7 +1350,7 @@
                                   <Component id="txtprecioclientenormal" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jlapellido7" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="txtfechacaducidad" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jdfechacaducidadonve" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="73" max="32767" attributes="0"/>
                       </Group>
@@ -1469,10 +1470,7 @@
                     <Property name="text" type="java.lang.String" value="Fecha de caducidad"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtfechacaducidad">
-                  <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Ingrese la fecha YY-MM-AA"/>
-                  </Properties>
+                <Component class="com.toedter.calendar.JDateChooser" name="jdfechacaducidadonve">
                 </Component>
               </SubComponents>
             </Container>

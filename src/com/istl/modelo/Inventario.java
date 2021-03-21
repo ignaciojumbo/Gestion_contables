@@ -21,7 +21,7 @@ public class Inventario {
     private String precio_mayorita;
     private String cliente_fijo;
     private String cliente_normal;
-    private String fecha_caducidad;
+    private Date fecha_caducidad;
     private Date fecha_registro;
     private Date fecha_actualizacion;
 
@@ -97,11 +97,11 @@ public class Inventario {
         this.cliente_normal = cliente_normal;
     }
 
-    public String getFecha_caducidad() {
+    public Date getFecha_caducidad() {
         return fecha_caducidad;
     }
 
-    public void setFecha_caducidad(String fecha_caducidad) {
+    public void setFecha_caducidad(Date fecha_caducidad) {
         this.fecha_caducidad = fecha_caducidad;
     }
 
@@ -126,6 +126,7 @@ public class Inventario {
         return "Inventario{" + "id_inventario=" + id_inventario + ", codigo_pro=" + codigo_pro + ", can_productos=" + can_productos + ", descripcion=" + descripcion + ", precios_compra_sin_iva=" + precios_compra_sin_iva + ", precios_compra_con_iva=" + precios_compra_con_iva + ", precio_mayorita=" + precio_mayorita + ", cliente_fijo=" + cliente_fijo + ", cliente_normal=" + cliente_normal + ", fecha_caducidad=" + fecha_caducidad + ", fecha_registro=" + fecha_registro + ", fecha_actualizacion=" + fecha_actualizacion + '}';
     }
 
+    
     
 
  

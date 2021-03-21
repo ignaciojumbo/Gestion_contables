@@ -49,7 +49,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         util = new UtilidadInventario();
         gestion = new GestionPersona(txtcedula, txtnombre, txtapellido, txtdireccion, txttelefono, txtcorreo, cmbgenero, jdatefechanacimiento, utilidad, this);
         gestionpro = new GestionProveedor(txtrucpro, txtrazonpro, txtactividadpro, txtnombrepro, txtapellidopro, txttelefonopro, txtcorreopro, txtdireccionpro, jdatefechavencimientopro, this);
-        gestioninven = new GestionInventario(txtcodigoin, txtcantidadin, txtdescripcionin, txtpreciosiniva, txtprecioconiva, txtpreciomayorita, txtprecioclientefijo, txtprecioclientenormal, txtfechacaducidad, util, this);
+        gestioninven = new GestionInventario(txtcodigoin, txtcantidadin, txtdescripcionin, txtpreciosiniva, txtprecioconiva, txtpreciomayorita, txtprecioclientefijo, txtprecioclientenormal, jdfechacaducidadonve, util, this);
         bneliminar.setEnabled(false);
         bneditar.setEnabled(false);
         bneliminarpro.setEnabled(false);
@@ -150,7 +150,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         jlapellido6 = new javax.swing.JLabel();
         txtprecioclientenormal = new javax.swing.JTextField();
         jlapellido7 = new javax.swing.JLabel();
-        txtfechacaducidad = new javax.swing.JTextField();
+        jdfechacaducidadonve = new com.toedter.calendar.JDateChooser();
         jPanel6 = new javax.swing.JPanel();
         bnlimpiarinve = new javax.swing.JButton();
         bneliminarinve = new javax.swing.JButton();
@@ -292,26 +292,24 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         rbbottompasaporte.setText("Pasaporte");
 
         jlcorreo6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlcorreo6.setText("Fecha de nacimineto");
+        jlcorreo6.setText("Fecha de nacimiento");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ljdireccion)
-                            .addComponent(jlapellido)
-                            .addComponent(jlnombre)
-                            .addComponent(ljcorreo)
-                            .addComponent(jlcorreo)
-                            .addComponent(jlcedula)
-                            .addComponent(jlcorreo2)))
+                    .addComponent(ljdireccion)
+                    .addComponent(jlapellido)
+                    .addComponent(jlnombre)
+                    .addComponent(ljcorreo)
+                    .addComponent(jlcorreo)
+                    .addComponent(jlcedula)
+                    .addComponent(jlcorreo2)
                     .addComponent(jlcorreo6))
-                .addGap(45, 45, 45)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -842,8 +840,6 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         jlapellido7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jlapellido7.setText("Fecha de caducidad");
 
-        txtfechacaducidad.setToolTipText("Ingrese la fecha YY-MM-AA");
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -859,18 +855,6 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                 .addGap(82, 82, 82)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(txtprecioclientenormal, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jlapellido7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtfechacaducidad, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(txtpreciomayorita, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jlapellido5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtprecioclientefijo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(txtcodigoin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                         .addComponent(ljcorreo3)
@@ -882,7 +866,21 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                         .addComponent(ljdireccion3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtprecioconiva, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtdescripcionin))
+                    .addComponent(txtdescripcionin)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(txtpreciomayorita, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jlapellido5))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(txtprecioclientenormal, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jlapellido7)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtprecioclientefijo, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                            .addComponent(jdfechacaducidadonve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(22, 22, 22))
         );
         jPanel5Layout.setVerticalGroup(
@@ -918,7 +916,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtprecioclientenormal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jlapellido7))
-                    .addComponent(txtfechacaducidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jdfechacaducidadonve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
@@ -1302,6 +1300,8 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
             txtdireccion.setText(persona.getDireccion());
             txttelefono.setText(persona.getTelefono());
             txtcorreo.setText(persona.getCorreo());
+            txttelefono.setText(persona.getTelefono());
+            cmbgenero.setSelectedItem(persona.getGenero());
             personaEditar = persona;
 
         } else {
@@ -1780,6 +1780,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private javax.swing.JTable jTable1;
     private com.toedter.calendar.JDateChooser jdatefechanacimiento;
     private com.toedter.calendar.JDateChooser jdatefechavencimientopro;
+    private com.toedter.calendar.JDateChooser jdfechacaducidadonve;
     private javax.swing.JLabel jlapellido;
     private javax.swing.JLabel jlapellido2;
     private javax.swing.JLabel jlapellido3;
@@ -1837,7 +1838,6 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private javax.swing.JTextField txtdescripcionin;
     private javax.swing.JTextField txtdireccion;
     private javax.swing.JTextField txtdireccionpro;
-    private javax.swing.JTextField txtfechacaducidad;
     private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txtnombrepro;
     private javax.swing.JTextField txtprecioclientefijo;
@@ -1898,7 +1898,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txtpreciomayorita.setText(in.getPrecio_mayorita());
         txtprecioclientefijo.setText(in.getCliente_fijo());
         txtprecioclientenormal.setText(in.getCliente_normal());
-        txtfechacaducidad.setText(in.getFecha_caducidad());
+        jdfechacaducidadonve.setDate(in.getFecha_caducidad());
         inventarioeditar = in;
 
     }
