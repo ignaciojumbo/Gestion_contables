@@ -18,12 +18,11 @@ public class Inventariodb {
     Statement stm = null;
     Connection con = null;
     Conexion conexion = new Conexion();
-    Utilidad util ;
-    
-    public Inventariodb(){
+    Utilidad util;
+
+    public Inventariodb() {
         util = new Utilidad();
     }
-    
 
     public String fecha() {
         Date fecha = new Date();
@@ -34,15 +33,35 @@ public class Inventariodb {
 
     public boolean RegistrarInventario(Inventario inventario) {
         boolean registrar = false;
-        
-        String sql = "INSERT INTO `bdejercicio1`.`inventario` "
-                + "(`codigo_pro`, `can_productos`, `descripcion`, `precios_compra_sin_iva`, "
-                + "`precio_compra_con_iva`, `precio_mayorista`, `precio_cliente_fijo`, `precio_cliente_normal`, "
-                + "`fecha_caducida`, `fecha_registro`)"
-                + " VALUES ('" + inventario.getCodigo_pro() + "', '" + inventario.getCan_productos() + "', '" + inventario.getDescripcion() + "', "
-                + "'" + inventario.getPrecios_compra_sin_iva() + "', '" + inventario.getPrecios_compra_con_iva() + "',"
-                + "'" + inventario.getPrecio_mayorita() + "', '" + inventario.getCliente_fijo() + "', "
-                + "'" + inventario.getCliente_normal() + "', '" + util.fecha(inventario.getFecha_caducidad()) + "', '" + util.fecha(inventario.getFecha_registro()) + "');";
+
+        String sql;
+        if (inventario.getFecha_caducidad() == null) {
+            sql = "INSERT INTO `bdejercicio1`.`inventario` "
+                    + "(`codigo_pro`, `can_productos`, `descripcion`, `precios_compra_sin_iva`, "
+                    + "`precio_compra_con_iva`, `precio_mayorista`, `precio_cliente_fijo`, "
+                    + "`precio_cliente_normal`, "
+                    
+                    + "`fecha_registro`)"
+                    + " VALUES ('" + inventario.getCodigo_pro() + "', '" + inventario.getCan_productos() + "', '" + inventario.getDescripcion() + "', "
+                    + "'" + inventario.getPrecios_compra_sin_iva() + "', '" + inventario.getPrecios_compra_con_iva() + "',"
+                    + "'" + inventario.getPrecio_mayorita() + "', "
+                    + "'" + inventario.getCliente_fijo() + "', "
+                    + "'" + inventario.getCliente_normal() + "', "
+                   // + "'" + util.fecha(inventario.getFecha_caducidad()) + "', "
+                    + "'" + util.fecha(inventario.getFecha_registro()) + "');";
+        } else {
+            sql = "INSERT INTO `bdejercicio1`.`inventario` "
+                    + "(`codigo_pro`, `can_productos`, `descripcion`, `precios_compra_sin_iva`, "
+                    + "`precio_compra_con_iva`, `precio_mayorista`, `precio_cliente_fijo`, `precio_cliente_normal`, "
+                    + "`fecha_caducida`, `fecha_registro`)"
+                    + " VALUES ('" + inventario.getCodigo_pro() + "', '" + inventario.getCan_productos() + "', '" + inventario.getDescripcion() + "', "
+                    + "'" + inventario.getPrecios_compra_sin_iva() + "', '" + inventario.getPrecios_compra_con_iva() + "',"
+                    + "'" + inventario.getPrecio_mayorita() + "', "
+                    + "'" + inventario.getCliente_fijo() + "', "
+                    + "'" + inventario.getCliente_normal() + "', "
+                    + "'" + util.fecha(inventario.getFecha_caducidad()) + "', "
+                    + "'" + util.fecha(inventario.getFecha_registro()) + "');";
+        }
         try {
 
             con = conexion.getConexion();
@@ -86,8 +105,8 @@ public class Inventariodb {
                 + "`precio_mayorista` = '" + inventario.getPrecio_mayorita() + "', "
                 + "`precio_cliente_fijo` = '" + inventario.getCliente_fijo() + "',"
                 + " `precio_cliente_normal` = '" + inventario.getCliente_normal() + "', "
-                + "`fecha_caducida` = '" +inventario.getFecha_caducidad() + "', "
-                + "`fecha_actualizacion` = '" +util.fecha(inventario.getFecha_actualizacion()) + "' "
+                + "`fecha_caducida` = '" + inventario.getFecha_caducidad() + "', "
+                + "`fecha_actualizacion` = '" + util.fecha(inventario.getFecha_actualizacion()) + "' "
                 + "WHERE (`id_inventario` = '" + inventario.getId_inventario() + "');";
         try {
             con = conexion.getConexion();
@@ -106,7 +125,7 @@ public class Inventariodb {
         System.out.println("BusquedaCodigo" + codigo);
         //Sentencia de JDBC para obtener valores de la base de datos.
         ResultSet rs = null;
-        
+
         String sql = "SELECT * FROM bdejercicio1.inventario where codigo_pro like \"%" + codigo + "%\"";
         List<Inventario> listaInventario = new ArrayList<Inventario>();
         try {
