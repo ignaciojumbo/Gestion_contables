@@ -120,10 +120,13 @@
             <Property name="text" type="java.lang.String" value="Editar"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu4">
+        <Menu class="javax.swing.JMenu" name="Acerca_de">
           <Properties>
             <Property name="text" type="java.lang.String" value="Acerca de "/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Acerca_deMouseClicked"/>
+          </Events>
         </Menu>
       </SubComponents>
     </Menu>
@@ -229,7 +232,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="50" max="32767" attributes="0"/>
+                      <EmptySpace pref="64" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -268,6 +271,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="14" style="1"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/escoba.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Limpiar"/>
                 <Property name="toolTipText" type="java.lang.String" value="Limpiar campos"/>
               </Properties>
@@ -282,7 +288,7 @@
                   <Font name="Arial" size="14" style="1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/save-solid-24.png"/>
+                  <Image iconType="3" name="/Imagenes/guardar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
                 <Property name="toolTipText" type="java.lang.String" value="Guardar registro"/>
@@ -420,7 +426,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Direcci&#xf3;n"/>
+                    <Property name="text" type="java.lang.String" value="DIRECCI&#xd3;N"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jlapellido">
@@ -428,7 +434,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Apellido"/>
+                    <Property name="text" type="java.lang.String" value="APELLIDO"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jlnombre">
@@ -436,7 +442,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Nombre"/>
+                    <Property name="text" type="java.lang.String" value="NOMBRE"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="ljcorreo">
@@ -444,7 +450,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Correo"/>
+                    <Property name="text" type="java.lang.String" value="CORREO"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jlcorreo">
@@ -452,7 +458,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Tel&#xe9;fono"/>
+                    <Property name="text" type="java.lang.String" value="TEL&#xc9;FONO"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtcedula">
@@ -498,7 +504,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="G&#xe9;nero"/>
+                    <Property name="text" type="java.lang.String" value="G&#xc9;NERO"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cmbgenero">
@@ -549,7 +555,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Fecha de nacimiento"/>
+                    <Property name="text" type="java.lang.String" value="FECHA NACIMIENTO"/>
                   </Properties>
                 </Component>
                 <Component class="com.toedter.calendar.JDateChooser" name="jdatefechanacimiento">
@@ -562,7 +568,7 @@
                   <Font name="Arial" size="14" style="1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/trash-alt-regular-24.png"/>
+                  <Image iconType="3" name="/Imagenes/eliminar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Eliminar"/>
                 <Property name="toolTipText" type="java.lang.String" value="Eliminar registro"/>
@@ -591,7 +597,7 @@
                   <Font name="Arial" size="14" style="1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/edit-alt-regular-24.png"/>
+                  <Image iconType="3" name="/Imagenes/editar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Editar"/>
                 <Property name="toolTipText" type="java.lang.String" value="Editar registro"/>
@@ -673,7 +679,7 @@
                   <Font name="Arial" size="14" style="1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/search-alt-regular-24.png"/>
+                  <Image iconType="3" name="/Imagenes/buscar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
@@ -701,34 +707,34 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="260" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="247" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jPanel4" max="32767" attributes="0"/>
-                                  <Component id="jPanel3" pref="696" max="32767" attributes="0"/>
+                                  <Component id="jPanel3" pref="721" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" min="-2" pref="722" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" pref="750" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="31" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jPanel4" min="-2" pref="296" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
@@ -820,6 +826,9 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Imagenes/escoba.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Limpiar"/>
                     <Property name="toolTipText" type="java.lang.String" value="Limpiar campos"/>
                   </Properties>
@@ -845,7 +854,7 @@
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/trash-alt-regular-24.png"/>
+                      <Image iconType="3" name="/Imagenes/eliminar.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Eliminar"/>
                     <Property name="toolTipText" type="java.lang.String" value="Eliminar registro"/>
@@ -860,7 +869,7 @@
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/edit-alt-regular-24.png"/>
+                      <Image iconType="3" name="/Imagenes/editar.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Editar"/>
                     <Property name="toolTipText" type="java.lang.String" value="Editar registro"/>
@@ -875,7 +884,7 @@
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/save-solid-24.png"/>
+                      <Image iconType="3" name="/Imagenes/guardar.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Guardar"/>
                     <Property name="toolTipText" type="java.lang.String" value="Guardar registro"/>
@@ -930,7 +939,7 @@
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/search-alt-regular-24.png"/>
+                      <Image iconType="3" name="/Imagenes/buscar pi.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Buscar"/>
                   </Properties>
@@ -1048,7 +1057,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Ruc"/>
+                    <Property name="text" type="java.lang.String" value="RUC"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="ljdireccion2">
@@ -1056,7 +1065,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Nombre de representate"/>
+                    <Property name="text" type="java.lang.String" value="NOMBRE DE REPRESENTANTE"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jlapellido2">
@@ -1064,7 +1073,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Tipo de actividad"/>
+                    <Property name="text" type="java.lang.String" value="TIPO DE ACTIVIDAD"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jlnombre2">
@@ -1072,7 +1081,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Raz&#xf3;n social"/>
+                    <Property name="text" type="java.lang.String" value="RAZ&#xd3;N SOCIAL"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="ljcorreo2">
@@ -1080,7 +1089,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Apellido de representante"/>
+                    <Property name="text" type="java.lang.String" value="APELLIDO DE REPRESENTATE"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jlcorreo4">
@@ -1088,7 +1097,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Tel&#xe9;fono"/>
+                    <Property name="text" type="java.lang.String" value="TEL&#xc9;FON"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtrucpro">
@@ -1126,7 +1135,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Correo"/>
+                    <Property name="text" type="java.lang.String" value="CORREO"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtcorreopro">
@@ -1139,7 +1148,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Direcci&#xf3;n"/>
+                    <Property name="text" type="java.lang.String" value="DIRECCI&#xd3;N"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtdireccionpro">
@@ -1152,7 +1161,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Fecha vencimiento"/>
+                    <Property name="text" type="java.lang.String" value="FECHA DE VENCIMIENTO"/>
                   </Properties>
                 </Component>
                 <Component class="com.toedter.calendar.JDateChooser" name="jdatefechavencimientopro">
@@ -1207,16 +1216,13 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="239" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="244" max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" min="-2" pref="722" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1224,8 +1230,12 @@
                                   <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jScrollPane3" min="-2" pref="739" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="46" max="32767" attributes="0"/>
+                      <EmptySpace pref="37" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1238,9 +1248,9 @@
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="121" max="-2" attributes="0"/>
-                      <EmptySpace pref="17" max="32767" attributes="0"/>
+                      <EmptySpace pref="24" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1270,22 +1280,14 @@
                               <Component id="jlapellido6" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
                                   <Component id="txtcodigoin" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <EmptySpace pref="14" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="ljcorreo3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtcantidadin" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="txtcantidadin" min="-2" pref="112" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="txtpreciosiniva" min="-2" pref="96" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="ljdireccion3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtprecioconiva" min="-2" pref="96" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="txtdescripcionin" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
@@ -1300,13 +1302,21 @@
                                       </Group>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtprecioclientefijo" pref="96" max="32767" attributes="0"/>
-                                      <Component id="jdfechacaducidadonve" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtprecioclientefijo" alignment="1" min="-2" pref="108" max="-2" attributes="0"/>
+                                      <Component id="jdfechacaducidadonve" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="txtpreciosiniva" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="ljdireccion3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="txtprecioconiva" min="-2" pref="108" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="txtdescripcionin" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1363,7 +1373,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="C&#xf3;digo del producto"/>
+                    <Property name="text" type="java.lang.String" value="C&#xd3;DIGO DE PRODUCTO"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="ljdireccion3">
@@ -1371,7 +1381,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Precio compra con iva"/>
+                    <Property name="text" type="java.lang.String" value="PRECIO COMPRA CON IVA"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jlapellido3">
@@ -1379,7 +1389,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Precio compra sin iva"/>
+                    <Property name="text" type="java.lang.String" value="PRECIO COMPRA SIN IVA"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jlnombre3">
@@ -1387,7 +1397,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
+                    <Property name="text" type="java.lang.String" value="DESCRIPCI&#xd3;N"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="ljcorreo3">
@@ -1395,7 +1405,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Cantidad de los productos"/>
+                    <Property name="text" type="java.lang.String" value="CANTIDAD DE PRODUCTOS"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtcodigoin">
@@ -1412,6 +1422,9 @@
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Ingrese el precio sin iva"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtpreciosinivaFocusLost"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtprecioconiva">
                   <Properties>
@@ -1428,7 +1441,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Precio mayorista"/>
+                    <Property name="text" type="java.lang.String" value="PRECIO MAYORISTA"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtpreciomayorita">
@@ -1441,7 +1454,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Precio cliente fijo"/>
+                    <Property name="text" type="java.lang.String" value="PRECIO CLIENTE FIJO"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtprecioclientefijo">
@@ -1454,7 +1467,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Precio cliente normal"/>
+                    <Property name="text" type="java.lang.String" value="PRECIO CLIENTE NORMAL"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtprecioclientenormal">
@@ -1467,7 +1480,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Fecha de caducidad"/>
+                    <Property name="text" type="java.lang.String" value="FECHA DE CADUCIDAD"/>
                   </Properties>
                 </Component>
                 <Component class="com.toedter.calendar.JDateChooser" name="jdfechacaducidadonve">
@@ -1552,6 +1565,9 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Imagenes/escoba.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Limpiar"/>
                     <Property name="toolTipText" type="java.lang.String" value="Limpiar campos"/>
                   </Properties>
@@ -1565,7 +1581,7 @@
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/trash-alt-regular-24.png"/>
+                      <Image iconType="3" name="/Imagenes/eliminar.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Eliminar"/>
                     <Property name="toolTipText" type="java.lang.String" value="Eliminar registro"/>
@@ -1580,7 +1596,7 @@
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/edit-alt-regular-24.png"/>
+                      <Image iconType="3" name="/Imagenes/editar.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Editar"/>
                     <Property name="toolTipText" type="java.lang.String" value="Editar registro"/>
@@ -1595,7 +1611,7 @@
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/save-solid-24.png"/>
+                      <Image iconType="3" name="/Imagenes/guardar.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Guardar"/>
                     <Property name="toolTipText" type="java.lang.String" value="Guardar registro"/>
@@ -1647,7 +1663,7 @@
                       <Font name="Arial" size="14" style="1"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/search-alt-regular-24.png"/>
+                      <Image iconType="3" name="/Imagenes/buscar pi.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Buscar"/>
                   </Properties>
@@ -1713,7 +1729,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="789" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="806" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">

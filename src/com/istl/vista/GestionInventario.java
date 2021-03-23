@@ -1,6 +1,7 @@
 package com.istl.vista;
 
 import com.istl.modelo.Inventario;
+import com.istl.utilidad.Utilidad;
 import com.istl.utilidad.UtilidadInventario;
 import com.toedter.calendar.JDateChooser;
 import java.util.Date;
@@ -19,10 +20,10 @@ public class GestionInventario {
     private JTextField txtprecioclientefijo;
     private JTextField txtprecioclientenormal;
     private JDateChooser jdfechacaducidadinve;
-    private UtilidadInventario util;
+    private Utilidad util;
     private JFrame frame;
 
-    public GestionInventario(JTextField txtcodigo_pro, JTextField txtcantidadin, JTextField txtdescripción, JTextField txtpreciosiniva, JTextField txtprecioconiva, JTextField txtpreciomayorista, JTextField txtprecioclientefijo, JTextField txtprecioclientenormal, JDateChooser jdfechacaducidadinve, UtilidadInventario util, JFrame frame) {
+    public GestionInventario(JTextField txtcodigo_pro, JTextField txtcantidadin, JTextField txtdescripción, JTextField txtpreciosiniva, JTextField txtprecioconiva, JTextField txtpreciomayorista, JTextField txtprecioclientefijo, JTextField txtprecioclientenormal, JDateChooser jdfechacaducidadinve, Utilidad util, JFrame frame) {
         this.txtcodigo_pro = txtcodigo_pro;
         this.txtcantidadin = txtcantidadin;
         this.txtdescripción = txtdescripción;
@@ -35,6 +36,8 @@ public class GestionInventario {
         this.util = util;
         this.frame = frame;
     }
+
+   
 
   
 
@@ -140,12 +143,12 @@ public class GestionInventario {
             txtcodigo_pro.requestFocus();
             return null;
         }
-        if (!util.validarCodigo(txtcodigo_pro.getText())) {
-            JOptionPane.showMessageDialog(frame, "Error de codigo", "ERROR", JOptionPane.ERROR_MESSAGE);
-            txtcodigo_pro.requestFocus();
-            return null;
-
-        }
+//        if (!util.validarCodigo(txtcodigo_pro.getText())) {
+//            JOptionPane.showMessageDialog(frame, "Error de codigo", "ERROR", JOptionPane.ERROR_MESSAGE);
+//            txtcodigo_pro.requestFocus();
+//            return null;
+//
+//        }
 
         if (txtcantidadin.getText().isEmpty()) {
             JOptionPane.showMessageDialog(frame, "LLene los campos de la cantidad de la cantidad de productos", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -163,6 +166,7 @@ public class GestionInventario {
             return null;
 
         }
+       
 
 //        if (txtfechacaducidad.getText().isEmpty()) {
 //            JOptionPane.showMessageDialog(frame, "LLene los campos de la fecha de caducidad", "ERROR", JOptionPane.ERROR_MESSAGE);

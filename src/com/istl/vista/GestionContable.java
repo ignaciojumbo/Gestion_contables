@@ -43,13 +43,14 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         modelTableProveedor = new ModelTableProveedor(controladorProveedor.obtenerProveedor(), this);
         modelTableInventario = new ModelTableInventario(controladorInvenario.obtenerInventario(), this);
         initComponents();
+        cajastexto();
         rbbottomcedula.setSelected(true);
         this.setLocationRelativeTo(null);
         utilidad = new Utilidad();
         util = new UtilidadInventario();
         gestion = new GestionPersona(txtcedula, txtnombre, txtapellido, txtdireccion, txttelefono, txtcorreo, cmbgenero, jdatefechanacimiento, utilidad, this);
         gestionpro = new GestionProveedor(txtrucpro, txtrazonpro, txtactividadpro, txtnombrepro, txtapellidopro, txttelefonopro, txtcorreopro, txtdireccionpro, jdatefechavencimientopro, this);
-        gestioninven = new GestionInventario(txtcodigoin, txtcantidadin, txtdescripcionin, txtpreciosiniva, txtprecioconiva, txtpreciomayorita, txtprecioclientefijo, txtprecioclientenormal, jdfechacaducidadonve, util, this);
+        gestioninven = new GestionInventario(txtcodigoin, txtcantidadin, txtdescripcionin, txtpreciosiniva, txtprecioconiva, txtpreciomayorita, txtprecioclientefijo, txtprecioclientenormal, jdfechacaducidadonve, utilidad, this);
         bneliminar.setEnabled(false);
         bneditar.setEnabled(false);
         bneliminarpro.setEnabled(false);
@@ -173,7 +174,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         jmenueliminar = new javax.swing.JMenuItem();
         jmenuguardar = new javax.swing.JMenuItem();
         menueditar = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        Acerca_de = new javax.swing.JMenu();
 
         jButton1.setText("jButton1");
 
@@ -193,6 +194,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         panelclientes.setBackground(new java.awt.Color(0, 153, 153));
 
         bnlimpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnlimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/escoba.png"))); // NOI18N
         bnlimpiar.setText("Limpiar");
         bnlimpiar.setToolTipText("Limpiar campos");
         bnlimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -207,7 +209,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         });
 
         bnguardar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/save-solid-24.png"))); // NOI18N
+        bnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardar.png"))); // NOI18N
         bnguardar.setText("Guardar");
         bnguardar.setToolTipText("Guardar registro");
         bnguardar.addActionListener(new java.awt.event.ActionListener() {
@@ -227,19 +229,19 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         jlcedula.setText("DNI");
 
         ljdireccion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        ljdireccion.setText("Dirección");
+        ljdireccion.setText("DIRECCIÓN");
 
         jlapellido.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlapellido.setText("Apellido");
+        jlapellido.setText("APELLIDO");
 
         jlnombre.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlnombre.setText("Nombre");
+        jlnombre.setText("NOMBRE");
 
         ljcorreo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        ljcorreo.setText("Correo");
+        ljcorreo.setText("CORREO");
 
         jlcorreo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlcorreo.setText("Teléfono");
+        jlcorreo.setText("TELÉFONO");
 
         txtcedula.setToolTipText("Ingrese una cedula correcta");
         txtcedula.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -272,7 +274,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txttelefono.setToolTipText("Ingrse un teléfono correcto");
 
         jlcorreo2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlcorreo2.setText("Género");
+        jlcorreo2.setText("GÉNERO");
 
         cmbgenero.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         cmbgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No definido", "Hombre", "Mujer" }));
@@ -292,7 +294,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         rbbottompasaporte.setText("Pasaporte");
 
         jlcorreo6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlcorreo6.setText("Fecha de nacimiento");
+        jlcorreo6.setText("FECHA NACIMIENTO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -371,7 +373,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         );
 
         bneliminar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash-alt-regular-24.png"))); // NOI18N
+        bneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
         bneliminar.setText("Eliminar");
         bneliminar.setToolTipText("Eliminar registro");
         bneliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -398,7 +400,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         });
 
         bneditar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/edit-alt-regular-24.png"))); // NOI18N
+        bneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png"))); // NOI18N
         bneditar.setText("Editar");
         bneditar.setToolTipText("Editar registro");
         bneditar.addActionListener(new java.awt.event.ActionListener() {
@@ -428,7 +430,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         });
 
         bnbuscarpersona.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bnbuscarpersona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-alt-regular-24.png"))); // NOI18N
+        bnbuscarpersona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
         bnbuscarpersona.setText("Buscar");
         bnbuscarpersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -471,7 +473,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                                 .addGap(18, 18, 18)
                                 .addComponent(bnlimpiar))
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         panelclientesLayout.setVerticalGroup(
             panelclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -508,6 +510,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
         bnlimpiarpro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnlimpiarpro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/escoba.png"))); // NOI18N
         bnlimpiarpro.setText("Limpiar");
         bnlimpiarpro.setToolTipText("Limpiar campos");
         bnlimpiarpro.addActionListener(new java.awt.event.ActionListener() {
@@ -526,7 +529,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         });
 
         bneliminarpro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bneliminarpro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash-alt-regular-24.png"))); // NOI18N
+        bneliminarpro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
         bneliminarpro.setText("Eliminar");
         bneliminarpro.setToolTipText("Eliminar registro");
         bneliminarpro.addActionListener(new java.awt.event.ActionListener() {
@@ -536,7 +539,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         });
 
         bneditarpro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bneditarpro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/edit-alt-regular-24.png"))); // NOI18N
+        bneditarpro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png"))); // NOI18N
         bneditarpro.setText("Editar");
         bneditarpro.setToolTipText("Editar registro");
         bneditarpro.addActionListener(new java.awt.event.ActionListener() {
@@ -546,7 +549,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         });
 
         bnguardarpro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bnguardarpro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/save-solid-24.png"))); // NOI18N
+        bnguardarpro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardar.png"))); // NOI18N
         bnguardarpro.setText("Guardar");
         bnguardarpro.setToolTipText("Guardar registro");
         bnguardarpro.addActionListener(new java.awt.event.ActionListener() {
@@ -570,7 +573,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         });
 
         bnbuscarproveedores.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bnbuscarproveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-alt-regular-24.png"))); // NOI18N
+        bnbuscarproveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar pi.png"))); // NOI18N
         bnbuscarproveedores.setText("Buscar");
         bnbuscarproveedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -634,22 +637,22 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         jPanel4.setName("Registro"); // NOI18N
 
         jlcedula2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlcedula2.setText("Ruc");
+        jlcedula2.setText("RUC");
 
         ljdireccion2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        ljdireccion2.setText("Nombre de representate");
+        ljdireccion2.setText("NOMBRE DE REPRESENTANTE");
 
         jlapellido2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlapellido2.setText("Tipo de actividad");
+        jlapellido2.setText("TIPO DE ACTIVIDAD");
 
         jlnombre2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlnombre2.setText("Razón social");
+        jlnombre2.setText("RAZÓN SOCIAL");
 
         ljcorreo2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        ljcorreo2.setText("Apellido de representante");
+        ljcorreo2.setText("APELLIDO DE REPRESENTATE");
 
         jlcorreo4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlcorreo4.setText("Teléfono");
+        jlcorreo4.setText("TELÉFON");
 
         txtrucpro.setToolTipText("Ingrese el ruc");
 
@@ -664,17 +667,17 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txttelefonopro.setToolTipText("Ingrese el teléfono");
 
         jlcorreo5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlcorreo5.setText("Correo");
+        jlcorreo5.setText("CORREO");
 
         txtcorreopro.setToolTipText("Ingrse el correo electrónico");
 
         jlcorreo7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlcorreo7.setText("Dirección");
+        jlcorreo7.setText("DIRECCIÓN");
 
         txtdireccionpro.setToolTipText("Ingrese la dirección");
 
         jlcorreo9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlcorreo9.setText("Fecha vencimiento");
+        jlcorreo9.setText("FECHA DE VENCIMIENTO");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -758,27 +761,27 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         panelproveedoresLayout.setHorizontalGroup(
             panelproveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelproveedoresLayout.createSequentialGroup()
-                .addGap(0, 260, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(247, 247, 247))
+                .addGap(227, 227, 227))
             .addGroup(panelproveedoresLayout.createSequentialGroup()
                 .addGroup(panelproveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelproveedoresLayout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(panelproveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 696, Short.MAX_VALUE)))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 721, Short.MAX_VALUE)))
                     .addGroup(panelproveedoresLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         panelproveedoresLayout.setVerticalGroup(
             panelproveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelproveedoresLayout.createSequentialGroup()
-                .addGap(13, 13, 13)
+                .addGap(8, 8, 8)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -798,47 +801,52 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         jPanel5.setName("Registro"); // NOI18N
 
         jlcedula3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlcedula3.setText("Código del producto");
+        jlcedula3.setText("CÓDIGO DE PRODUCTO");
 
         ljdireccion3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        ljdireccion3.setText("Precio compra con iva");
+        ljdireccion3.setText("PRECIO COMPRA CON IVA");
 
         jlapellido3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlapellido3.setText("Precio compra sin iva");
+        jlapellido3.setText("PRECIO COMPRA SIN IVA");
 
         jlnombre3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlnombre3.setText("Descripción");
+        jlnombre3.setText("DESCRIPCIÓN");
 
         ljcorreo3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        ljcorreo3.setText("Cantidad de los productos");
+        ljcorreo3.setText("CANTIDAD DE PRODUCTOS");
 
         txtcodigoin.setToolTipText("Ingrese el código del producto");
 
         txtdescripcionin.setToolTipText("Ingrese una descripción del producto");
 
         txtpreciosiniva.setToolTipText("Ingrese el precio sin iva");
+        txtpreciosiniva.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtpreciosinivaFocusLost(evt);
+            }
+        });
 
         txtprecioconiva.setToolTipText("Ingrese el precio con iva");
 
         txtcantidadin.setToolTipText("Ingrese la cantidad del producto");
 
         jlapellido4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlapellido4.setText("Precio mayorista");
+        jlapellido4.setText("PRECIO MAYORISTA");
 
         txtpreciomayorita.setToolTipText("Ingrese el precio mayorista");
 
         jlapellido5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlapellido5.setText("Precio cliente fijo");
+        jlapellido5.setText("PRECIO CLIENTE FIJO");
 
         txtprecioclientefijo.setToolTipText("Ingrese el precio cliente fijo");
 
         jlapellido6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlapellido6.setText("Precio cliente normal");
+        jlapellido6.setText("PRECIO CLIENTE NORMAL");
 
         txtprecioclientenormal.setToolTipText("Ingrese el precio cliente normal");
 
         jlapellido7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jlapellido7.setText("Fecha de caducidad");
+        jlapellido7.setText("FECHA DE CADUCIDAD");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -853,21 +861,14 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                     .addComponent(jlapellido4)
                     .addComponent(jlapellido6))
                 .addGap(82, 82, 82)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(txtcodigoin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ljcorreo3)
                         .addGap(18, 18, 18)
-                        .addComponent(txtcantidadin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtcantidadin, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(txtpreciosiniva, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ljdireccion3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtprecioconiva, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtdescripcionin)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(txtpreciomayorita, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -878,10 +879,17 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                                 .addGap(18, 18, 18)
                                 .addComponent(jlapellido7)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtprecioclientefijo, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                            .addComponent(jdfechacaducidadonve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(22, 22, 22))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtprecioclientefijo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jdfechacaducidadonve, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(txtpreciosiniva, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ljdireccion3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtprecioconiva, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdescripcionin, javax.swing.GroupLayout.Alignment.LEADING))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -923,6 +931,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         jPanel6.setBackground(new java.awt.Color(204, 204, 204));
 
         bnlimpiarinve.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bnlimpiarinve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/escoba.png"))); // NOI18N
         bnlimpiarinve.setText("Limpiar");
         bnlimpiarinve.setToolTipText("Limpiar campos");
         bnlimpiarinve.addActionListener(new java.awt.event.ActionListener() {
@@ -932,7 +941,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         });
 
         bneliminarinve.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bneliminarinve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash-alt-regular-24.png"))); // NOI18N
+        bneliminarinve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
         bneliminarinve.setText("Eliminar");
         bneliminarinve.setToolTipText("Eliminar registro");
         bneliminarinve.addActionListener(new java.awt.event.ActionListener() {
@@ -942,7 +951,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         });
 
         bneditarinve.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bneditarinve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/edit-alt-regular-24.png"))); // NOI18N
+        bneditarinve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png"))); // NOI18N
         bneditarinve.setText("Editar");
         bneditarinve.setToolTipText("Editar registro");
         bneditarinve.addActionListener(new java.awt.event.ActionListener() {
@@ -952,7 +961,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         });
 
         bnguardarinve.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bnguardarinve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/save-solid-24.png"))); // NOI18N
+        bnguardarinve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardar.png"))); // NOI18N
         bnguardarinve.setText("Guardar");
         bnguardarinve.setToolTipText("Guardar registro");
         bnguardarinve.addActionListener(new java.awt.event.ActionListener() {
@@ -980,7 +989,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         });
 
         bnbuscarinventario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bnbuscarinventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-alt-regular-24.png"))); // NOI18N
+        bnbuscarinventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar pi.png"))); // NOI18N
         bnbuscarinventario.setText("Buscar");
         bnbuscarinventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1053,20 +1062,21 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         panelinventario.setLayout(panelinventarioLayout);
         panelinventarioLayout.setHorizontalGroup(
             panelinventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelinventarioLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(239, 239, 239))
             .addGroup(panelinventarioLayout.createSequentialGroup()
                 .addGroup(panelinventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelinventarioLayout.createSequentialGroup()
-                        .addGap(244, 244, 244)
-                        .addComponent(jLabel3))
-                    .addGroup(panelinventarioLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelinventarioLayout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(panelinventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(46, Short.MAX_VALUE))
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelinventarioLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         panelinventarioLayout.setVerticalGroup(
             panelinventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1077,9 +1087,9 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Inventario", panelinventario);
@@ -1090,7 +1100,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         panelventas.setLayout(panelventasLayout);
         panelventasLayout.setHorizontalGroup(
             panelventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 789, Short.MAX_VALUE)
+            .addGap(0, 806, Short.MAX_VALUE)
         );
         panelventasLayout.setVerticalGroup(
             panelventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1165,8 +1175,13 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         menueditar.setText("Editar");
         jMenuBar1.add(menueditar);
 
-        jMenu4.setText("Acerca de ");
-        jMenuBar1.add(jMenu4);
+        Acerca_de.setText("Acerca de ");
+        Acerca_de.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Acerca_deMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(Acerca_de);
 
         setJMenuBar(jMenuBar1);
 
@@ -1666,6 +1681,30 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnombreActionPerformed
+
+    private void Acerca_deMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Acerca_deMouseClicked
+        Acerca_de a = new Acerca_de(this,true);
+        a.setVisible(true);
+    }//GEN-LAST:event_Acerca_deMouseClicked
+
+    private void txtpreciosinivaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpreciosinivaFocusLost
+        double a = utilidad.precioIva(Double.parseDouble(txtpreciosiniva.getText()));
+        txtprecioconiva.setText(String.valueOf(a));
+        double mayorista = utilidad.precioMayorita(Double.parseDouble(txtprecioconiva.getText()));
+        txtpreciomayorita.setText(String.valueOf(mayorista));
+        double fijo = utilidad.precioClienteFijo(Double.parseDouble(txtprecioconiva.getText()));
+        txtprecioclientefijo.setText(String.valueOf(fijo));
+        double normal = utilidad.precioClienteNormal(Double.parseDouble(txtprecioconiva.getText()));
+        txtprecioclientenormal.setText(String.valueOf( normal));
+       
+        
+    }//GEN-LAST:event_txtpreciosinivaFocusLost
+    void cajastexto(){
+        txtprecioconiva.setEditable(false);
+        txtpreciomayorita.setEditable(false);
+        txtprecioclientefijo.setEditable(false);
+        txtprecioclientenormal.setEditable(false);
+    }
     private void buscarCliente() {
         System.out.println("Combo" + cmbbusqueda.getSelectedIndex());
         switch (cmbbusqueda.getSelectedIndex()) {
@@ -1735,6 +1774,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Acerca_de;
     private javax.swing.JButton bnbuscarinventario;
     private javax.swing.JButton bnbuscarpersona;
     private javax.swing.JButton bnbuscarproveedores;
@@ -1764,7 +1804,6 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenueditar;

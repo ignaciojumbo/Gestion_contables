@@ -53,44 +53,77 @@ public class Utilidad {
         }
         return cedulaCorrecta;
     }
-    public boolean validarNumero(String numero){
-        if(numero.charAt(0) != '0'){
+
+    public boolean validarNumero(String numero) {
+        if (numero.charAt(0) != '0') {
             return false;
-            
+
         }
-        if(numero.isEmpty() ){
+        if (numero.isEmpty()) {
             return false;
-        }else if(numero.length()< 10){
+        } else if (numero.length() < 10) {
             return false;
         }
-      
+
         try {
             int validarNumero = Integer.parseInt(numero);
             return true;
         } catch (NumberFormatException e) {
             return false;
         }
-        
+
     }
-    public boolean validarCorreo(String correo){
-         // Patrón para validar el email
+
+    public boolean validarCorreo(String correo) {
+        // Patrón para validar el email
         Pattern pattern = Pattern
                 .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                         + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
- 
+
         // El email a validar
         String email = correo;
- 
+
         Matcher mather = pattern.matcher(email);
- 
+
         return mather.find() == true; //System.out.println("El email ingresado es válido.");
         //System.out.println("El email ingresado es inválido.");
     }
-    
-     public String fecha(Date fecha) {
+
+    public String fecha(Date fecha) {
         SimpleDateFormat f = new SimpleDateFormat("YY/MM/dd");
         return f.format(fecha);
 
+    }
+
+    public double precioIva(double precioSinIva) {
+        double iva;
+        double precioIva;
+        iva = precioSinIva * 0.12;
+        precioIva = precioSinIva + iva;
+        return precioIva;
+    }
+
+    public double precioMayorita(double precioConIva) {
+        double precioMayorista, nuevo;
+        nuevo = precioConIva * 0.10;
+        precioMayorista = nuevo + precioConIva;
+
+        return precioMayorista;
+    }
+
+    public double precioClienteFijo(double precioConIva) {
+        double precioClienteFijo, nuevo;
+        nuevo = precioConIva * 0.12;
+        precioClienteFijo = nuevo + precioConIva;
+
+        return precioClienteFijo;
+    }
+     public double precioClienteNormal(double precioConIva) {
+        double ClienteNormal, nuevo;
+        nuevo = precioConIva * 0.15;
+        ClienteNormal = nuevo + precioConIva;
+
+        return ClienteNormal;
     }
 
 }
