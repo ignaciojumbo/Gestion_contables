@@ -105,7 +105,7 @@ public class Inventariodb {
                 + "`precio_mayorista` = '" + inventario.getPrecio_mayorita() + "', "
                 + "`precio_cliente_fijo` = '" + inventario.getCliente_fijo() + "',"
                 + " `precio_cliente_normal` = '" + inventario.getCliente_normal() + "', "
-                + "`fecha_caducida` = '" + inventario.getFecha_caducidad() + "', "
+                + "`fecha_caducida` = '" + util.fecha(inventario.getFecha_caducidad()) + "', "
                 + "`fecha_actualizacion` = '" + util.fecha(inventario.getFecha_actualizacion()) + "' "
                 + "WHERE (`id_inventario` = '" + inventario.getId_inventario() + "');";
         try {

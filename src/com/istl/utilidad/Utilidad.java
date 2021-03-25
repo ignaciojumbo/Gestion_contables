@@ -100,7 +100,7 @@ public class Utilidad {
         double precioIva;
         iva = precioSinIva * 0.12;
         precioIva = precioSinIva + iva;
-        return precioIva;
+        return Math.round(precioIva * 100) /100d;
     }
 
     public double precioMayorita(double precioConIva) {
@@ -108,7 +108,7 @@ public class Utilidad {
         nuevo = precioConIva * 0.10;
         precioMayorista = nuevo + precioConIva;
 
-        return precioMayorista;
+        return Math.round(precioMayorista * 100)/100d ;
     }
 
     public double precioClienteFijo(double precioConIva) {
@@ -116,14 +116,14 @@ public class Utilidad {
         nuevo = precioConIva * 0.12;
         precioClienteFijo = nuevo + precioConIva;
 
-        return precioClienteFijo;
+        return Math.round(precioClienteFijo * 100)/100d;
     }
      public double precioClienteNormal(double precioConIva) {
         double ClienteNormal, nuevo;
         nuevo = precioConIva * 0.15;
         ClienteNormal = nuevo + precioConIva;
 
-        return ClienteNormal;
+        return Math.round(ClienteNormal * 100)/100d;
     }
 
 }
