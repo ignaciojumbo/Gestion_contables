@@ -17,6 +17,7 @@ import com.istl.modelJTable.ModelTableProveedor;
 import com.istl.modelo.Inventario;
 import com.istl.utilidad.UtilidadInventario;
 import java.awt.Color;
+import java.util.Date;
 
 public class GestionContable extends javax.swing.JFrame implements ComunicacionVistadeTablas {
 
@@ -43,7 +44,6 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         modelTableProveedor = new ModelTableProveedor(controladorProveedor.obtenerProveedor(), this);
         modelTableInventario = new ModelTableInventario(controladorInvenario.obtenerInventario(), this);
         initComponents();
-        cajastexto();
         rbbottomcedula.setSelected(true);
         this.setLocationRelativeTo(null);
         utilidad = new Utilidad();
@@ -57,6 +57,8 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         bneditarpro.setEnabled(false);
         bneditarinve.setEnabled(false);
         bneliminarinve.setEnabled(false);
+        Date fecha = new Date();
+        txtfechanota.setText(utilidad.fecha(fecha));
     }
 
     @SuppressWarnings("unchecked")
@@ -167,6 +169,29 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         jtproveedor1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         panelventas = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtnumerodenotaventa = new javax.swing.JTextField();
+        txtcedulanota = new javax.swing.JTextField();
+        txtnombrenota = new javax.swing.JTextField();
+        txttelefononota = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtdireccionnota = new javax.swing.JTextField();
+        txtfechanota = new javax.swing.JTextField();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        txtproductonota = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtcantidadnota = new javax.swing.JTextField();
+        bnagregarnota = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuarchivo = new javax.swing.JMenu();
         jmenusalir = new javax.swing.JMenuItem();
@@ -475,7 +500,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                                 .addGap(18, 18, 18)
                                 .addComponent(bnlimpiar))
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         panelclientesLayout.setVerticalGroup(
             panelclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -776,7 +801,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                     .addGroup(panelproveedoresLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         panelproveedoresLayout.setVerticalGroup(
             panelproveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -828,6 +853,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
             }
         });
 
+        txtprecioconiva.setEditable(false);
         txtprecioconiva.setToolTipText("Ingrese el precio con iva");
 
         txtcantidadin.setToolTipText("Ingrese la cantidad del producto");
@@ -835,16 +861,19 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         jlapellido4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jlapellido4.setText("PRECIO MAYORISTA");
 
+        txtpreciomayorita.setEditable(false);
         txtpreciomayorita.setToolTipText("Ingrese el precio mayorista");
 
         jlapellido5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jlapellido5.setText("PRECIO CLIENTE FIJO");
 
+        txtprecioclientefijo.setEditable(false);
         txtprecioclientefijo.setToolTipText("Ingrese el precio cliente fijo");
 
         jlapellido6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jlapellido6.setText("PRECIO CLIENTE NORMAL");
 
+        txtprecioclientenormal.setEditable(false);
         txtprecioclientenormal.setToolTipText("Ingrese el precio cliente normal");
 
         jlapellido7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -1070,11 +1099,11 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                         .addGap(44, 44, 44)
                         .addGroup(panelinventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 716, Short.MAX_VALUE)))
                     .addGroup(panelinventarioLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelinventarioLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel3)
@@ -1098,15 +1127,197 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
 
         panelventas.setBackground(new java.awt.Color(0, 153, 153));
 
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel10.setText("NOTA DE VENTA");
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel4.setText("NÚMERO NOTA VENTA");
+
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel5.setText("CÉDULA O RUC CLIENTE");
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel6.setText("NOMBRE CLIENTE");
+
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel7.setText("TELÉFONO");
+
+        txtcedulanota.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtcedulanotaFocusLost(evt);
+            }
+        });
+
+        txtnombrenota.setEditable(false);
+
+        txttelefononota.setEditable(false);
+
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel8.setText("DIRECCIÓN");
+
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel9.setText("FECHA VENTA");
+
+        txtdireccionnota.setEditable(false);
+
+        txtfechanota.setEditable(false);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7))
+                        .addGap(45, 45, 45)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtnombrenota)
+                            .addComponent(txtnumerodenotaventa)
+                            .addComponent(txtcedulanota)
+                            .addComponent(txttelefononota, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel6))
+                .addGap(43, 43, 43)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtdireccionnota, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                    .addComponent(txtfechanota))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(txtnumerodenotaventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(txtcedulanota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtnombrenota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel8))
+                            .addComponent(jLabel6)))
+                    .addComponent(txtdireccionnota, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txttelefononota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)
+                        .addComponent(txtfechanota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel11.setText("PRODUCTO");
+
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel12.setText("CANTIDAD");
+
+        bnagregarnota.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        bnagregarnota.setText("AGREGAR");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addGap(26, 26, 26)
+                .addComponent(txtproductonota, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel12)
+                .addGap(26, 26, 26)
+                .addComponent(txtcantidadnota, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(bnagregarnota)
+                .addGap(36, 36, 36))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(txtproductonota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(txtcantidadnota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bnagregarnota))
+                .addContainerGap())
+        );
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable2);
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout panelventasLayout = new javax.swing.GroupLayout(panelventas);
         panelventas.setLayout(panelventasLayout);
         panelventasLayout.setHorizontalGroup(
             panelventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 806, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelventasLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(286, 286, 286))
+            .addGroup(panelventasLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(panelventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         panelventasLayout.setVerticalGroup(
             panelventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 613, Short.MAX_VALUE)
+            .addGroup(panelventasLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel10)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Venta", panelventas);
@@ -1510,7 +1721,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txtdireccion.setText(personaEditar.getDireccion());
         txttelefono.setText(personaEditar.getTelefono());
         txtcorreo.setText(personaEditar.getCorreo());
-        
+
     }//GEN-LAST:event_bnregistroActionPerformed
 
     private void bneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bneliminarActionPerformed
@@ -1588,7 +1799,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         bneditarinve.setEnabled(false);
         bneliminarinve.setEnabled(false);
         bnguardarinve.setEnabled(true);
-        
+
     }//GEN-LAST:event_bnlimpiarinveActionPerformed
 
     private void bneliminarinveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bneliminarinveActionPerformed
@@ -1696,7 +1907,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     }//GEN-LAST:event_txtnombreActionPerformed
 
     private void Acerca_deMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Acerca_deMouseClicked
-        Acerca_de a = new Acerca_de(this,true);
+        Acerca_de a = new Acerca_de(this, true);
         a.setVisible(true);
     }//GEN-LAST:event_Acerca_deMouseClicked
 
@@ -1709,16 +1920,21 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txtprecioclientefijo.setText(String.valueOf(fijo));
         double normal = utilidad.precioClienteNormal(Double.parseDouble(txtprecioconiva.getText()));
         txtprecioclientenormal.setText(String.valueOf(normal));
-       // JOptionPane.showMessageDialog(rootPane, Math.round(normal * 100)/100d);
-       
-        
     }//GEN-LAST:event_txtpreciosinivaFocusLost
-    void cajastexto(){
-        txtprecioconiva.setEditable(false);
-        txtpreciomayorita.setEditable(false);
-        txtprecioclientefijo.setEditable(false);
-        txtprecioclientenormal.setEditable(false);
-    }
+
+    private void txtcedulanotaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtcedulanotaFocusLost
+
+        Persona per = controladorPersona.buscarPersonas(txtcedulanota.getText());
+        if (controladorPersona.buscarPersonas(txtcedulanota.getText()) == null) {
+            JOptionPane.showMessageDialog(rootPane, "No existe un registro con ese número de cédula");
+        } else {
+            txtnombrenota.setText(per.getNombre());
+            txtdireccionnota.setText(per.getDireccion());
+            txttelefononota.setText(per.getTelefono());
+        }
+
+    }//GEN-LAST:event_txtcedulanotaFocusLost
+
     private void buscarCliente() {
         System.out.println("Combo" + cmbbusqueda.getSelectedIndex());
         switch (cmbbusqueda.getSelectedIndex()) {
@@ -1789,6 +2005,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Acerca_de;
+    private javax.swing.JButton bnagregarnota;
     private javax.swing.JButton bnbuscarinventario;
     private javax.swing.JButton bnbuscarpersona;
     private javax.swing.JButton bnbuscarproveedores;
@@ -1813,8 +2030,17 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private javax.swing.JComboBox<String> cmbgenero;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -1822,15 +2048,20 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenueditar;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private com.toedter.calendar.JDateChooser jdatefechanacimiento;
     private com.toedter.calendar.JDateChooser jdatefechavencimientopro;
     private com.toedter.calendar.JDateChooser jdfechacaducidadonve;
@@ -1884,23 +2115,31 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private javax.swing.JTextField txtbuscarparametroinventario;
     private javax.swing.JTextField txtbuscarparametropro;
     private javax.swing.JTextField txtcantidadin;
+    private javax.swing.JTextField txtcantidadnota;
     private javax.swing.JTextField txtcedula;
+    private javax.swing.JTextField txtcedulanota;
     private javax.swing.JTextField txtcodigoin;
     private javax.swing.JTextField txtcorreo;
     private javax.swing.JTextField txtcorreopro;
     private javax.swing.JTextField txtdescripcionin;
     private javax.swing.JTextField txtdireccion;
+    private javax.swing.JTextField txtdireccionnota;
     private javax.swing.JTextField txtdireccionpro;
+    private javax.swing.JTextField txtfechanota;
     private javax.swing.JTextField txtnombre;
+    private javax.swing.JTextField txtnombrenota;
     private javax.swing.JTextField txtnombrepro;
+    private javax.swing.JTextField txtnumerodenotaventa;
     private javax.swing.JTextField txtprecioclientefijo;
     private javax.swing.JTextField txtprecioclientenormal;
     private javax.swing.JTextField txtprecioconiva;
     private javax.swing.JTextField txtpreciomayorita;
     private javax.swing.JTextField txtpreciosiniva;
+    private javax.swing.JTextField txtproductonota;
     private javax.swing.JTextField txtrazonpro;
     private javax.swing.JTextField txtrucpro;
     private javax.swing.JTextField txttelefono;
+    private javax.swing.JTextField txttelefononota;
     private javax.swing.JTextField txttelefonopro;
     // End of variables declaration//GEN-END:variables
 
@@ -1919,7 +2158,6 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         bnguardar.setEnabled(false);
         bneliminar.setEnabled(true);
         bneditar.setEnabled(true);
-        
 
     }
 
@@ -1938,7 +2176,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         bnguardarpro.setEnabled(false);
         bneliminarpro.setEnabled(true);
         bneditarpro.setEnabled(true);
-        
+
     }
 
     @Override

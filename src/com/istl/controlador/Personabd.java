@@ -100,16 +100,12 @@ public class Personabd {
 
     public Persona buscarPersonas(String cedula) {
         Connection co = null;
-
-        //Sentencia de JDBC para obtener valores de la base de datos.
         ResultSetImpl rs;
         Persona c = null;
         String sql = "SELECT * FROM bdejercicio1.persona1 where Cedula like " + cedula + ";";
-
         try {
             con = new Conexion().getConexion();
             stm = (Statement) con.createStatement();
-
             rs = (ResultSetImpl) stm.executeQuery(sql);
             while (rs.next()) {
                 c = new Persona();
@@ -123,7 +119,6 @@ public class Personabd {
                 c.setFecha_registro(rs.getDate(8));
                 c.setGenero(rs.getString(9));
                 c.setFecha_nacimiento(rs.getDate(11));
-
             }
             stm.close();
             rs.close();
@@ -134,12 +129,41 @@ public class Personabd {
 
         return c;
     }
+    
+//    public Persona buscarPersonasNota(String cedula) {
+//        Connection co = null;
+//        //Sentencia de JDBC para obtener valores de la base de datos.
+//        ResultSetImpl rs;
+//        Persona c = null;
+//       
+//        String sql = "select Nombre,Direccion,Telefono from persona1 where Cedula = \""+cedula+"\";";
+//        try {
+//            con = new Conexion().getConexion();
+//            stm = (Statement) con.createStatement();
+//            rs = (ResultSetImpl) stm.executeQuery(sql);
+//            while (rs.next()) {
+//                c = new Persona();
+//                c.setNombre(rs.getString(1));
+//                c.setDireccion(rs.getString(2));
+//                c.setTelefono(rs.getString(3));
+//            }
+//            stm.close();
+//            rs.close();
+//            con.close();
+//        } catch (SQLException e) {
+//            System.out.println("Error:" + e.getMessage());
+//        }
+//
+//        return c;
+//    }
+    
 
     public Persona buscarPersonasNumero(String numero) {
         Connection co = null;
         //Sentencia de JDBC para obtener valores de la base de datos.
         ResultSetImpl rs;
         Persona c = null;
+        
         String sql = "SELECT * FROM bdejercicio1.persona1 where Telefono like '" + numero + "';";
 
         try {
@@ -250,7 +274,6 @@ public class Personabd {
         try {
             con = new Conexion().getConexion();
             stm = (Statement) con.createStatement();
-
             rs = (ResultSetImpl) stm.executeQuery(sql);
             while (rs.next()) {
                 Persona c = new Persona();
