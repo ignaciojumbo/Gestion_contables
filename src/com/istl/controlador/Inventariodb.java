@@ -40,14 +40,13 @@ public class Inventariodb {
                     + "(`codigo_pro`, `can_productos`, `descripcion`, `precios_compra_sin_iva`, "
                     + "`precio_compra_con_iva`, `precio_mayorista`, `precio_cliente_fijo`, "
                     + "`precio_cliente_normal`, "
-                    
                     + "`fecha_registro`)"
                     + " VALUES ('" + inventario.getCodigo_pro() + "', '" + inventario.getCan_productos() + "', '" + inventario.getDescripcion() + "', "
                     + "'" + inventario.getPrecios_compra_sin_iva() + "', '" + inventario.getPrecios_compra_con_iva() + "',"
                     + "'" + inventario.getPrecio_mayorita() + "', "
                     + "'" + inventario.getCliente_fijo() + "', "
                     + "'" + inventario.getCliente_normal() + "', "
-                   // + "'" + util.fecha(inventario.getFecha_caducidad()) + "', "
+                    // + "'" + util.fecha(inventario.getFecha_caducidad()) + "', "
                     + "'" + util.fecha(inventario.getFecha_registro()) + "');";
         } else {
             sql = "INSERT INTO `bdejercicio1`.`inventario` "
@@ -148,12 +147,46 @@ public class Inventariodb {
             }
             stm.close();
             rs.close();
-            con.close();
+//            con.close();
         } catch (SQLException e) {
             System.out.println("Error:" + e.getMessage());
         }
 
         return listaInventario;
+    }
+
+    public Inventario busquedadInventarioCodigonota(String codigo) {
+        System.out.println("BusquedaCodigo" + codigo);
+        //Sentencia de JDBC para obtener valores de la base de datos.
+        ResultSet rs = null;
+        Inventario in = null;
+        String sql = "SELECT * FROM bdejercicio1.inventario where codigo_pro like \"%" + codigo + "%\"";
+
+        try {
+            con = new Conexion().getConexion();
+            stm = (Statement) con.createStatement();
+            rs = stm.executeQuery(sql);
+            while (rs.next()) {
+                in = new Inventario();
+                in.setId_inventario(rs.getInt(1));
+                in.setCodigo_pro(rs.getString(2));
+                in.setCan_productos(rs.getInt(3));
+                in.setDescripcion(rs.getString(4));
+                in.setPrecios_compra_sin_iva(rs.getString(5));
+                in.setPrecios_compra_con_iva(rs.getString(6));
+                in.setPrecio_mayorita(rs.getString(7));
+                in.setCliente_fijo(rs.getString(8));
+                in.setCliente_normal(rs.getString(9));
+                in.setFecha_caducidad(rs.getDate(10));
+
+            }
+            stm.close();
+            rs.close();
+//            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error:" + e.getMessage());
+        }
+        return in;
     }
 
     public List<Inventario> buscarInventarioDescripcion(String descripcion) {
