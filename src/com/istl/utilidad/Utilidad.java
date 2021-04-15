@@ -126,5 +126,9 @@ public class Utilidad {
 
         return Math.round(ClienteNormal * 100) / 100d;
     }
+    public double dosdecimales(double cantidad){
+        return Math.round(cantidad * 100 ) / 100d;
+        
+    }
 
 }

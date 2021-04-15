@@ -2,7 +2,6 @@ package com.istl.vista;
 
 import com.istl.modelo.Inventario;
 import com.istl.utilidad.Utilidad;
-import com.istl.utilidad.UtilidadInventario;
 import com.toedter.calendar.JDateChooser;
 import java.util.Date;
 import javax.swing.JFrame;

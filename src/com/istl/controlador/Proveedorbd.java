@@ -33,52 +33,26 @@ public class Proveedorbd {
     public boolean Registrarproveedor(Proveedor proveedor) {
         boolean registrar = false;
 
-        String sql;
-        if (proveedor.getFecha_vencimiento() == null) {
-            sql = "INSERT INTO `bdejercicio1`."
-                    + "`proveedor` (`ruc`, "
-                    + "`razon_social`, "
-                    + "`tipo_actividad`, "
-                    + "`nombre_representante`, "
-                    + "`apellido_representante`, "
-                    + "`telefono`, "
-                    + "`correo`, "
-                    + "`direccion`, "
-                    + "`fecha_registro`) "
-                    + "VALUES ("
-                    + "'"+proveedor.getRuc()+"', "
-                    + "'"+proveedor.getRazonSocial()+"', "
-                    + "'"+proveedor.getTipoActividad()+"', "
-                    + "'"+proveedor.getNombreRepresentante()+"', "
-                    + "'"+proveedor.getApellidoRepresentante()+"', "
-                    + "'"+proveedor.getTelefono()+"', "
-                    + "'"+proveedor.getCorreo()+"', "
-                    + "'"+proveedor.getDireccionpro()+"', "
-                    + "'"+util.fecha(proveedor.getFecha_registro())+"');";
-
-        } else {
-            sql = "INSERT INTO `bdejercicio1`.`proveedor` ("
-                    + "`ruc`, "
-                    + "`razon_social`, "
-                    + "`tipo_actividad`, "
-                    + "`nombre_representante`, "
-                    + "`apellido_representante`, "
-                    + "`telefono`, "
-                    + "`correo`, "
-                    + "`direccion`, "
-                    + "`fecha_registro`, "
-                    + "`fecha_vencimiento`) "
-                    + "VALUES ('" + proveedor.getRuc() + "', "
-                    + "'" + proveedor.getRazonSocial() + "', "
-                    + "'" + proveedor.getTipoActividad() + "'"
-                    + ", '" + proveedor.getNombreRepresentante() + "', "
-                    + "'" + proveedor.getApellidoRepresentante() + "', "
-                    + "'" + proveedor.getTelefono() + "'"
-                    + ", '" + proveedor.getCorreo() + "', "
-                    + "'" + proveedor.getDireccionpro() + "', "
-                    + "'" + util.fecha(proveedor.getFecha_registro()) + "', "
-                    + "'" + util.fecha(proveedor.getFecha_vencimiento()) + "');";
-        }
+        String sql = "INSERT INTO `bdejercicio1`."
+                + "`proveedor` (`ruc`, "
+                + "`razon_social`, "
+                + "`tipo_actividad`, "
+                + "`nombre_representante`, "
+                + "`apellido_representante`, "
+                + "`telefono`, "
+                + "`correo`, "
+                + "`direccion`, "
+                + "`fecha_registro`) "
+                + "VALUES ("
+                + "'" + proveedor.getRuc() + "', "
+                + "'" + proveedor.getRazonSocial() + "', "
+                + "'" + proveedor.getTipoActividad() + "', "
+                + "'" + proveedor.getNombreRepresentante() + "', "
+                + "'" + proveedor.getApellidoRepresentante() + "', "
+                + "'" + proveedor.getTelefono() + "', "
+                + "'" + proveedor.getCorreo() + "', "
+                + "'" + proveedor.getDireccionpro() + "', "
+                + "'" + util.fecha(proveedor.getFecha_registro()) + "');";
 
         try {
 
@@ -115,7 +89,6 @@ public class Proveedorbd {
 
     public boolean editar(Proveedor proveedor) throws SQLException {
         boolean actualiar = false;
-
         String sql = "UPDATE `bdejercicio1`.`proveedor` SET "
                 + "`ruc` = '" + proveedor.getRuc() + "', "
                 + "`razon_social` = '" + proveedor.getRazonSocial() + "', "
@@ -125,9 +98,9 @@ public class Proveedorbd {
                 + "`telefono` = '" + proveedor.getTelefono() + "', "
                 + "`correo` = '" + proveedor.getCorreo() + "', "
                 + "`direccion` = '" + proveedor.getDireccionpro() + "', "
-                + "`fecha_actualizacion` = '" + util.fecha(proveedor.getFecha_actualizacion()) + "', "
-                + "`fecha_vencimiento` = '" + util.fecha(proveedor.getFecha_vencimiento()) + "' "
+                + "`fecha_actualizacion` = '" + util.fecha(proveedor.getFecha_actualizacion()) + "' "
                 + "WHERE (`idproveedor` = '" + proveedor.getIdProveedor() + "');";
+
         try {
             con = conexion.getConexion();
             stm = (Statement) con.createStatement();
@@ -165,7 +138,7 @@ public class Proveedorbd {
                 prove.setCorreo(rs.getString(8));
                 prove.setDireccionpro(rs.getString(9));
                 //prove.setFecha_actualizacion(rs.getDate(10));
-                prove.setFecha_vencimiento(rs.getDate(12));
+
                 proveedorEncontrado.add(prove);
             }
             stm.close();
@@ -201,7 +174,7 @@ public class Proveedorbd {
                 prove.setCorreo(rs.getString(8));
                 prove.setDireccionpro(rs.getString(9));
                 // prove.setFecha_actualizacion(rs.getDate(10));
-                prove.setFecha_vencimiento(rs.getDate(12));
+
                 proveedorEncontrado.add(prove);
             }
             stm.close();
@@ -238,7 +211,7 @@ public class Proveedorbd {
                 prove.setCorreo(rs.getString(8));
                 prove.setDireccionpro(rs.getString(9));
                 // prove.setFecha_actualizacion(rs.getDate(10));
-                prove.setFecha_vencimiento(rs.getDate(12));
+
                 listaproveedores.add(prove);
             }
             stm.close();

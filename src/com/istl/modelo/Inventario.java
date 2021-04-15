@@ -24,6 +24,7 @@ public class Inventario {
     private Date fecha_caducidad;
     private Date fecha_registro;
     private Date fecha_actualizacion;
+    private int CantidadProductosVender;
 
     public int getId_inventario() {
         return id_inventario;
@@ -119,6 +120,14 @@ public class Inventario {
 
     public void setFecha_actualizacion(Date fecha_actualizacion) {
         this.fecha_actualizacion = fecha_actualizacion;
+    }
+
+    public int getCantidadProductosVender() {
+        return CantidadProductosVender;
+    }
+
+    public void setCantidadProductosVender(int CantidadProductosVender) {
+        this.CantidadProductosVender = CantidadProductosVender;
     }
 
     @Override

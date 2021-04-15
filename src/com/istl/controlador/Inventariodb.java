@@ -96,17 +96,32 @@ public class Inventariodb {
 
     public boolean editar(Inventario inventario) throws SQLException {
         boolean actualizar = false;
-        String sql = "UPDATE `bdejercicio1`.`inventario` SET `codigo_pro` = '" + inventario.getCodigo_pro() + "', "
-                + "`can_productos` = '" + inventario.getCan_productos() + "', "
-                + "`descripcion` = '" + inventario.getDescripcion() + "',"
-                + " `precios_compra_sin_iva` = '" + inventario.getPrecios_compra_sin_iva() + "', "
-                + "`precio_compra_con_iva` = '" + inventario.getPrecios_compra_con_iva() + "', "
-                + "`precio_mayorista` = '" + inventario.getPrecio_mayorita() + "', "
-                + "`precio_cliente_fijo` = '" + inventario.getCliente_fijo() + "',"
-                + " `precio_cliente_normal` = '" + inventario.getCliente_normal() + "', "
-                + "`fecha_caducida` = '" + util.fecha(inventario.getFecha_caducidad()) + "', "
-                + "`fecha_actualizacion` = '" + util.fecha(inventario.getFecha_actualizacion()) + "' "
-                + "WHERE (`id_inventario` = '" + inventario.getId_inventario() + "');";
+        String sql;
+        if (inventario.getFecha_caducidad() == null) {
+            sql = "UPDATE `bdejercicio1`.`inventario` SET `codigo_pro` = '" + inventario.getCodigo_pro() + "', "
+                    + "`can_productos` = '" + inventario.getCan_productos() + "', "
+                    + "`descripcion` = '" + inventario.getDescripcion() + "',"
+                    + " `precios_compra_sin_iva` = '" + inventario.getPrecios_compra_sin_iva() + "', "
+                    + "`precio_compra_con_iva` = '" + inventario.getPrecios_compra_con_iva() + "', "
+                    + "`precio_mayorista` = '" + inventario.getPrecio_mayorita() + "', "
+                    + "`precio_cliente_fijo` = '" + inventario.getCliente_fijo() + "',"
+                    + " `precio_cliente_normal` = '" + inventario.getCliente_normal() + "', "
+                    + "`fecha_actualizacion` = '" + util.fecha(inventario.getFecha_actualizacion()) + "' "
+                    + "WHERE (`id_inventario` = '" + inventario.getId_inventario() + "');";
+        } else {
+            sql = "UPDATE `bdejercicio1`.`inventario` SET `codigo_pro` = '" + inventario.getCodigo_pro() + "', "
+                    + "`can_productos` = '" + inventario.getCan_productos() + "', "
+                    + "`descripcion` = '" + inventario.getDescripcion() + "',"
+                    + " `precios_compra_sin_iva` = '" + inventario.getPrecios_compra_sin_iva() + "', "
+                    + "`precio_compra_con_iva` = '" + inventario.getPrecios_compra_con_iva() + "', "
+                    + "`precio_mayorista` = '" + inventario.getPrecio_mayorita() + "', "
+                    + "`precio_cliente_fijo` = '" + inventario.getCliente_fijo() + "',"
+                    + " `precio_cliente_normal` = '" + inventario.getCliente_normal() + "', "
+                    + "`fecha_caducida` = '" + util.fecha(inventario.getFecha_caducidad()) + "', "
+                    + "`fecha_actualizacion` = '" + util.fecha(inventario.getFecha_actualizacion()) + "' "
+                    + "WHERE (`id_inventario` = '" + inventario.getId_inventario() + "');";
+        }
+
         try {
             con = conexion.getConexion();
             stm = (Statement) con.createStatement();
@@ -156,6 +171,40 @@ public class Inventariodb {
     }
 
     public Inventario busquedadInventarioCodigonota(String codigo) {
+        System.out.println("BusquedaCodigo" + codigo);
+        //Sentencia de JDBC para obtener valores de la base de datos.
+        ResultSet rs = null;
+        Inventario in = null;
+        String sql = "SELECT * FROM ejercicio.inventario where cod_producto = '" + codigo + "';";
+
+        try {
+            con = new Conexion().getConexion();
+            stm = (Statement) con.createStatement();
+            rs = stm.executeQuery(sql);
+            while (rs.next()) {
+                in = new Inventario();
+                in.setId_inventario(rs.getInt(1));
+                in.setCodigo_pro(rs.getString(2));
+                in.setCan_productos(rs.getInt(3));
+                in.setDescripcion(rs.getString(4));
+                in.setPrecios_compra_sin_iva(rs.getString(5));
+                in.setPrecios_compra_con_iva(rs.getString(6));
+                in.setPrecio_mayorita(rs.getString(7));
+                in.setCliente_fijo(rs.getString(8));
+                in.setCliente_normal(rs.getString(9));
+                in.setFecha_caducidad(rs.getDate(10));
+
+            }
+            stm.close();
+            rs.close();
+//            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error:" + e.getMessage());
+        }
+        return in;
+    }
+
+    public Inventario ObtenerInvetnarioCodigoVenta(String codigo) {
         System.out.println("BusquedaCodigo" + codigo);
         //Sentencia de JDBC para obtener valores de la base de datos.
         ResultSet rs = null;

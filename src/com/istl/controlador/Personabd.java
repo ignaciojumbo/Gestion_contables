@@ -32,12 +32,12 @@ public class Personabd {
                     + " VALUES ('" + persona.getCedula() + "', '" + persona.getNombre() + "', '" + persona.getApellido() + "',"
                     + " '" + persona.getDireccion() + "', '" + persona.getCorreo() + "', '" + persona.getTelefono() + "', "
                     + "'" + util.fecha(persona.getFecha_registro()) + "', '" + persona.getGenero() + "');";
-        }else{
+        } else {
             sql = "INSERT INTO `bdejercicio1`.`persona1` (`Cedula`, `Nombre`, `Apellido`, `Direccion`,"
-                + " `Correo`, `Telefono`, `Fecha_registro`, `Genero`,`Fecha_nacimiento`)"
-                + " VALUES ('" + persona.getCedula() + "', '" + persona.getNombre() + "', '" + persona.getApellido() + "',"
-                + " '" + persona.getDireccion() + "', '" + persona.getCorreo() + "', '" + persona.getTelefono() + "', "
-                + "'" + util.fecha(persona.getFecha_registro()) + "', '" + persona.getGenero() + "', '" + util.fecha(persona.getFecha_nacimiento())+ "');";
+                    + " `Correo`, `Telefono`, `Fecha_registro`, `Genero`,`Fecha_nacimiento`)"
+                    + " VALUES ('" + persona.getCedula() + "', '" + persona.getNombre() + "', '" + persona.getApellido() + "',"
+                    + " '" + persona.getDireccion() + "', '" + persona.getCorreo() + "', '" + persona.getTelefono() + "', "
+                    + "'" + util.fecha(persona.getFecha_registro()) + "', '" + persona.getGenero() + "', '" + util.fecha(persona.getFecha_nacimiento()) + "');";
         }
         try {
 
@@ -73,28 +73,44 @@ public class Personabd {
     }
 
     public boolean editar(Persona persona) throws SQLException {
-        boolean actualiar = false;
-        String sql ="UPDATE `bdejercicio1`.`persona1` SET "
-                + "`Cedula` = '"+persona.getCedula()+"', "
-                + "`Nombre` = '"+persona.getNombre()+"', "
-                + "`Apellido` = '"+persona.getApellido()+"', "
-                + "`Direccion` = '"+persona.getDireccion()+"', "
-                + "`Correo` = '"+persona.getCorreo()+"', "
-                + "`Telefono` = '"+persona.getTelefono()+"', "
-                + "`Genero` = '"+persona.getGenero()+"', "
-                + "`Fecha_actualizacion` = '"+util.fecha(persona.getFecha_actualizacion())+"', "
-                + "`Fecha_nacimiento` = '"+util.fecha(persona.getFecha_nacimiento())+"' "
-                + "WHERE (`idpersona1` = '"+persona.getIdPersona()+"');";
+        boolean actualizar = false;
+        String sql;
+        
+        if (persona.getFecha_nacimiento() == null) {
+            sql = "UPDATE `bdejercicio1`.`persona1` SET "
+                + "`Cedula` = '" + persona.getCedula() + "', "
+                + "`Nombre` = '" + persona.getNombre() + "', "
+                + "`Apellido` = '" + persona.getApellido() + "', "
+                + "`Direccion` = '" + persona.getDireccion() + "', "
+                + "`Correo` = '" + persona.getCorreo() + "', "
+                + "`Telefono` = '" + persona.getTelefono() + "', "
+                + "`Genero` = '" + persona.getGenero() + "', "
+                + "`Fecha_actualizacion` = '" + util.fecha(persona.getFecha_actualizacion()) + "' "
+                + "WHERE (`idpersona1` = '" + persona.getIdPersona() + "');";
+        } else {
+            sql = "UPDATE `bdejercicio1`.`persona1` SET "
+                    + "`Cedula` = '" + persona.getCedula() + "', "
+                    + "`Nombre` = '" + persona.getNombre() + "', "
+                    + "`Apellido` = '" + persona.getApellido() + "', "
+                    + "`Direccion` = '" + persona.getDireccion() + "', "
+                    + "`Correo` = '" + persona.getCorreo() + "', "
+                    + "`Telefono` = '" + persona.getTelefono() + "', "
+                    + "`Genero` = '" + persona.getGenero() + "', "
+                    + "`Fecha_actualizacion` = '" + util.fecha(persona.getFecha_actualizacion()) + "', "
+                    + "`Fecha_nacimiento` = '" + util.fecha(persona.getFecha_nacimiento()) + "' "
+                    + "WHERE (`idpersona1` = '" + persona.getIdPersona() + "');";
+        }
+
         try {
             con = conexion.getConexion();
             stm = (Statement) con.createStatement();
             stm.execute(sql);
-            actualiar = true;
+            actualizar = true;
 
         } catch (SQLException e) {
             System.out.println(e);
         }
-        return actualiar;
+        return actualizar;
 
     }
 
@@ -129,7 +145,7 @@ public class Personabd {
 
         return c;
     }
-    
+
 //    public Persona buscarPersonasNota(String cedula) {
 //        Connection co = null;
 //        //Sentencia de JDBC para obtener valores de la base de datos.
@@ -156,14 +172,12 @@ public class Personabd {
 //
 //        return c;
 //    }
-    
-
     public Persona buscarPersonasNumero(String numero) {
         Connection co = null;
         //Sentencia de JDBC para obtener valores de la base de datos.
         ResultSetImpl rs;
         Persona c = null;
-        
+
         String sql = "SELECT * FROM bdejercicio1.persona1 where Telefono like '" + numero + "';";
 
         try {
