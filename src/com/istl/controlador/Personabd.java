@@ -138,7 +138,7 @@ public class Personabd {
             }
             stm.close();
             rs.close();
-            con.close();
+//            con.close();
         } catch (SQLException e) {
             System.out.println("Error:" + e.getMessage());
         }
@@ -146,32 +146,7 @@ public class Personabd {
         return c;
     }
 
-//    public Persona buscarPersonasNota(String cedula) {
-//        Connection co = null;
-//        //Sentencia de JDBC para obtener valores de la base de datos.
-//        ResultSetImpl rs;
-//        Persona c = null;
-//       
-//        String sql = "select Nombre,Direccion,Telefono from persona1 where Cedula = \""+cedula+"\";";
-//        try {
-//            con = new Conexion().getConexion();
-//            stm = (Statement) con.createStatement();
-//            rs = (ResultSetImpl) stm.executeQuery(sql);
-//            while (rs.next()) {
-//                c = new Persona();
-//                c.setNombre(rs.getString(1));
-//                c.setDireccion(rs.getString(2));
-//                c.setTelefono(rs.getString(3));
-//            }
-//            stm.close();
-//            rs.close();
-//            con.close();
-//        } catch (SQLException e) {
-//            System.out.println("Error:" + e.getMessage());
-//        }
-//
-//        return c;
-//    }
+
     public Persona buscarPersonasNumero(String numero) {
         Connection co = null;
         //Sentencia de JDBC para obtener valores de la base de datos.

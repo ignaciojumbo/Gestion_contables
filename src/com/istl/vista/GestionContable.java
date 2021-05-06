@@ -3,6 +3,7 @@ package com.istl.vista;
 import com.istl.controlador.Inventariodb;
 import com.istl.controlador.Personabd;
 import com.istl.controlador.Proveedorbd;
+import com.istl.controlador.notadeVentabd;
 import com.istl.modelJTable.ModelTablePersona;
 import com.istl.modelo.Persona;
 import com.istl.modelo.Proveedor;
@@ -16,11 +17,11 @@ import com.istl.modelJTable.ModelTableInventario;
 import com.istl.modelJTable.ModelTableProveedor;
 import com.istl.modelJTable.ModelTableVentas;
 import com.istl.modelo.Inventario;
+import com.istl.modelo.NotaVenta;
+import com.istl.modelo.ProductoVendido;
 import com.istl.modelo.ProductoVenta;
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Date;
-import javax.swing.table.DefaultTableModel;
 
 public class GestionContable extends javax.swing.JFrame implements ComunicacionVistadeTablas {
 
@@ -39,10 +40,12 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private Proveedor proveedoreditar;
     private Inventario inventarioeditar;
     private ProductoVenta produ;
+    private notadeVentabd controladornotaventadb;
 
     public GestionContable() {
 
         //produ = new ProductoVenta();
+        controladornotaventadb = new notadeVentabd();
         controladorPersona = new Personabd();
         controladorProveedor = new Proveedorbd();
         controladorInvenario = new Inventariodb();
@@ -50,7 +53,6 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         modelTableProveedor = new ModelTableProveedor(controladorProveedor.obtenerProveedor(), this);
         modelTableInventario = new ModelTableInventario(controladorInvenario.obtenerInventario(), this);
         modeltableventas = new ModelTableVentas(new ArrayList<ProductoVenta>(), this);
-
         initComponents();
         rbbottomcedula.setSelected(true);
         this.setLocationRelativeTo(null);
@@ -58,6 +60,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         gestion = new GestionPersona(txtcedula, txtnombre, txtapellido, txtdireccion, txttelefono, txtcorreo, cmbgenero, jdatefechanacimiento, utilidad, this);
         gestionpro = new GestionProveedor(txtrucpro, txtrazonpro, txtactividadpro, txtnombrepro, txtapellidopro, txttelefonopro, txtcorreopro, txtdireccionpro, this);
         gestioninven = new GestionInventario(txtcodigoin, txtcantidadin, txtdescripcionin, txtpreciosiniva, txtprecioconiva, txtpreciomayorita, txtprecioclientefijo, txtprecioclientenormal, jdfechacaducidadonve, utilidad, this);
+        productosVentas = new ArrayList<>();
         bneliminar.setEnabled(false);
         bneditar.setEnabled(false);
         bneliminarpro.setEnabled(false);
@@ -65,7 +68,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         bneditarinve.setEnabled(false);
         bneliminarinve.setEnabled(false);
         txtfechanota.setText(utilidad.fecha(new Date()));
-        productosVentas = new ArrayList<>();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -1789,11 +1792,12 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txtcedulanota.setText("");
         txttelefononota.setText("");
         txtdireccionnota.setText("");
-        productosVentas.removeAll(productosVentas);
-        tablanotadeventa.updateUI();
+        modeltableventas.setProductoVenta(productosVentas);
+        modeltableventas.fireTableDataChanged();
         txtiva.setText("");
         txtsubtotal.setText("");
         txttotalnota.setText("");
+        txtnumerodenotaventa.requestFocus();
     }
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         limpiarventa();
@@ -1816,22 +1820,24 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         bs.setVisible(true);
     }//GEN-LAST:event_bnbusquedadavanzadaventaMouseClicked
 
+    List<ProductoVenta> productosVenta = new ArrayList<>();
     private void bnagregarnotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnagregarnotaActionPerformed
         String idProducto = txtproductonota.getText();
         if (idProducto != null && !idProducto.isEmpty()) {
-            Inventario obtenerInventario = controladorInvenario.ObtenerInvetnarioCodigoVenta(txtproductonota.getText());
-            if (obtenerInventario != null) {
-                obtenerInventario.setCantidadProductosVender(Integer.parseInt(txtcantidadnota.getText()));
+            Inventario obtenerProductosInventarioCodigoVenta = controladorInvenario.busquedadInventarioCodigonota(txtproductonota.getText());
+            if (obtenerProductosInventarioCodigoVenta != null) {
+                obtenerProductosInventarioCodigoVenta.setCantidadProductosVender(Integer.parseInt(txtcantidadnota.getText()));
                 ProductoVenta productoVenta = new ProductoVenta();
-                productoVenta.setCantidad(obtenerInventario.getCantidadProductosVender());
-                productoVenta.setDescripcion(obtenerInventario.getDescripcion());
-
-                double valorSinIva = (Double.parseDouble(obtenerInventario.getCliente_normal()) / 1.12);
+                productoVenta.setIdProductoInventario(obtenerProductosInventarioCodigoVenta.getId_inventario());
+                productoVenta.setCantidad(obtenerProductosInventarioCodigoVenta.getCantidadProductosVender());
+                productoVenta.setDescripcion(obtenerProductosInventarioCodigoVenta.getDescripcion());
+                //nos ayuda a calcular el valor del producto sin iva
+                double valorSinIva = (Double.parseDouble(obtenerProductosInventarioCodigoVenta.getCliente_normal()) / 1.12);
                 productoVenta.setSubtotal(utilidad.dosdecimales(valorSinIva));
-                productoVenta.setTotal(utilidad.dosdecimales(valorSinIva * obtenerInventario.getCantidadProductosVender()));
-                productosVentas.add(productoVenta);
+                productoVenta.setTotal(utilidad.dosdecimales(valorSinIva * obtenerProductosInventarioCodigoVenta.getCantidadProductosVender()));
+                productosVenta.add(productoVenta);
                 calcularValoresAdicionales();
-                modeltableventas.setProductoVenta(productosVentas);
+                modeltableventas.setProductoVenta(productosVenta);
                 modeltableventas.fireTableDataChanged();
 
             } else {
@@ -1852,16 +1858,16 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     private void txtproductonotaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtproductonotaFocusLost
         controladorInvenario.busquedadInventarioCodigo(txtproductonota.getText());
     }//GEN-LAST:event_txtproductonotaFocusLost
-
+    private Persona personanotaventa;
     private void txtcedulanotaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtcedulanotaFocusLost
 
-        Persona per = controladorPersona.buscarPersonas(txtcedulanota.getText());
+        personanotaventa = controladorPersona.buscarPersonas(txtcedulanota.getText());
         if (controladorPersona.buscarPersonas(txtcedulanota.getText()) == null) {
             JOptionPane.showMessageDialog(rootPane, "No existe un registro con ese número de cédula");
         } else {
-            txtnombrenota.setText(per.getNombre() + " " + per.getApellido());
-            txtdireccionnota.setText(per.getDireccion());
-            txttelefononota.setText(per.getTelefono());
+            txtnombrenota.setText(personanotaventa.getNombre() + " " + personanotaventa.getApellido());
+            txtdireccionnota.setText(personanotaventa.getDireccion());
+            txttelefononota.setText(personanotaventa.getTelefono());
         }
     }//GEN-LAST:event_txtcedulanotaFocusLost
 
@@ -1869,6 +1875,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txtnombrenota.setText(" ");
         txttelefononota.setText("");
         txtdireccionnota.setText("");
+        personanotaventa = null;
     }//GEN-LAST:event_txtcedulanotaFocusGained
 
     private void txtnumerodenotaventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumerodenotaventaActionPerformed
@@ -1988,8 +1995,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
                 JOptionPane.showMessageDialog(this, "LLene los campos de cedula", "ERROR", JOptionPane.ERROR_MESSAGE);
                 txtcedula.requestFocus();
                 return;
-            }
-            else if (!utilidad.validadorDeCedula(txtcedula.getText())) {
+            } else if (!utilidad.validadorDeCedula(txtcedula.getText())) {
                 JOptionPane.showMessageDialog(this, "Error de cedula", "ERROR", JOptionPane.ERROR_MESSAGE);
                 txtcedula.requestFocus();
                 return;
@@ -2001,19 +2007,65 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
     }//GEN-LAST:event_txtcedulaFocusLost
 
     private void bnguardarventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnguardarventaActionPerformed
-        int confirmar = JOptionPane.showConfirmDialog(null, "¿ESTA SEGURO DE GUARDAR ESTE REGISTRO", "confirmar salida",
-                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (confirmar == JOptionPane.YES_OPTION) {
-            JOptionPane.showMessageDialog(rootPane, "Venta guardada con exito");
+        if (personanotaventa == null) {
+            JOptionPane.showMessageDialog(rootPane, "No existe un id", "Guardado", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        NotaVenta notaventa = new NotaVenta();
+
+        notaventa.setNumeroNotaVenta(txtnumerodenotaventa.getText());
+        notaventa.setPersonaIdPersona(personanotaventa.getIdPersona());
+        notaventa.setFechaVenta(new Date());
+        notaventa.setSubtotal(Double.parseDouble(txtsubtotal.getText()));
+        notaventa.setIva(Double.parseDouble(txtiva.getText()));
+        notaventa.setTotal(Double.parseDouble(txttotalnota.getText()));
+        notaventa.setTipodepago(String.valueOf(cbtipopago.getSelectedIndex()));
+        // inserto la nota de venta
+        if (controladornotaventadb.RegistrarNotaVenta(notaventa)) {
+            //JOptionPane.showMessageDialog(rootPane, "Registro guardado con exito", "Guardado", JOptionPane.INFORMATION_MESSAGE);
+            notaventa = controladornotaventadb.idRegistrarNotaVenta(notaventa);
+            
+            if (notaventa.getIdnotaventa() != 0) {
+
+                for (ProductoVenta productoVenta : productosVenta) {
+
+                    ProductoVendido productoVendido = new ProductoVendido();
+                    
+
+                    productoVendido.setInventarioIdInventario(productoVenta.getIdProductoInventario());
+
+                    productoVendido.setNotaventaIDNotaVenta(notaventa.getIdnotaventa());
+                    
+                    productoVendido.setCantidadproducto(productoVenta.getCantidad());
+                    
+                    productoVendido.setValorTotal(productoVenta.getTotal());
+                    
+                     
+                    if (!controladornotaventadb.RegistrarProductoVendido(productoVendido)) {
+                        JOptionPane.showMessageDialog(this, "Sucedio un error al registrar los productos.", "ERROR", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                }
+                
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo registrar la nota de venta revise los parametros.", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+            }
+            JOptionPane.showMessageDialog(rootPane, "Registro guardado con exito", "Guardado", JOptionPane.INFORMATION_MESSAGE);
             limpiarventa();
+        } else {
+            JOptionPane.showMessageDialog(this, "No se pudo registrar la nota de venta revise los parametros.", "ERROR", JOptionPane.ERROR_MESSAGE);
+
         }
     }//GEN-LAST:event_bnguardarventaActionPerformed
+
     public void calcularValoresAdicionales() {
         double subTotal = 0;
         double iva = 0;
         double precioFinal = 0;
-        if (!productosVentas.isEmpty()) {
-            for (ProductoVenta productoVenta : productosVentas) {
+        if (!productosVenta.isEmpty()) {
+            for (ProductoVenta productoVenta : productosVenta) {
                 subTotal = subTotal + (productoVenta.getSubtotal() * productoVenta.getCantidad());
             }
             iva = subTotal * 0.12;
@@ -2270,7 +2322,7 @@ public class GestionContable extends javax.swing.JFrame implements ComunicacionV
         txttelefonopro.setText(pro.getTelefono());
         txtcorreopro.setText(pro.getCorreo());
         txtdireccionpro.setText(pro.getDireccionpro());
-        
+
         proveedoreditar = pro;
         bnguardarpro.setEnabled(false);
         bneliminarpro.setEnabled(true);

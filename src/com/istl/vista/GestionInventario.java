@@ -167,19 +167,6 @@ public class GestionInventario {
         }
        
 
-//        if (txtfechacaducidad.getText().isEmpty()) {
-//            JOptionPane.showMessageDialog(frame, "LLene los campos de la fecha de caducidad", "ERROR", JOptionPane.ERROR_MESSAGE);
-//            txtfechacaducidad.requestFocus();
-//            return null;
-//
-//        }
-//        if (!util.isFechaValida(txtfechacaducidad.getText())) {
-//            JOptionPane.showMessageDialog(frame, "Error de formato de fecha", "ERROR", JOptionPane.ERROR_MESSAGE);
-//            txtfechacaducidad.requestFocus();
-//            return null;
-//
-//        }
-
         p.setCodigo_pro(txtcodigo_pro.getText());
         p.setCan_productos(Integer.valueOf(txtcantidadin.getText()));
         p.setDescripcion(txtdescripción.getText());

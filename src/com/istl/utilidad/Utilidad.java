@@ -90,7 +90,7 @@ public class Utilidad {
     }
 
     public String fecha(Date fecha) {
-        SimpleDateFormat f = new SimpleDateFormat("YY/MM/dd");
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
         return f.format(fecha);
 
     }

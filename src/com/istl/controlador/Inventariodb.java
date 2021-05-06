@@ -8,9 +8,7 @@ import com.mysql.jdbc.ResultSetImpl;
 import com.mysql.jdbc.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Inventariodb {
@@ -24,13 +22,7 @@ public class Inventariodb {
         util = new Utilidad();
     }
 
-    public String fecha() {
-        Date fecha = new Date();
-        SimpleDateFormat f = new SimpleDateFormat("YY/MM/dd");
-        return f.format(fecha);
-
-    }
-
+  
     public boolean RegistrarInventario(Inventario inventario) {
         boolean registrar = false;
 
@@ -175,7 +167,7 @@ public class Inventariodb {
         //Sentencia de JDBC para obtener valores de la base de datos.
         ResultSet rs = null;
         Inventario in = null;
-        String sql = "SELECT * FROM ejercicio.inventario where cod_producto = '" + codigo + "';";
+        String sql = "SELECT * FROM bdejercicio1.inventario where codigo_pro = '" + codigo + "';";
 
         try {
             con = new Conexion().getConexion();

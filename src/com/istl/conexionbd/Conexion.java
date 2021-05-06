@@ -4,7 +4,6 @@ package com.istl.conexionbd;
 import com.mysql.jdbc.Connection;
 
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 
 public class Conexion {

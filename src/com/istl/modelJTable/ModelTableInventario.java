@@ -4,7 +4,6 @@ package com.istl.modelJTable;
 import com.istl.modelo.Inventario;
 import com.istl.vista.GestionContable;
 import java.util.List;
-
 import javax.swing.table.AbstractTableModel;
 public class ModelTableInventario extends AbstractTableModel {
 

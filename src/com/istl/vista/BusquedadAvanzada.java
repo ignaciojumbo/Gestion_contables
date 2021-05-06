@@ -43,6 +43,7 @@ public class BusquedadAvanzada extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Busquedad Avanzada de Inventario");
         setBackground(new java.awt.Color(0, 153, 153));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -128,7 +129,7 @@ public class BusquedadAvanzada extends javax.swing.JDialog {
                 tablainventario.setInventario(controladorInventario.busquedadInventarioCodigo(txtbusquedadavanzada.getText()));
                 tablainventario.fireTableDataChanged();
                 break;
-            case 1://7Descripcion
+            case 1://nombre
                 tablainventario.setInventario(controladorInventario.buscarInventarioDescripcion(txtbusquedadavanzada.getText()));
                 tablainventario.fireTableDataChanged();
                 break;
